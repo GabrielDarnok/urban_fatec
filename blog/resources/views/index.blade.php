@@ -111,7 +111,7 @@
                     </div>
                 </div>
             </article>
-
+            <p>dadadad</p>
             <article class="cart__card">
                 <div class="cart__box">
                     <img src="/img/cart-2.png" alt="" class="cart__img">
