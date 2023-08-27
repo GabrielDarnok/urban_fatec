@@ -21,30 +21,30 @@
     <!--=============== HEADER ===============-->
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="index.html" class="nav__logo">
+            <a href="/" class="nav__logo">
                 <img src="/img/UR-Logo.png" alt="Urban Rebel">
             </a>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="index.html" class="nav__link active-link">Início</a>
+                        <a href="/" class="nav__link active-link">Início</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="shop.html" class="nav__link">Shop</a>
+                        <a href="/shop" class="nav__link">Shop</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="cart.html" class="nav__link">Carrinho</a>
+                        <a href="/cart" class="nav__link">Carrinho</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="sobre.html" class="nav__link">Quem somos</a>
+                        <a href="/sobre" class="nav__link">Quem somos</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="contato.html" class="nav__link">Contato</a>
+                        <a href="/contato" class="nav__link">Contato</a>
                     </li>
                 </ul>
 
@@ -55,7 +55,7 @@
             <div class="nav__btns">
 
                 <div class="nav__search" id="nav-search">
-                    <a href="procura.html" class="bx bx-search"></a>
+                    <a href="/procura" class="bx bx-search"></a>
                 </div>
 
                 <div class="login__toggle" id="login-toggle">
@@ -78,6 +78,11 @@
         </nav>
     </header>
 
+    <main>
+
+    @yield ('content')
+    
+    </main>
     <!--=============== FOOTER ===============-->
     <footer class="footer section">
         <div class="footer__container container grid">
@@ -112,7 +117,7 @@
                 <h3 class="footer__tittle">Nossos Serviços</h3>
 
                 <ul class="footer__links">
-                    <li><a href="shop.html" class="footer__link">Shop</a></li>
+                    <li><a href="/shop" class="footer__link">Shop</a></li>
                     <li><a href="#" class="footer__link">Descontos</a></li>
                     <li><a href="#" class="footer__link">Metodo de envio</a></li>
                 </ul>
@@ -123,21 +128,11 @@
                 <h3 class="footer__tittle">Nossa Empresa</h3>
 
                 <ul class="footer__links">
-                    <li><a href="sobre.html" class="footer__link">Quem Somos</a></li>
-                    <li><a href="registro.html" class="footer__link">Registro</a></li>
+                    <li><a href="/sobre" class="footer__link">Quem Somos</a></li>
+                    <li><a href="/registro" class="footer__link">Registro</a></li>
                     <li><a href="#" class="footer__link">Futuro</a></li>
                 </ul>
             </div>
         </div>
        <span class="footer__copy">&#169; Grimm Graphic Designer. All rights reserved.</span>
     </footer>
-
-    <!--=============== SCROLL UP ===============-->
-    <a href="#" class="scrollup" id="scroll-up">
-        <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
-    </a>
-    <!--=============== SWIPER JS ===============-->
-    <script src="/js/swiper-bundle.min.js"></script>
-
-    <!--=============== JS ===============-->
-    <script src="/js/main.js"></script>
