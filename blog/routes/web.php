@@ -34,8 +34,12 @@ Route::get('/shop',[redirectController::class, 'shop']);
 
 Route::get('/sobre',[redirectController::class, 'sobre']);
 
-
-
-
-
-
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('index');
+    })->name('index');
+});

@@ -61,7 +61,6 @@
                 <div class="login__toggle" id="login-toggle">
                     <i class="bx bx-user"> </i>
                 </div>
-
                 <div class="nav__shop" id="cart-shop">
                     <i class="bx bx-shopping-bag"> </i>
                 </div>
@@ -69,7 +68,16 @@
                 <div class="nav__toggle" id="nav-toggle">
                     <i class="bx bx-grid-alt"> </i>
                 </div>
-
+                
+                @auth
+                <div class="logout" id="logout">
+                    <form action="/logout" method="POST">
+						@csrf
+						<a href="/logout" class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
+					</form>
+                </div>
+                @endauth
+                
                 <div>
                     <img src="/img/moon.png" id="moon">
                 </div>
