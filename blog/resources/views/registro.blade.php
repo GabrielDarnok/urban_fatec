@@ -3,8 +3,6 @@
 @section('title','registro')
 
 @section('content')
-
-
     <!--=============== CART ===============-->
     <div class="cart" id="cart">
         <i class="bx bx-x cart__close" id="cart-close"></i>
@@ -18,8 +16,8 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Camisa Oni Urban Rebel</h3>
-                    <span class="cart__price">R$ 30,00</span>
+                    <h3 class="cart__title">Top de manga comprida</h3>
+                    <span class="cart__price">R$ 50,00</span>
 
                     <div class="cart__amount">
                         <div class="cart__amount-content">
@@ -45,7 +43,7 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Blusa City Urban Rebel</h3>
+                    <h3 class="cart__title">Cardigã de textura sólida</h3>
                     <span class="cart__price">R$ 50,00</span>
 
                     <div class="cart__amount">
@@ -72,7 +70,7 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Mochila Urban Rebel</h3>
+                    <h3 class="cart__title">SHEIN ICON Gorpcore</h3>
                     <span class="cart__price">R$ 45,00</span>
 
                     <div class="cart__amount">
@@ -96,7 +94,7 @@
 
         <div class="cart__prices">
             <span class="cart__prices-item">3 Produtos</span>
-            <span class="cart__prices-total">Total R$ 125,00</span>
+            <span class="cart__prices-total">Total R$ 145,00</span>
         </div>
     </div>
 
@@ -192,17 +190,16 @@
         </div>
         </section>
     </main>
+    
     <!--=============== SCROLL UP ===============-->
     <a href="#" class="scrollup" id="scroll-up">
         <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
     </a>
-    <!--=============== STYLE SWITCHER ===============-->
     
     <!--=============== SWIPER JS ===============-->
     <script src="/js/swiper-bundle.min.js"></script>
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
-</body>
-</html>
+
 @endsection

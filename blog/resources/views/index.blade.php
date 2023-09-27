@@ -13,7 +13,7 @@
         <div class="cart__container">
             <article class="cart__card">
                 <div class="cart__box">
-                    <img src="assets/img/cart-1.png" alt="" class="cart__img">
+                    <img src="/img/cart-1.png" alt="" class="cart__img">
                 </div>
 
                 <div class="cart__details">
@@ -40,7 +40,7 @@
 
             <article class="cart__card">
                 <div class="cart__box">
-                    <img src="assets/img/cart-2.png" alt="" class="cart__img">
+                    <img src="/img/cart-2.png" alt="" class="cart__img">
                 </div>
 
                 <div class="cart__details">
@@ -67,7 +67,7 @@
 
             <article class="cart__card">
                 <div class="cart__box">
-                    <img src="assets/img/cart-3.png" alt="" class="cart__img">
+                    <img src="/img/cart-3.png" alt="" class="cart__img">
                 </div>
 
                 <div class="cart__details">
@@ -120,7 +120,7 @@
             </div>
 
             <div>
-                <p class="signup">Nãe é cadastrado? <a href="registro.html">Cadastrar-se agora.</a></p>
+                <p class="signup">Nãe é cadastrado? <a href="/registro">Cadastrar-se agora.</a></p>
             </div>
         </form>
     </div>
@@ -135,7 +135,7 @@
                     <section class="swiper-slide">
                         <div class="home__content grid">
                             <div class="home__group">
-                                <img src="assets/img/slide-2.png" alt="" class="home__img">
+                                <img src="/img/slide-2.png" alt="" class="home__img">
                                 <div class="home__indicator"></div>
             
                                 <div class="home__details-img">
@@ -151,8 +151,8 @@
                                 costura existente.</p>
             
                                 <div class="home__buttons">
-                                    <a href="shop.html" class="button">Comprar Agora</a>
-                                    <a href="shop.html" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
+                                    <a href="/shop" class="button">Comprar Agora</a>
+                                    <a href="/shop" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
                                     </i></a>
                                 </div>
             
@@ -164,7 +164,7 @@
                     <section class="swiper-slide">
                         <div class="home__content grid">
                             <div class="home__group">
-                                <img src="assets/img/slide-3.png" alt="" class="home__img">
+                                <img src="/img/slide-3.png" alt="" class="home__img">
                                 <div class="home__indicator"></div>
             
                                 <div class="home__details-img">
@@ -181,8 +181,8 @@
                                 </p>
             
                                 <div class="home__buttons">
-                                    <a href="shop.html" class="button">Comprar Agora</a>
-                                    <a href="shop.html" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
+                                    <a href="/shop" class="button">Comprar Agora</a>
+                                    <a href="/shop" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
                                     </i></a>
                                 </div>
             
@@ -194,7 +194,7 @@
                     <section class="swiper-slide">
                         <div class="home__content grid">
                             <div class="home__group">
-                                <img src="assets/img/slide-1.png" alt="" class="home__img">
+                                <img src="/img/slide-1.png" alt="" class="home__img">
                                 <div class="home__indicator"></div>
             
                                 <div class="home__details-img">
@@ -209,8 +209,8 @@
                                 <p class="home__description">Criado para usar no dia a dia ou naquela saida com as amigas, você irá se destacar a onde você esteja.</p>
             
                                 <div class="home__buttons">
-                                    <a href="shop.html" class="button">Comprar Agora</a>
-                                    <a href="shop.html" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
+                                    <a href="/shop" class="button">Comprar Agora</a>
+                                    <a href="/shop" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
                                     </i></a>
                                 </div>
             
@@ -225,11 +225,11 @@
         <!--=============== DISCOUNT ===============-->
         <section class="discount section">
             <div class="discount__container container grid">
-                <img src="assets/img/discount.png" alt="" class="discount__img">
+                <img src="/img/discount.png" alt="" class="discount__img">
 
                 <div class="discount__data">
                     <h2 class="discount__title">5% de Desconto <br> Em Pagamentos Via Pix!</h2>
-                    <a href="shop.html" class="button">Ir as Compras</a>
+                    <a href="/shop" class="button">Ir as Compras</a>
                 </div>
             </div>
         </section>
@@ -245,7 +245,7 @@
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
                             <a href="#">
-                                <img src="assets/img/new-1.png" alt="" class="new__img">
+                                <img src="/img/new-1.png" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">Saia Cargo</h3>
                             <span class="new__subtitle">You Matter</span>
@@ -263,7 +263,7 @@
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
                             <a href="#">
-                                <img src="assets/img/new-2.png" alt="" class="new__img">
+                                <img src="/img/new-2.png" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">Top Tank Crop</h3>
                             <span class="new__subtitle">You Matter</span>
@@ -272,7 +272,7 @@
                                 <span class="new__price">R$ 40,00</span>
                             </div>
 
-                            <a href="shop.html" class="button new__button">
+                            <a href="/shop" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -281,7 +281,7 @@
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
                             <a href="#">
-                                <img src="assets/img/new-3.png" alt="" class="new__img">
+                                <img src="/img/new-3.png" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">SHEIN ICON Gorpcore</h3>
                             <span class="new__subtitle">You Matter</span>
@@ -290,7 +290,7 @@
                                 <span class="new__price">R$ 45,00</span>
                             </div>
 
-                            <a href="shop.html" class="button new__button">
+                            <a href="/shop" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -299,7 +299,7 @@
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
                             <a href="#">
-                                <img src="assets/img/new-4.png" alt="" class="new__img">
+                                <img src="/img/new-4.png" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">Vestido Apertado</h3>
                             <span class="new__subtitle">You Matter</span>
@@ -308,7 +308,7 @@
                                 <span class="new__price">R$ 80,00</span>
                             </div>
 
-                            <a href="shop.html" class="button new__button">
+                            <a href="/shop" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -317,7 +317,7 @@
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
                             <a href="#">
-                                <img src="assets/img/new-5.png" alt="" class="new__img">
+                                <img src="/img/new-5.png" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">Mini vestido cargo</h3>
                             <span class="new__subtitle">You Matter</span>
@@ -326,7 +326,7 @@
                                 <span class="new__price">R$ 90,00</span>
                             </div>
 
-                            <a href="shop.html" class="button new__button">
+                            <a href="/shop" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -335,7 +335,7 @@
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
                             <a href="#">
-                                <img src="assets/img/new-6.png" alt="" class="new__img">
+                                <img src="/img/new-6.png" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">Minissaia com cordão</h3>
                             <span class="new__subtitle">You Matter</span>
@@ -344,7 +344,7 @@
                                 <span class="new__price">R$ 50,00</span>
                             </div>
 
-                            <a href="shop.html" class="button new__button">
+                            <a href="/shop" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -409,9 +409,9 @@
         <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
     </a>
     <!--=============== SWIPER JS ===============-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="/js/swiper-bundle.min.js"></script>
 
     <!--=============== JS ===============-->
-    <script src="assets/js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 @endsection

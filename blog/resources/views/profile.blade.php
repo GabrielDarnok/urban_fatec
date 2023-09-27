@@ -3,7 +3,6 @@
 @section('title','profile')
 
 @section('content')
-
     <!--=============== CART ===============-->
     <div class="cart" id="cart">
         <i class="bx bx-x cart__close" id="cart-close"></i>
@@ -17,8 +16,8 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Camisa Oni Urban Rebel</h3>
-                    <span class="cart__price">R$ 30,00</span>
+                    <h3 class="cart__title">Top de manga comprida</h3>
+                    <span class="cart__price">R$ 50,00</span>
 
                     <div class="cart__amount">
                         <div class="cart__amount-content">
@@ -44,7 +43,7 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Blusa City Urban Rebel</h3>
+                    <h3 class="cart__title">Cardigã de textura sólida</h3>
                     <span class="cart__price">R$ 50,00</span>
 
                     <div class="cart__amount">
@@ -71,7 +70,7 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Mochila Urban Rebel</h3>
+                    <h3 class="cart__title">SHEIN ICON Gorpcore</h3>
                     <span class="cart__price">R$ 45,00</span>
 
                     <div class="cart__amount">
@@ -95,7 +94,7 @@
 
         <div class="cart__prices">
             <span class="cart__prices-item">3 Produtos</span>
-            <span class="cart__prices-total">Total R$ 125,00</span>
+            <span class="cart__prices-total">Total R$ 145,00</span>
         </div>
     </div>
 
@@ -137,34 +136,32 @@
 
                 <div class="profile__box">
                     <img src="/img/profile-pic.png" class="profile-pic">
-                    <h3 class="breadcrumb__subtitle">Olá, Marcos Almeida.
+                    <h3 class="breadcrumb__subtitle">Olá, Marisa Oliveira Cunha.
                 </div>  
 
                 <form action="" class="register__form grid">
-                    <div class="register__inputs grid">
-                        <div class="register__content">
-                             <label for="" class="register__label">Nome</label>
-                             <input type="text" class="register__input">
-                        </div> 
-
-                        <div class="register__content">
-                            <label for="" class="register__label">Sobrenome</label>
-                            <input type="text" class="register__input">
+                        <div class="info">
+                            <h2 class="info__text">Informações Pessoais</h2>
+                            <p>Nome: Marcos Almeida</p>
+                            <p>Idade: 30 anos</p>
+                            <p>Sexo: Masculino</p>
                         </div>
-
-                        <div class="register__content">
-                            <label for="" class="contact__label">Telefone</label>
-                            <input type="tel" class="register__input">
-                        </div>
-
-                        <div class="register__content">
-                            <label for="" class="register__label">Endereço</label>
-                            <input type="text" class="register__input">
+                        
+                        <div class="profile__contact">
+                            <h2 class="info__text">Informações de Contato</h2>
+                            <p>Email: marcos@example.com</p>
+                            <p>Telefone: (123) 456-7890</p>
+                            <p>Endereço: Rua ABC, 123 - Cidade C, CC.</p>
                         </div>
                     </div>
+                </form>
+                </div>
+            </div>
+            <br><br>
 
-                        <br><h2 class="breadcrumb__title">Trocar Senha</h2><br>
-
+            <div class="card">
+                <button id="toggleFields" class="collapse-btn">Atualizar Dados</button>
+                <div id="fieldsToToggle" style="display: none;">
                     <div class="register__inputs grid">
                         <div class="register__content">
                             <label for="" class="register__label">Nova Senha</label>
@@ -177,8 +174,6 @@
                         </div>
                     </div>
 
-                        <br><h2 class="breadcrumb__title">Trocar Email</h2><br>
-                    
                     <div class="register__inputs grid">
                         <div class="register__content">
                             <label for="" class="register__label">Novo Email</label>
@@ -191,41 +186,36 @@
                         </div>
                     </div>
 
-                        <br><h2 class="breadcrumb__title">Trocar endereço</h2><br>
-
                     <div class="register__inputs grid">
                         <div class="register__content">
-                            <label for="" class="register__label">Novo Endereço</label>
+                            <label for="" class="register__label">Novo Numero</label>
                             <input type="text" class="register__input">
                         </div>
-                        
+        
                         <div class="register__content">
-                            <label for="" class="register__label">CEP</label>
+                            <label for="" class="register__label">Novo Endereço</label>
                             <input type="text" class="register__input">
                         </div>
                     </div>
 
                     <div>
+                        <a href="#" class="button__update">Salvar</a>
+                    </div> 
 
-                        <br><a href="#" class="button" >Salvar</a><br>
-
-                    </div>
-                </form>
-                </div>
-            </div>
+                </div>   
+        </div>
         </section>
     </main>
+
     <!--=============== SCROLL UP ===============-->
     <a href="#" class="scrollup" id="scroll-up">
         <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
     </a>
-    <!--=============== STYLE SWITCHER ===============-->
     
     <!--=============== SWIPER JS ===============-->
     <script src="/js/swiper-bundle.min.js"></script>
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
-</body>
-</html>
+
 @endsection

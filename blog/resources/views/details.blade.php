@@ -17,8 +17,8 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Camisa Oni Urban Rebel</h3>
-                    <span class="cart__price">R$ 30,00</span>
+                    <h3 class="cart__title">Top de manga comprida</h3>
+                    <span class="cart__price">R$ 50,00</span>
 
                     <div class="cart__amount">
                         <div class="cart__amount-content">
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Blusa City Urban Rebel</h3>
+                    <h3 class="cart__title">Cardigã de textura sólida</h3>
                     <span class="cart__price">R$ 50,00</span>
 
                     <div class="cart__amount">
@@ -67,11 +67,11 @@
 
             <article class="cart__card">
                 <div class="cart__box">
-                    <img src=" /img/cart-3.png" alt="" class="cart__img">
+                    <img src="/img/cart-3.png" alt="" class="cart__img">
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Mochila Urban Rebel</h3>
+                    <h3 class="cart__title">SHEIN ICON Gorpcore</h3>
                     <span class="cart__price">R$ 45,00</span>
 
                     <div class="cart__amount">
@@ -95,7 +95,7 @@
 
         <div class="cart__prices">
             <span class="cart__prices-item">3 Produtos</span>
-            <span class="cart__prices-total">Total R$ 125,00</span>
+            <span class="cart__prices-total">Total R$ 145,00</span>
         </div>
     </div>
 
@@ -132,8 +132,8 @@
                 </div>
 
                 <div class="product__info">
-                    <h3 class="details__subtitle">Camisa Oni</h3>
-                    <p class="details__title">Urban Rebel</p>
+                    <h3 class="details__subtitle">Top de manga comprida</h3>
+                    <p class="details__title">You Matter</p>
 
                     <div class="rating">
                         <div class="stars">
@@ -147,13 +147,13 @@
                     </div>
 
                     <div class="details__prices">
-                        <span class="details__price">R$ 30,00</span>
+                        <span class="details__price">R$ 50,00</span>
                     </div>
 
                     <div class="details__description">
                         <h3 class="description__tittle">Detalhes do Produto</h3>
                         <div class="description__details">
-                            <p>Camisa feita com 100% algodão, leve e vindo com várias cores a sua escolha e além disso com uam stampa para 
+                            <p>Camisa feita com composição acrílica, leve e vindo com estilo para
                             fazer você se destacar.
                             </p>
                         </div>
@@ -163,30 +163,21 @@
                         <h3 class="size__title">Tamanho</h3>
                     </div>
 
-                    <div class="size">
-                        <input type="checkbox" name="" id="">
-                        <p>P</p>
-                        <input type="checkbox" name="" id="">
-                        <p>M</p>
-                        <input type="checkbox" name="" id="">
-                        <p>G</p>
-                        <input type="checkbox" name="" id="">
-                        <p>GG</p>
+                    <div class="size__selector">
+                        <div class="size__option">G</div>
+                        <div class="size__option">GG</div>
+                        <div class="size__option">G2</div>
+                        <div class="size__option">G3</div>
+                        <div class="size__option">G4</div>
+                        <div class="size__option">G5</div>
                     </div>
 
                     <div>
-                        <h3 class="size__title">Cores</h3>
+                        <br><h3 class="size__title">Cores</h3>
                     </div>
 
-                    <div class="size">
-                        <input type="checkbox" name="" id="">
-                        <p>Preto</p>
-                        <input type="checkbox" name="" id="">
-                        <p>Amarelo</p>
-                        <input type="checkbox" name="" id="">
-                        <p>Rosa</p>
-                        <input type="checkbox" name="" id="">
-                        <p>Branco</p>
+                    <div class="color__selector">
+                        <div class="color__option" ></div>
                     </div>
 
                     <div class="cart__amount">
@@ -401,6 +392,5 @@
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
-</body>
-</html>
+
 @endsection

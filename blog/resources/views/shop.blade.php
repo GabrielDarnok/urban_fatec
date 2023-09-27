@@ -17,8 +17,8 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Camisa Oni Urban Rebel</h3>
-                    <span class="cart__price">R$ 30,00</span>
+                    <h3 class="cart__title">Top de manga comprida</h3>
+                    <span class="cart__price">R$ 50,00</span>
 
                     <div class="cart__amount">
                         <div class="cart__amount-content">
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Blusa City Urban Rebel</h3>
+                    <h3 class="cart__title">Cardigã de textura sólida</h3>
                     <span class="cart__price">R$ 50,00</span>
 
                     <div class="cart__amount">
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Mochila Urban Rebel</h3>
+                    <h3 class="cart__title">SHEIN ICON Gorpcore</h3>
                     <span class="cart__price">R$ 45,00</span>
 
                     <div class="cart__amount">
@@ -95,7 +95,7 @@
 
         <div class="cart__prices">
             <span class="cart__prices-item">3 Produtos</span>
-            <span class="cart__prices-total">Total R$ 125,00</span>
+            <span class="cart__prices-total">Total R$ 145,00</span>
         </div>
     </div>
 
@@ -154,12 +154,17 @@
 
                         <div class="filter">
                             <input type="checkbox" name="" id="">
-                            <p>Feminino</p> <span>(105)</span>
+                            <p>Menor Preço</p>
                         </div>
 
                         <div class="filter">
                             <input type="checkbox" name="" id="">
-                            <p>Masculino</p> <span>(114)</span>
+                            <p>Maior Preço</p>
+                        </div>
+
+                        <div class="filter">
+                            <input type="checkbox" name="" id="">
+                            <p>Popular</p>
                         </div>
                     </div>
 
@@ -168,22 +173,32 @@
 
                         <div class="filter">
                             <input type="checkbox" name="" id="">
-                            <p>P</p> <span>(105)</span>
+                            <p>G</p> <span>(105)</span>
                         </div>
 
                         <div class="filter">
                             <input type="checkbox" name="" id="">
-                            <p>M</p> <span>(85)</span>
+                            <p>GG</p> <span>(85)</span>
                         </div>
 
                         <div class="filter">
                             <input type="checkbox" name="" id="">
-                            <p>G</p> <span>(70)</span>
+                            <p>G2</p> <span>(59)</span>
                         </div>
 
                         <div class="filter">
                             <input type="checkbox" name="" id="">
-                            <p>GG</p> <span>(55)</span>
+                            <p>G3</p> <span>(94)</span>
+                        </div>
+
+                        <div class="filter">
+                            <input type="checkbox" name="" id="">
+                            <p>G4</p> <span>(75)</span>
+                        </div>
+
+                        <div class="filter">
+                            <input type="checkbox" name="" id="">
+                            <p>G5</p> <span>(95)</span>
                         </div>
                     </div>
 
@@ -197,7 +212,22 @@
 
                         <div class="filter">
                             <input type="checkbox" name="" id="">
-                            <p>Coleção</p> <span>(124)</span>
+                            <p>Streetwear</p> <span>(124)</span>
+                        </div>
+
+                        <div class="filter">
+                            <input type="checkbox" name="" id="">
+                            <p>Fofo</p> <span>(489)</span>
+                        </div>
+
+                        <div class="filter">
+                            <input type="checkbox" name="" id="">
+                            <p>Festa</p> <span>(156)</span>
+                        </div>
+
+                        <div class="filter">
+                            <input type="checkbox" name="" id="">
+                            <p>Elegante</p> <span>(168)</span>
                         </div>
 
                         <div class="filter__content">
@@ -205,12 +235,17 @@
     
                             <div class="filter">
                                 <input type="checkbox" name="" id="">
-                                <p>Camisa</p> <span>(105)</span>
+                                <p>Top & Camisas</p> <span>(105)</span>
                             </div>
     
                             <div class="filter">
                                 <input type="checkbox" name="" id="">
                                 <p>Blusa</p> <span>(135)</span>
+                            </div>
+
+                            <div class="filter">
+                                <input type="checkbox" name="" id="">
+                                <p>Saia & Minissaia</p> <span>(185)</span>
                             </div>
     
                             <div class="filter">
@@ -224,27 +259,31 @@
                 <div class="shop__items grid">
                     <div class="shop__content">
                         <div class="shop__tag">Novo</div>
-                        <img src="/img/cart-1.png" alt="" class="shop__img">
-                        <h3 class="shop__title">Camisa Oni</h3>
-                        <span class="shop__subtitle">Urban Rebel</span>
+                        <a href="/details">
+                            <img src="/img/cart-1.png" alt="" class="shop__img">
+                        </a>
+                        <h3 class="shop__title">Top de manga comprida</h3>
+                        <span class="shop__subtitle">You Matter</span>
 
                         <div class="shop__prices">
-                            <span class="shop__price">R$ 30,00</span>
+                            <span class="shop__price">R$ 50,00</span>
                         </div>
-                        <a href="/details" class="button shop__button">
+                        <a href="#" class="button shop__button">
                             <i class="bx bx-cart-alt shop__icon"></i>
                         </a>
                     </div>
 
                     <div class="shop__content">
                         <div class="shop__tag">Desconto</div>
-                        <img src="/img/discount-2.png" alt="" class="shop__img">
-                        <h3 class="shop__title">Boné Graffiti</h3>
-                        <span class="shop__subtitle">Urban Rebel</span>
+                        <a href="#">
+                            <img src="/img/discount-2.png" alt="" class="shop__img">
+                        </a>
+                        <h3 class="shop__title">Calça cargo cintura alta</h3>
+                        <span class="shop__subtitle">You Matter</span>
 
                         <div class="shop__prices">
-                            <span class="shop__price">R$ 30,00</span>
-                            <span class="shop__discounts">R$ 35,00</span>
+                            <span class="shop__price">R$ 75,00</span>
+                            <span class="shop__discounts">R$ 90,00</span>
                         </div>
                         <a href="/details" class="button shop__button">
                             <i class="bx bx-cart-alt shop__icon"></i>
@@ -252,66 +291,12 @@
                     </div>
 
                     <div class="shop__content">
-                        <div class="shop__tag">Street Art</div>
-                        <img src="/img/new-1.png" alt="" class="shop__img">
-                        <h3 class="shop__title">Camisa 023</h3>
-                        <span class="shop__subtitle">Urban Rebel</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">R$ 40,00</span>
-                        </div>
-                        <a href="/details" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
+                        <div class="shop__tag">Novo</div>
+                        <a href="">
+                            <img src="/img/new-1.png" alt="" class="shop__img">
                         </a>
-                    </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">Street Art</div>
-                        <img src="/img/new-2.png" alt="" class="shop__img">
-                        <h3 class="shop__title">Camisa Envy</h3>
-                        <span class="shop__subtitle">Urban Rebel</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">R$ 40,00</span>
-                        </div>
-                        <a href="/details" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
-                    </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">Street Art</div>
-                        <img src="/img/new-3.png" alt="" class="shop__img">
-                        <h3 class="shop__title">Blusa Dead Inside</h3>
-                        <span class="shop__subtitle">Urban Rebel</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">R$ 60,00</span>
-                        </div>
-                        <a href="/details" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
-                    </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">Street Art</div>
-                        <img src="/img/new-5.png" alt="" class="shop__img">
-                        <h3 class="shop__title">Camisa Queen</h3>
-                        <span class="shop__subtitle">Urban Rebel</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">R$ 40,00</span>
-                        </div>
-                        <a href="/details" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
-                    </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">Street Art</div>
-                        <img src="/img/new-4.png" alt="" class="shop__img">
-                        <h3 class="shop__title">Camisa Dead Inside</h3>
-                        <span class="shop__subtitle">Urban Rebel</span>
+                        <h3 class="shop__title">Saia Cargo</h3>
+                        <span class="shop__subtitle">You Matter</span>
 
                         <div class="shop__prices">
                             <span class="shop__price">R$ 40,00</span>
@@ -323,9 +308,75 @@
 
                     <div class="shop__content">
                         <div class="shop__tag">Novo</div>
-                        <img src="/img/cart-2.png" alt="" class="shop__img">
-                        <h3 class="shop__title">Blusa City</h3>
-                        <span class="shop__subtitle">Urban Rebel</span>
+                        <a href="">
+                            <img src="/img/new-2.png" alt="" class="shop__img">
+                        </a>
+                        <h3 class="shop__title">Top tank Crop</h3>
+                        <span class="shop__subtitle">You Matter</span>
+
+                        <div class="shop__prices">
+                            <span class="shop__price">R$ 40,00</span>
+                        </div>
+                        <a href="/details" class="button shop__button">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="shop__content">
+                        <div class="shop__tag">Novo</div>
+                        <a href="">
+                            <img src="/img/new-3.png" alt="" class="shop__img">
+                        </a>
+                        <h3 class="shop__title">SHEIN ICON Gorpcore</h3>
+                        <span class="shop__subtitle">You Matter</span>
+
+                        <div class="shop__prices">
+                            <span class="shop__price">R$ 45,00</span>
+                        </div>
+                        <a href="/details" class="button shop__button">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="shop__content">
+                        <div class="shop__tag">Novo</div>
+                        <a href="">
+                            <img src="/img/new-5.png" alt="" class="shop__img">
+                        </a>
+                        <h3 class="shop__title">Mini Vestido Cargo</h3>
+                        <span class="shop__subtitle">You Matter</span>
+
+                        <div class="shop__prices">
+                            <span class="shop__price">R$ 90,00</span>
+                        </div>
+                        <a href="/details" class="button shop__button">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="shop__content">
+                        <div class="shop__tag">Novo</div>
+                        <a href="">
+                            <img src="/img/new-4.png" alt="" class="shop__img">
+                        </a>
+                        <h3 class="shop__title">Vestido Apertado</h3>
+                        <span class="shop__subtitle">You Matter</span>
+
+                        <div class="shop__prices">
+                            <span class="shop__price">R$ 80,00</span>
+                        </div>
+                        <a href="/details" class="button shop__button">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="shop__content">
+                        <div class="shop__tag">Novo</div>
+                        <a href="">
+                            <img src="/img/cart-2.png" alt="" class="shop__img">
+                        </a>
+                        <h3 class="shop__title">Cardigã de textura sólida</h3>
+                        <span class="shop__subtitle">You Matter</span>
 
                         <div class="shop__prices">
                             <span class="shop__price">R$ 50,00</span>
@@ -350,17 +401,16 @@
             </div>
         </section>
     </main>
+
     <!--=============== SCROLL UP ===============-->
     <a href="#" class="scrollup" id="scroll-up">
         <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
     </a>
-    <!--=============== STYLE SWITCHER ===============-->
-    
+
     <!--=============== SWIPER JS ===============-->
     <script src="/js/swiper-bundle.min.js"></script>
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
-</body>
-</html>
+
 @endsection

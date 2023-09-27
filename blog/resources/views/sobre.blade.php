@@ -4,7 +4,6 @@
 
 @section('content')
 
-
     <!--=============== CART ===============-->
     <div class="cart" id="cart">
         <i class="bx bx-x cart__close" id="cart-close"></i>
@@ -18,8 +17,8 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Camisa Oni Urban Rebel</h3>
-                    <span class="cart__price">R$ 30,00</span>
+                    <h3 class="cart__title">Top de manga comprida</h3>
+                    <span class="cart__price">R$ 50,00</span>
 
                     <div class="cart__amount">
                         <div class="cart__amount-content">
@@ -45,7 +44,7 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Blusa City Urban Rebel</h3>
+                    <h3 class="cart__title">Cardigã de textura sólida</h3>
                     <span class="cart__price">R$ 50,00</span>
 
                     <div class="cart__amount">
@@ -72,7 +71,7 @@
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Mochila Urban Rebel</h3>
+                    <h3 class="cart__title">SHEIN ICON Gorpcore</h3>
                     <span class="cart__price">R$ 45,00</span>
 
                     <div class="cart__amount">
@@ -96,7 +95,7 @@
 
         <div class="cart__prices">
             <span class="cart__prices-item">3 Produtos</span>
-            <span class="cart__prices-total">Total R$ 125,00</span>
+            <span class="cart__prices-total">Total R$ 145,00</span>
         </div>
     </div>
 
@@ -142,9 +141,12 @@
                     </h2>
 
                     <p class="about__description">
-                        Nós criamos essa empresa no meio da pandemia Covd-19, juntos começamos a criar uma renda extra para
-                        e junto com essa motivação criamos vários designs incríveis para nossa marcar e juntos fomos <br>
-                        aumentando o numero de funcionários que fazem parte da nossa equipe hoje em dia. E com isso garantimos...
+                        A missão da You Matter é trazer o streetwear moderno feminino para o público
+                        plus size brasileiro, sempre trazendo tendências e quebrando o tabu, de que,
+                        mulhere acima do peso tem que usar um determinado tipo de roupa. O nome da empresa
+                        foi pensado em vocês... You Matter significa "você importa", para nós vocês são importantes
+                        . Queremos trazer sempre o melhor em questão de novidades, qualidade, caimente, tecido e
+                        corte. Pois vocês importam.
                     </p>
 
                     <div class="about__details">
@@ -167,17 +169,16 @@
             </div>
         </section>
     </main>
+    
     <!--=============== SCROLL UP ===============-->
     <a href="#" class="scrollup" id="scroll-up">
         <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
     </a>
-    <!--=============== STYLE SWITCHER ===============-->
     
     <!--=============== SWIPER JS ===============-->
     <script src="/js/swiper-bundle.min.js"></script>
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
-</body>
-</html>
+
 @endsection
