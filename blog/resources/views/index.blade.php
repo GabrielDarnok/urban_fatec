@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <!--=============== CART ===============-->
+<!--=============== CART ===============-->
     <div class="cart" id="cart">
         <i class="bx bx-x cart__close" id="cart-close"></i>
         
@@ -13,38 +13,11 @@
         <div class="cart__container">
             <article class="cart__card">
                 <div class="cart__box">
-                    <img src="/img/cart-1.png" alt="" class="cart__img">
+                    <img src="assets/img/cart-1.png" alt="" class="cart__img">
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Camisa Oni Urban Rebel</h3>
-                    <span class="cart__price">R$ 30,00</span>
-
-                    <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class="cart__amount-box">
-                                <i class="bx bx-minus"></i>
-                            </span>
-
-                            <span class="cart__amount-number">1</span>
-
-                            <span class="cart__amount-box">
-                                <i class="bx bx-plus"></i>
-                            </span>
-                        </div>
-
-                        <i class="bx bx-trash-alt cart__amount-trash"></i>
-                    </div>
-                </div>
-            </article>
-            <p>dadadad</p>
-            <article class="cart__card">
-                <div class="cart__box">
-                    <img src="/img/cart-2.png" alt="" class="cart__img">
-                </div>
-
-                <div class="cart__details">
-                    <h3 class="cart__title">Blusa City Urban Rebel</h3>
+                    <h3 class="cart__title">Top de manga comprida</h3>
                     <span class="cart__price">R$ 50,00</span>
 
                     <div class="cart__amount">
@@ -67,11 +40,38 @@
 
             <article class="cart__card">
                 <div class="cart__box">
-                    <img src="/img/cart-3.png" alt="" class="cart__img">
+                    <img src="assets/img/cart-2.png" alt="" class="cart__img">
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Mochila Urban Rebel</h3>
+                    <h3 class="cart__title">Cardigã de textura sólida</h3>
+                    <span class="cart__price">R$ 50,00</span>
+
+                    <div class="cart__amount">
+                        <div class="cart__amount-content">
+                            <span class="cart__amount-box">
+                                <i class="bx bx-minus"></i>
+                            </span>
+
+                            <span class="cart__amount-number">1</span>
+
+                            <span class="cart__amount-box">
+                                <i class="bx bx-plus"></i>
+                            </span>
+                        </div>
+
+                        <i class="bx bx-trash-alt cart__amount-trash"></i>
+                    </div>
+                </div>
+            </article>
+
+            <article class="cart__card">
+                <div class="cart__box">
+                    <img src="assets/img/cart-3.png" alt="" class="cart__img">
+                </div>
+
+                <div class="cart__details">
+                    <h3 class="cart__title">SHEIN ICON Gorpcore</h3>
                     <span class="cart__price">R$ 45,00</span>
 
                     <div class="cart__amount">
@@ -95,7 +95,7 @@
 
         <div class="cart__prices">
             <span class="cart__prices-item">3 Produtos</span>
-            <span class="cart__prices-total">Total R$ 125,00</span>
+            <span class="cart__prices-total">Total R$ 145,00</span>
         </div>
     </div>
 
@@ -120,7 +120,7 @@
             </div>
 
             <div>
-                <p class="signup">Nãe é cadastrado? <a href="/registro">Cadastrar-se agora.</a></p>
+                <p class="signup">Nãe é cadastrado? <a href="registro.html">Cadastrar-se agora.</a></p>
             </div>
         </form>
     </div>
@@ -135,24 +135,24 @@
                     <section class="swiper-slide">
                         <div class="home__content grid">
                             <div class="home__group">
-                                <img src="/img/slide-2.png" alt="" class="home__img">
+                                <img src="assets/img/slide-2.png" alt="" class="home__img">
                                 <div class="home__indicator"></div>
             
                                 <div class="home__details-img">
-                                    <h4 class="home__details-title">Blusa City</h4>
-                                    <div class="span home__details-subtitle">Urban Rebel</div>
+                                    <h4 class="home__details-title">Cardigã de textura sólida</h4>
+                                    <div class="span home__details-subtitle">You Matter</div>
                                 </div>
                             </div>
             
                             <div class="home__data">
                                 <h3 class="home__subtitle">ITEM POPULAR</h3>
-                                <h1 class="home__title">DESIGN ORIGINAL <br>NUNCA É <br> DISPENSÁVEL!</h1>
-                                <p class="home__description">Criado pelos nossos designers, essa blusa é feita 100% de algodão, carinho e com a melhor
+                                <h1 class="home__title">DESIGN PLUS SIZE NUNCA É  DISPENSÁVEL!</h1>
+                                <p class="home__description">Criado pelos nossos designers, esse cardigã é feito com carinho e com a melhor
                                 costura existente.</p>
             
                                 <div class="home__buttons">
-                                    <a href="/shop" class="button">Comprar Agora</a>
-                                    <a href="/shop" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
+                                    <a href="shop.html" class="button">Comprar Agora</a>
+                                    <a href="shop.html" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
                                     </i></a>
                                 </div>
             
@@ -164,24 +164,25 @@
                     <section class="swiper-slide">
                         <div class="home__content grid">
                             <div class="home__group">
-                                <img src="/img/slide-3.png" alt="" class="home__img">
+                                <img src="assets/img/slide-3.png" alt="" class="home__img">
                                 <div class="home__indicator"></div>
             
                                 <div class="home__details-img">
-                                    <h4 class="home__details-title">Mochila Graffiti</h4>
-                                    <div class="span home__details-subtitle">Urban Rebel</div>
+                                    <h4 class="home__details-title">Moletom Sólido Cropped</h4>
+                                    <div class="span home__details-subtitle">You Matter</div>
                                 </div>
                             </div>
             
                             <div class="home__data">
                                 <h3 class="home__subtitle">ITEM POPULAR</h3>
-                                <h1 class="home__title">CARREGE SUAS COISAS <br>COM ESTILO <br> E CONFORTO!</h1>
-                                <p class="home__description">Criado pelos nossos designers, essa mochila é feita 100% de poliéster, carinho e com a melhor
-                                costura existente.</p>
+                                <h1 class="home__title">SAIA A NOITE OU NO <br> FRIO COM CONFORTO!</h1>
+                                <p class="home__description">Feito de poliéster esse moletom te garantirá conforto a onde quer que você vá
+                                    sem perder seu charma e beleza.
+                                </p>
             
                                 <div class="home__buttons">
-                                    <a href="/shop" class="button">Comprar Agora</a>
-                                    <a href="/shop" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
+                                    <a href="shop.html" class="button">Comprar Agora</a>
+                                    <a href="shop.html" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
                                     </i></a>
                                 </div>
             
@@ -193,24 +194,23 @@
                     <section class="swiper-slide">
                         <div class="home__content grid">
                             <div class="home__group">
-                                <img src="/img/slide-1.png" alt="" class="home__img">
+                                <img src="assets/img/slide-1.png" alt="" class="home__img">
                                 <div class="home__indicator"></div>
             
                                 <div class="home__details-img">
-                                    <h4 class="home__details-title">Boné Street</h4>
-                                    <div class="span home__details-subtitle">Urban Rebel</div>
+                                    <h4 class="home__details-title">Calça Jeans Cargo Denim</h4>
+                                    <div class="span home__details-subtitle">You Matter</div>
                                 </div>
                             </div>
             
                             <div class="home__data">
-                                <h3 class="home__subtitle">PARTE DA COLEÇÃO STREET ART</h3>
-                                <h1 class="home__title">PROTEGESSE <br> NESSE <br>VERÃO <br> CONOSCO!</h1>
-                                <p class="home__description">Criado pelos nossos designers, esse boné é feito 100% de algodão, carinho e com a melhor
-                                costura existente.</p>
+                                <h3 class="home__subtitle">ITEM POPULAR</h3>
+                                <h1 class="home__title">ANDE COM ESTILO COM A GENTE!</h1>
+                                <p class="home__description">Criado para usar no dia a dia ou naquela saida com as amigas, você irá se destacar a onde você esteja.</p>
             
                                 <div class="home__buttons">
-                                    <a href="/shop" class="button">Comprar Agora</a>
-                                    <a href="/shop" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
+                                    <a href="shop.html" class="button">Comprar Agora</a>
+                                    <a href="shop.html" class="button--link button--flex">Ver Detalhes <i class="bx bx-right-arrow-alt button__icon">
                                     </i></a>
                                 </div>
             
@@ -225,18 +225,18 @@
         <!--=============== DISCOUNT ===============-->
         <section class="discount section">
             <div class="discount__container container grid">
-                <img src="/img/discount.png" alt="" class="discount__img">
+                <img src="assets/img/discount.png" alt="" class="discount__img">
 
                 <div class="discount__data">
                     <h2 class="discount__title">5% de Desconto <br> Em Pagamentos Via Pix!</h2>
-                    <a href="/shop" class="button">Ir as Compras</a>
+                    <a href="shop.html" class="button">Ir as Compras</a>
                 </div>
             </div>
         </section>
 
         <!--=============== NEW COLECTION ===============-->
         <section class="new section">
-            <h2 class="section__title"> Nova Coleção Street Art</h2>
+            <h2 class="section__title"> Alguns dos nossos produtos</h2>
 
             <div class="new__container container">
                 <div class="swiper new-swiper">
@@ -244,15 +244,17 @@
                         <!--Nova coleção 1-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-1.png" alt="" class="new__img">
-                            <h3 class="new__title">Camisa 023</h3>
-                            <span class="new__subtitle">Stree Art</span>
+                            <a href="#">
+                                <img src="assets/img/new-1.png" alt="" class="new__img">
+                            </a>
+                            <h3 class="new__title">Saia Cargo</h3>
+                            <span class="new__subtitle">You Matter</span>
 
                             <div class="new__prices">
                                 <span class="new__price">R$ 40,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="#" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -260,15 +262,17 @@
                         <!--Nova coleção 2-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-2.png" alt="" class="new__img">
-                            <h3 class="new__title">Camisa Envy</h3>
-                            <span class="new__subtitle">Stree Art</span>
+                            <a href="#">
+                                <img src="assets/img/new-2.png" alt="" class="new__img">
+                            </a>
+                            <h3 class="new__title">Top Tank Crop</h3>
+                            <span class="new__subtitle">You Matter</span>
 
                             <div class="new__prices">
                                 <span class="new__price">R$ 40,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="shop.html" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -276,15 +280,17 @@
                         <!--Nova coleção 3-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-3.png" alt="" class="new__img">
-                            <h3 class="new__title">Blusa Dead Inside</h3>
-                            <span class="new__subtitle">Stree Art</span>
+                            <a href="#">
+                                <img src="assets/img/new-3.png" alt="" class="new__img">
+                            </a>
+                            <h3 class="new__title">SHEIN ICON Gorpcore</h3>
+                            <span class="new__subtitle">You Matter</span>
 
                             <div class="new__prices">
-                                <span class="new__price">R$ 60,00</span>
+                                <span class="new__price">R$ 45,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="shop.html" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -292,15 +298,17 @@
                         <!--Nova coleção 4-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-4.png" alt="" class="new__img">
-                            <h3 class="new__title">Camisa Dead Inside</h3>
-                            <span class="new__subtitle">Stree Art</span>
+                            <a href="#">
+                                <img src="assets/img/new-4.png" alt="" class="new__img">
+                            </a>
+                            <h3 class="new__title">Vestido Apertado</h3>
+                            <span class="new__subtitle">You Matter</span>
 
                             <div class="new__prices">
-                                <span class="new__price">R$ 40,00</span>
+                                <span class="new__price">R$ 80,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="shop.html" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -308,15 +316,17 @@
                         <!--Nova coleção 5-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-5.png" alt="" class="new__img">
-                            <h3 class="new__title">Camisa Queen</h3>
-                            <span class="new__subtitle">Stree Art</span>
+                            <a href="#">
+                                <img src="assets/img/new-5.png" alt="" class="new__img">
+                            </a>
+                            <h3 class="new__title">Mini vestido cargo</h3>
+                            <span class="new__subtitle">You Matter</span>
 
                             <div class="new__prices">
-                                <span class="new__price">R$ 40,00</span>
+                                <span class="new__price">R$ 90,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="shop.html" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -324,15 +334,17 @@
                         <!--Nova coleção 6-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-6.png" alt="" class="new__img">
-                            <h3 class="new__title">Camisa Happy</h3>
-                            <span class="new__subtitle">Stree Art</span>
+                            <a href="#">
+                                <img src="assets/img/new-6.png" alt="" class="new__img">
+                            </a>
+                            <h3 class="new__title">Minissaia com cordão</h3>
+                            <span class="new__subtitle">You Matter</span>
 
                             <div class="new__prices">
-                                <span class="new__price">R$ 40,00</span>
+                                <span class="new__price">R$ 50,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="shop.html" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -342,7 +354,7 @@
         </section>
 
         <!--=============== STEPS ===============-->
-        <section class="steps section container">
+        <section class="steps section container" id="stepslink">
             <div class="steps__bg">
                 <h2 class="section__title">Como encomendar <br> do shop!</h2>
 
@@ -397,11 +409,9 @@
         <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
     </a>
     <!--=============== SWIPER JS ===============-->
-    <script src="/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
 
     <!--=============== JS ===============-->
-    <script src="/js/main.js"></script>
-</body>
-</html>
+    <script src="assets/js/main.js"></script>
 
 @endsection

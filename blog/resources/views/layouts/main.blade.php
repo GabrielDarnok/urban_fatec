@@ -15,20 +15,20 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/colors/color-1.css">
 
-    <title>Urban Rebel</title>
+    <title>You Matter</title>
 </head>
 <body>
     <!--=============== HEADER ===============-->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="/" class="nav__logo">
-                <img src="/img/UR-Logo.png" alt="Urban Rebel">
+                <img src="/img/Logo.png" alt="You Matter">
             </a>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="/" class="nav__link active-link">Início</a>
+                        <a href="/" class="nav__link">Início</a>
                     </li>
 
                     <li class="nav__item">
@@ -61,6 +61,38 @@
                 <div class="login__toggle" id="login-toggle">
                     <i class="bx bx-user"> </i>
                 </div>
+
+                <img src="/img/profile-pic.png" class="user__pic" id="userPic">
+                <div class="sub-menu-wrap" id="subMenu">
+
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <img src="/img/profile-pic.png">
+                            <h3> Marisa Oliveira Cunha </h3>
+                        </div>
+                        <hr>
+
+                        <a href="/profile" class="sub-menu-link">
+                            <i class="bx bx-user-circle"> </i>
+                            <p>Meu perfil</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="#" class="sub-menu-link">
+                            <i class="bx bx-package"> </i>
+                            <p>Meus Pedidos</p>
+                            <span>></span>
+                        </a>
+                        
+                        <a href="#" class="sub-menu-link">
+                            <i class="bx bx-log-out"> </i>
+                            <p>Sair</p>
+                            <span>></span>
+                        </a>
+                        
+                    </div>
+                </div>
+
                 <div class="nav__shop" id="cart-shop">
                     <i class="bx bx-shopping-bag"> </i>
                 </div>
@@ -68,16 +100,7 @@
                 <div class="nav__toggle" id="nav-toggle">
                     <i class="bx bx-grid-alt"> </i>
                 </div>
-                
-                @auth
-                <div class="logout" id="logout">
-                    <form action="/logout" method="POST">
-						@csrf
-						<a href="/logout" class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
-					</form>
-                </div>
-                @endauth
-                
+
                 <div>
                     <img src="/img/moon.png" id="moon">
                 </div>
@@ -97,7 +120,7 @@
             <!--FOOTER CONTEUDO 1-->
             <div class="footer__content">
                 <a href="#" class="footer__logo">
-                    <i class="bx bxs-shopping-bags footer__logo-icon"></i> Urban Rebel
+                    <i class="bx bxs-shopping-bags footer__logo-icon"></i> You Matter
                 </a>
 
                 <p class="footer__description">Aproveite <br> as compras!</p>
@@ -114,9 +137,8 @@
                 <h3 class="footer__tittle">Sobre</h3>
 
                 <ul class="footer__links">
-                    <li><a href="#" class="footer__link">Mapa do Site</a></li>
-                    <li><a href="contato.html" class="footer__link">Fale Conosco</a></li>
-                    <li><a href="#" class="footer__link">Suporte</a></li>
+                    <li><a href="/contato" class="footer__link">Fale Conosco</a></li>
+                    <li><a href="/contato" class="footer__link">Suporte</a></li>
                 </ul>
             </div>
 
@@ -126,8 +148,7 @@
 
                 <ul class="footer__links">
                     <li><a href="/shop" class="footer__link">Shop</a></li>
-                    <li><a href="#" class="footer__link">Descontos</a></li>
-                    <li><a href="#" class="footer__link">Metodo de envio</a></li>
+                    <li><a href="/" class="footer__link">Como comprar</a></li>
                 </ul>
             </div>
 
@@ -138,7 +159,6 @@
                 <ul class="footer__links">
                     <li><a href="/sobre" class="footer__link">Quem Somos</a></li>
                     <li><a href="/registro" class="footer__link">Registro</a></li>
-                    <li><a href="#" class="footer__link">Futuro</a></li>
                 </ul>
             </div>
         </div>

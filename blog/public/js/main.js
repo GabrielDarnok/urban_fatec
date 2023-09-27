@@ -113,7 +113,6 @@ window.addEventListener('scroll', scrollUp)
 var icon = document.getElementById("moon");
 var body = document.body;
 
-// Verify User preference
 if (localStorage.getItem("dark-mode") === "enabled") {
     body.classList.add("dark-mode");
     icon.src = "../Urban Rebel/assets/img/sun.png";
@@ -132,5 +131,31 @@ icon.onclick = function () {
     }
 };
 
+const userPic = document.getElementById('userPic');
+const subMenu = document.getElementById('subMenu');
 
+userPic.addEventListener('click', function (event) {
+    event.stopPropagation(); // Impede que o evento se propague para o documento
+    toggleSubMenu();
+});
 
+function toggleSubMenu() {
+    subMenu.classList.toggle('open-menu');
+}
+
+document.addEventListener('click', function (event) {
+    if (!subMenu.contains(event.target) && !userPic.contains(event.target)) {
+        subMenu.classList.remove('open-menu');
+    }
+});
+
+/*=============== Profile Toggle ===============*/
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("toggleFields");
+    const fieldsToToggle = document.getElementById("fieldsToToggle");
+
+    toggleButton.addEventListener("click", function () {
+        fieldsToToggle.style.display = fieldsToToggle.style.display === "none" ? "block" : "none";
+    });
+});
