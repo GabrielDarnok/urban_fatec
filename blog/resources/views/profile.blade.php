@@ -3,7 +3,7 @@
 @section('title','profile')
 
 @section('content')
-    <!--=============== CART ===============-->
+    <!--=============== CART ==============-->
     <div class="cart" id="cart">
         <i class="bx bx-x cart__close" id="cart-close"></i>
         
