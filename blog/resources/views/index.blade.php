@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','index')
+@section('title','index')f
 
 @section('content')
 
@@ -15,11 +15,9 @@
                 <div class="cart__box">
                     <img src="/img/cart-1.png" alt="" class="cart__img">
                 </div>
-
                 <div class="cart__details">
                     <h3 class="cart__title">Top de manga comprida</h3>
                     <span class="cart__price">R$ 50,00</span>
-
                     <div class="cart__amount">
                         <div class="cart__amount-content">
                             <span class="cart__amount-box">
@@ -37,7 +35,6 @@
                     </div>
                 </div>
             </article>
-
             <article class="cart__card">
                 <div class="cart__box">
                     <img src="/img/cart-2.png" alt="" class="cart__img">
