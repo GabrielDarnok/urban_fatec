@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class redirectController extends Controller
 {
     public function index(){
-        return view('index');
+        
+        $produtcs = Product::all();
+
+        return view('index',['products' => $produtcs]);
     }
     public function asa(){
         return view('asa');
@@ -36,5 +40,11 @@ class redirectController extends Controller
     }
     public function sobre(){
         return view('sobre');
+    }
+    public function welcome(){
+        
+        $produtcs = Product::all();
+
+        return view('welcome', ['products' => $produtcs]);
     }
 }

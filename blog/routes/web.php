@@ -43,3 +43,5 @@ Route::middleware([
         return view('index');
     })->name('index');
 });
+
+Route::get('/welcome', [redirectController::class, 'welcome']);
