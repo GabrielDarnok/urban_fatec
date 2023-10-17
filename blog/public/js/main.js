@@ -159,3 +159,18 @@ document.addEventListener("DOMContentLoaded", function () {
         fieldsToToggle.style.display = fieldsToToggle.style.display === "none" ? "block" : "none";
     });
 });
+
+/*===============Review ===============*/
+const ratebtn = document.querySelector("button");
+const post = document.querySelector(".post");
+const widget = document.querySelector(".star-widget");
+const editBtn = document.querySelector(".edit");
+ratebtn.onclick = ()=>{
+  widget.style.display = "none";
+  post.style.display = "block";
+  editBtn.onclick = ()=>{
+    widget.style.display = "block";
+    post.style.display = "none";
+  }
+  return false;
+}

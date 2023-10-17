@@ -67,7 +67,7 @@
 
             <article class="cart__card">
                 <div class="cart__box">
-                    <img src="/img/cart-3.png" alt="" class="cart__img">
+                    <img src=" /img/cart-3.png" alt="" class="cart__img">
                 </div>
 
                 <div class="cart__details">
@@ -115,19 +115,19 @@
                 <div class="product__images grid">
                     <div class="product__img">
                         <div class="details__img-tag">Novo</div>
-                        <img src="/img/details-1.png" alt="">
+                        <img src=" /img/details-1.png" alt="">
                     </div>
 
                     <div class="product__img">
-                        <img src="/img/details-2.png" alt="">
+                        <img src=" /img/details-2.png" alt="">
                     </div>
 
                     <div class="product__img">
-                        <img src="/img/details-3.png" alt="">
+                        <img src=" /img/details-3.png" alt="">
                     </div>
 
                     <div class="product__img">
-                        <img src="/img/details-4.png" alt="">
+                        <img src=" /img/details-4.png" alt="">
                     </div>
                 </div>
 
@@ -211,7 +211,7 @@
                         <!--Nova coleção 1-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-1.png" alt="" class="new__img">
+                            <img src=" /img/new-1.png" alt="" class="new__img">
                             <h3 class="new__title">Camisa 023</h3>
                             <span class="new__subtitle">Stree Art</span>
 
@@ -219,7 +219,7 @@
                                 <span class="new__price">R$ 40,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="shop.html" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -227,7 +227,7 @@
                         <!--Nova coleção 2-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-2.png" alt="" class="new__img">
+                            <img src=" /img/new-2.png" alt="" class="new__img">
                             <h3 class="new__title">Camisa Envy</h3>
                             <span class="new__subtitle">Stree Art</span>
 
@@ -235,7 +235,7 @@
                                 <span class="new__price">R$ 40,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="shop.html" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -243,7 +243,7 @@
                         <!--Nova coleção 3-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-3.png" alt="" class="new__img">
+                            <img src=" /img/new-3.png" alt="" class="new__img">
                             <h3 class="new__title">Blusa Dead Inside</h3>
                             <span class="new__subtitle">Stree Art</span>
 
@@ -251,7 +251,7 @@
                                 <span class="new__price">R$ 60,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="shop.html" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -259,7 +259,7 @@
                         <!--Nova coleção 4-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-4.png" alt="" class="new__img">
+                            <img src=" /img/new-4.png" alt="" class="new__img">
                             <h3 class="new__title">Camisa Dead Inside</h3>
                             <span class="new__subtitle">Stree Art</span>
 
@@ -267,7 +267,7 @@
                                 <span class="new__price">R$ 40,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="shop.html" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -275,7 +275,7 @@
                         <!--Nova coleção 5-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-5.png" alt="" class="new__img">
+                            <img src=" /img/new-5.png" alt="" class="new__img">
                             <h3 class="new__title">Camisa Queen</h3>
                             <span class="new__subtitle">Stree Art</span>
 
@@ -283,7 +283,7 @@
                                 <span class="new__price">R$ 40,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="shop.html" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -291,7 +291,7 @@
                         <!--Nova coleção 6-->
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src="/img/new-6.png" alt="" class="new__img">
+                            <img src=" /img/new-6.png" alt="" class="new__img">
                             <h3 class="new__title">Camisa Happy</h3>
                             <span class="new__subtitle">Stree Art</span>
 
@@ -299,7 +299,7 @@
                                 <span class="new__price">R$ 40,00</span>
                             </div>
 
-                            <a href="/shop" class="button new__button">
+                            <a href="shop.html" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
@@ -307,7 +307,36 @@
                 </div>
             </div>
         </section>
-    </main>
+
+        <!--=============== Review ===============-->
+        <div class="ratecontainer">
+            <div class="post">
+              <div class="text">Obrigado pela avaliação!</div>
+              <div class="edit">EDITAR</div>
+            </div>
+            <div class="star-widget">
+              <input type="radio" name="rate" id="rate-5">
+              <label for="rate-5" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-4">
+              <label for="rate-4" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-3">
+              <label for="rate-3" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-2">
+              <label for="rate-2" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-1">
+              <label for="rate-1" class="fas fa-star"></label>
+              <form action="#">
+                <header></header>
+                <div class="textarea">
+                  <textarea cols="30" placeholder="Descreva o que achou do produto.."></textarea>
+                </div>
+                <div class="ratebtn">
+                  <button type="submit">Postar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+    </main>  
 
     <!--=============== LIGHTBOX ===============-->
     <div class="lightbox">
@@ -393,4 +422,5 @@
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
 
-@endsection
+</body>
+</html>

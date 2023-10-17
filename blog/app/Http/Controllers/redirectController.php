@@ -47,4 +47,7 @@ class redirectController extends Controller
 
         return view('welcome', ['products' => $produtcs]);
     }
+    public function admin(){
+        return view('admin');
+    }
 }
