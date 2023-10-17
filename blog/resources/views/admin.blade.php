@@ -136,14 +136,15 @@
 
                 <div class="admin-product-form-container">
              
-                   <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
+                   <form action="/products" method="post" enctype="multipart/form-data">
+                   @csrf
                         <div class="add">
                             <h3>Adicionar um novo Produto</h3>
                         </div>
-                      <input type="text" placeholder="Insira o nome do produto" name="product_name" class="box">
-                      <input type="text" placeholder="Insira a descrição" name="product_price" class="box">
-                      <input type="text" placeholder="Insira o valor" name="product_price" class="box">
-                      <input type="text" placeholder="Insira a quantidade" name="product_price" class="box">
+                      <input type="text" placeholder="Insira o nome do produto" id="nome_produto" name="nome_produto" class="box">
+                      <input type="text" placeholder="Insira a descrição" id="descricao_produto" name="descricao_produto" class="box">
+                      <input type="text" placeholder="Insira o valor" id="valor_produto" name="valor_produto" class="box">
+                      <input type="text" placeholder="Insira a quantidade" id="quantidade_estoq" name="quantidade_estoq" class="box">
 
                       <div class="dropdown">
                         <button class="dropbtn">Selecione o Tamanho</button>
@@ -208,13 +209,13 @@
                          <th>Ação</th>
                       </tr>
                       </thead>
-                      
+                      @foreach ($products as $product)
                       <tr>
                         <td><img src="uploaded_img/" height="100" alt=""></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $product->nome_produto}}</td>
+                        <td>{{ $product->descricao_produto}}</td>
+                        <td>{{ $product->valor_produto}}</td>
+                        <td>{{ $product->quantidade_estoq}}</td>
                         <td></td>
                         <td></td>
                         <td>
@@ -222,6 +223,7 @@
                            <a href="admin_page.php?delete=" class="btn"> <i class="fas fa-trash"></i> deletar </a>
                         </td>
                      </tr>
+                     @endforeach
                    </table>
                 </div>
              </div>

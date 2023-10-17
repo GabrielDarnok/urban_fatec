@@ -48,6 +48,23 @@ class redirectController extends Controller
         return view('welcome', ['products' => $produtcs]);
     }
     public function admin(){
-        return view('admin');
+        
+        $produtcs = Product::all();
+
+        return view('admin',['products' => $produtcs]);
+    }
+
+    public function store(Request $request){
+
+        $product = new Product;
+
+        $product->nome_produto = $request->nome_produto;
+        $product->descricao_produto = $request->descricao_produto;
+        $product->valor_produto = $request->valor_produto;
+        $product->quantidade_estoq = $request->quantidade_estoq;
+
+        $product->save();
+
+        return redirect('/admin');
     }
 }
