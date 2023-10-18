@@ -255,136 +255,25 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="shop__items grid">
+                    @foreach ($products as $product)
                     <div class="shop__content">
                         <div class="shop__tag">Novo</div>
                         <a href="/details">
                             <img src="/img/cart-1.png" alt="" class="shop__img">
                         </a>
-                        <h3 class="shop__title">Top de manga comprida</h3>
-                        <span class="shop__subtitle">You Matter</span>
+                        <h3 class="shop__title">{{ $product->nome_produto }}</h3>
+                        <span class="shop__subtitle">{{ $product->descricao_produto }}r</span>
 
                         <div class="shop__prices">
-                            <span class="shop__price">R$ 50,00</span>
+                            <span class="shop__price">{{ $product->valor_produto }}</span>
                         </div>
                         <a href="#" class="button shop__button">
                             <i class="bx bx-cart-alt shop__icon"></i>
                         </a>
                     </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">Desconto</div>
-                        <a href="#">
-                            <img src="/img/discount-2.png" alt="" class="shop__img">
-                        </a>
-                        <h3 class="shop__title">Calça cargo cintura alta</h3>
-                        <span class="shop__subtitle">You Matter</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">R$ 75,00</span>
-                            <span class="shop__discounts">R$ 90,00</span>
-                        </div>
-                        <a href="/details" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
-                    </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">Novo</div>
-                        <a href="">
-                            <img src="/img/new-1.png" alt="" class="shop__img">
-                        </a>
-                        <h3 class="shop__title">Saia Cargo</h3>
-                        <span class="shop__subtitle">You Matter</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">R$ 40,00</span>
-                        </div>
-                        <a href="/details" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
-                    </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">Novo</div>
-                        <a href="">
-                            <img src="/img/new-2.png" alt="" class="shop__img">
-                        </a>
-                        <h3 class="shop__title">Top tank Crop</h3>
-                        <span class="shop__subtitle">You Matter</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">R$ 40,00</span>
-                        </div>
-                        <a href="/details" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
-                    </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">Novo</div>
-                        <a href="">
-                            <img src="/img/new-3.png" alt="" class="shop__img">
-                        </a>
-                        <h3 class="shop__title">SHEIN ICON Gorpcore</h3>
-                        <span class="shop__subtitle">You Matter</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">R$ 45,00</span>
-                        </div>
-                        <a href="/details" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
-                    </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">Novo</div>
-                        <a href="">
-                            <img src="/img/new-5.png" alt="" class="shop__img">
-                        </a>
-                        <h3 class="shop__title">Mini Vestido Cargo</h3>
-                        <span class="shop__subtitle">You Matter</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">R$ 90,00</span>
-                        </div>
-                        <a href="/details" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
-                    </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">Novo</div>
-                        <a href="">
-                            <img src="/img/new-4.png" alt="" class="shop__img">
-                        </a>
-                        <h3 class="shop__title">Vestido Apertado</h3>
-                        <span class="shop__subtitle">You Matter</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">R$ 80,00</span>
-                        </div>
-                        <a href="/details" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
-                    </div>
-
-                    <div class="shop__content">
-                        <div class="shop__tag">Novo</div>
-                        <a href="">
-                            <img src="/img/cart-2.png" alt="" class="shop__img">
-                        </a>
-                        <h3 class="shop__title">Cardigã de textura sólida</h3>
-                        <span class="shop__subtitle">You Matter</span>
-
-                        <div class="shop__prices">
-                            <span class="shop__price">R$ 50,00</span>
-                        </div>
-                        <a href="/details" class="button shop__button">
-                            <i class="bx bx-cart-alt shop__icon"></i>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 

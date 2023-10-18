@@ -36,7 +36,9 @@ class redirectController extends Controller
         return view('registro');
     }
     public function shop(){
-        return view('shop');
+        $produtcs = Product::all();
+
+        return view('shop', ['products' => $produtcs]);
     }
     public function sobre(){
         return view('sobre');
