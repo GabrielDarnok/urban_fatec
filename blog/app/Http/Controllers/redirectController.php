@@ -65,7 +65,24 @@ class redirectController extends Controller
         $product->valor_produto = $request->valor_produto;
         $product->quantidade_estoq = $request->quantidade_estoq;
 
+        //image upload
+
+        if($request->hasFile('imagem_produto') && $request->file('imagem_produto')->isValid()){
+            
+            $requestImage = $request->imagem_produto;
+
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+        
+            $request->imagem_produto->move(public_path('img/product'), $imageName);
+
+            $product->imagem_produto = $imageName;
+        }
+
         $product->save();
+
+        
 
         return redirect('/admin');
     }
