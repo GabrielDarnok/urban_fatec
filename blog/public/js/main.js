@@ -117,7 +117,7 @@ if (localStorage.getItem("dark-mode") === "enabled") {
     body.classList.add("dark-mode");
     icon.src = "../Urban Rebel/assets/img/sun.png";
 } else {
-    icon.src = "../Urban Rebel/assets/img/moon.png";
+    icon.src = "img/moon.png";
 }
 
 icon.onclick = function () {
@@ -126,7 +126,7 @@ icon.onclick = function () {
         icon.src = "../Urban Rebel/assets/img/sun.png";
         localStorage.setItem("dark-mode", "enabled");
     } else {
-        icon.src = "../Urban Rebel/assets/img/moon.png";
+        icon.src = "img/moon.png";
         localStorage.setItem("dark-mode", "disabled");
     }
 };

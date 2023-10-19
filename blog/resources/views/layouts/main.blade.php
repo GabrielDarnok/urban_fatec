@@ -102,7 +102,7 @@
                 </div>
 
                 <div>
-                    <img src="/img/moon.png" id="moon">
+                    <img src="img/moon.png" id="moon">
                 </div>
 
             </div>
