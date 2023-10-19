@@ -149,6 +149,7 @@
                       <div class="dropdown">
                         <button class="dropbtn">Selecione o Tamanho</button>
                         <div class="dropdown-content">
+                          <select name="tamanho_roupa" id="tamanho_roupa">
                           <a href="#">G</a>
                           <a href="#">GG</a>
                           <a href="#">G2</a>
@@ -189,7 +190,7 @@
                         </div>
                       </div>
                       
-                      <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
+                      <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
                       <input type="submit" class="btn" name="add_product" value="add produto">
                    </form>
              
