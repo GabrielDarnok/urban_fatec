@@ -149,14 +149,15 @@
                       <div class="dropdown">
                         <button class="dropbtn">Selecione o Tamanho</button>
                         <div class="dropdown-content">
-                          <select name="tamanho_roupa" id="tamanho_roupa">
-                          <a href="#">G</a>
-                          <a href="#">GG</a>
-                          <a href="#">G2</a>
-                          <a href="#">G3</a>
-                          <a href="#">G4</a>
-                          <a href="#">G5</a>
-                          <a href="#">Todos os Tamanhos</a>
+                          <select name="tamanho_roupa" id="tamanho_roupa" style="padding: 10px; font-size: 16px; border: 2px solid black; border-radius: 5px; background-color: #f7ebef;">
+                          <option><a href="#">G</a></option>
+                          <option><a href="#">GG</a></option>
+                          <option><a href="#">G2</a></option>
+                          <option><a href="#">G3</a></option>
+                          <option><a href="#">G4</a></option>
+                          <option><a href="#">G5</a></option>
+                          <option> <a href="#">Todos os Tamanhos</a></option>
+                          </select>
                         </div>
                       </div>
                       
@@ -190,8 +191,10 @@
                         </div>
                       </div>
                       
-                      <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
-                      <input type="submit" class="btn" name="add_product" value="add produto">
+                      <div>
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
+                        <input type="submit" class="btn" name="add_product" value="add produto">
+                      </div>
                    </form>
              
                 </div>
