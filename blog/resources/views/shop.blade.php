@@ -5,6 +5,7 @@
 @section('content')
 
     <!--=============== CART ===============-->
+
     <div class="cart" id="cart">
         <i class="bx bx-x cart__close" id="cart-close"></i>
         
@@ -261,7 +262,7 @@
                     <div class="shop__content">
                         <div class="shop__tag">Novo</div>
                         <a href="/details">
-                            <img src="/img/cart-1.png" alt="" class="shop__img">
+                            <img src="/img/product/{{ $product->imagem_produto }}" alt="" class="shop__img">
                         </a>
                         <h3 class="shop__title">{{ $product->nome_produto }}</h3>
                         <span class="shop__subtitle">{{ $product->descricao_produto }}r</span>
@@ -296,10 +297,18 @@
         <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
     </a>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!--=============== SWIPER JS ===============-->
     <script src="/js/swiper-bundle.min.js"></script>
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
 
+    <script>
+        $(function(){
+            $('')
+        });
+
+        
+    </script>
 @endsection
