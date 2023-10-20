@@ -96,4 +96,38 @@ class redirectController extends Controller
         
         return redirect('/admin');
     }
+
+    public function edit($id){
+
+        $Product = product::findOrfail($id);
+
+        return view('edit', ['Product' => $Product]);
+    }
+
+    public function update(Request $request){
+        
+        //Juntando os dados do request
+
+        $dados = $request->all();
+
+        //image upload update
+
+        if($request->hasFile('imagem_produto') && $request->file('imagem_produto')->isValid()){
+            
+            $requestImage = $request->imagem_produto;
+
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+        
+            $request->imagem_produto->move(public_path('img/product'), $imageName);
+
+            $dados ['imagem_produto'] = $imageName;
+        }
+
+        product::FindOrFail($request->id)->update($dados);
+
+        return redirect('/admin');
+
+    }
 }
