@@ -64,6 +64,9 @@ class redirectController extends Controller
         $product->descricao_produto = $request->descricao_produto;
         $product->valor_produto = $request->valor_produto;
         $product->quantidade_estoq = $request->quantidade_estoq;
+        $product->tamanho_roupa = $request->tamanho_roupa;
+        $product->cor_produto = $request->cor_produto;
+        $product->categoria_produto = $request->categoria_produto;
 
         //image upload
 

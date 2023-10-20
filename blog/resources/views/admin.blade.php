@@ -147,47 +147,42 @@
                       <input type="text" placeholder="Insira a quantidade" id="quantidade_estoq" name="quantidade_estoq" class="box">
 
                       <div class="dropdown">
-                        <button class="dropbtn">Selecione o Tamanho</button>
+                        <button class="dropbtn">Selecione o tamanho</button>
                         <div class="dropdown-content">
-                          <select name="tamanho_roupa" id="tamanho_roupa" style="padding: 10px; font-size: 16px; border: 2px solid black; border-radius: 5px; background-color: #f7ebef;">
-                          <option><a href="#">G</a></option>
-                          <option><a href="#">GG</a></option>
-                          <option><a href="#">G2</a></option>
-                          <option><a href="#">G3</a></option>
-                          <option><a href="#">G4</a></option>
-                          <option><a href="#">G5</a></option>
-                          <option> <a href="#">Todos os Tamanhos</a></option>
-                          </select>
+                            <select type="text" class="form-control" name="tamanho_roupa" id="tamanho_roupa">
+                                <option value="G">G</option>
+                                <option value="GG">GG</option>
+                                <option value="G2">G2</option>
+                                <option value="G3">G3</option>
+                                <option value="G4">G4</option>
+                                <option value="G5">G5</option>
+                                <option value="Todos">Todos os tamanhos</option>
+                            </select>
                         </div>
                       </div>
                       
                       <div class="dropdown">
                         <button class="dropbtn">Selecione a Cor</button>
                         <div class="dropdown-content">
-                          <a href="#">Preto</a>
-                          <a href="#">Branco</a>
-                          <a href="#">Vermelho</a>
-                          <a href="#">Rosa</a>
-                          <a href="#">Amarelo</a>
-                          <a href="#">Roxo</a>
-                          <a href="#">Verde</a>
-                          <a href="#">Azul</a>
-                          <a href="#">Laranja</a>
-                          <a href="#">Preto</a>
-                          <a href="#">Branco</a>
-                          <a href="#">Vermelho</a>
-                          <a href="#">Todas as Cores</a>
+                          <select type="text" class="form-control" name="cor_produto" id="cor_produto">
+                                <option value="P">Preto</option>
+                                <option value="Vm">Vermelho</option>
+                                <option value="Vd">Verde</option>
+                                <option value="Am">Amarelo</option>
+                            </select>
                         </div>
                       </div>
 
                       <div class="dropdown">
                         <button class="dropbtn">Categoria</button>
                         <div class="dropdown-content">
-                          <a href="#">Casual</a>
-                          <a href="#">Streetwear</a>
-                          <a href="#">Fofo</a>
-                          <a href="#">Festa</a>
-                          <a href="#">Elegante</a>
+                          <select type="text" class="form-control" name="categoria_produto" id="categoria_produto">
+                            <option value="Casual">Casual</option>
+                            <option value="Streetwear">Streetwear</option>
+                            <option value="Fofo">Fofo</option>
+                            <option value="Festa">Festa</option>
+                            <option value="Elegante">Elegante</option>
+                            </select>
                         </div>
                       </div>
                       
@@ -216,12 +211,12 @@
                       @foreach ($products as $product)
                       <tr>
                         <td><img src="img/product/{{ $product->imagem_produto }}" height="100" alt=""></td>
-                        <td>{{ $product->nome_produto}}</td>
-                        <td>{{ $product->descricao_produto}}</td>
-                        <td>{{ $product->valor_produto}}</td>
-                        <td>{{ $product->quantidade_estoq}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $product->nome_produto }}</td>
+                        <td>{{ $product->descricao_produto }}</td>
+                        <td>{{ $product->valor_produto }}</td>
+                        <td>{{ $product->quantidade_estoq }}</td>
+                        <td>{{ $product->tamanho_roupa}}</td>
+                        <td>{{ $product->cor_produto}}</td>
                         <td>
                            <a href="admin_update.php?edit=" class="btn"> <i class="fas fa-edit"></i> editar </a>
                            <a href="admin_page.php?delete=" class="btn"> <i class="fas fa-trash"></i> deletar </a>
