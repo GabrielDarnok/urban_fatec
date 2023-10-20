@@ -46,11 +46,12 @@ class ProductController extends Controller
         
         return redirect('/admin');
     }
+    
     public function edit($id){
 
         $Product = product::findOrfail($id);
 
-        return view('edit', ['Product' => $Product]);
+        return view('admin.edit', ['Product' => $Product]);
     }
 
     public function update(Request $request){

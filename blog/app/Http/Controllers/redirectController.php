@@ -53,6 +53,6 @@ class redirectController extends Controller
         
         $produtcs = Product::all();
 
-        return view('admin',['products' => $produtcs]);
+        return view('admin.admin',['products' => $produtcs]);
     }
 }
