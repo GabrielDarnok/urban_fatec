@@ -89,4 +89,11 @@ class redirectController extends Controller
 
         return redirect('/admin');
     }
+    
+    public function destroy($id){
+
+        $product = product::findOrFail($id)->delete();
+        
+        return redirect('/admin');
+    }
 }

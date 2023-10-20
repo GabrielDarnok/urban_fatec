@@ -218,8 +218,12 @@
                         <td>{{ $product->tamanho_roupa}}</td>
                         <td>{{ $product->cor_produto}}</td>
                         <td>
-                           <a href="admin_update.php?edit=" class="btn"> <i class="fas fa-edit"></i> editar </a>
-                           <a href="admin_page.php?delete=" class="btn"> <i class="fas fa-trash"></i> deletar </a>
+                           <a href="/produto_lista/edit/{{ $product->id }}" class="btn"><i class="fas fa-edit"></i> editar </a> 
+                            <form action="{{ route('product.destroy', ['product' => $product]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn"> <i class="fas fa-edit"></i> DELETAR</button>
+                            </form>
                         </td>
                      </tr>
                      @endforeach
