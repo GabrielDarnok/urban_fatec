@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\redirectController;
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,10 +50,10 @@ Route::get('/welcome', [redirectController::class, 'welcome']);
 
 Route::get('/admin', [redirectController::class, 'admin']);
 
-Route::post('/products', [redirectController::class, 'store']);
+Route::post('/products', [ProductController::class, 'store']);
 
-Route::delete('/admin/{product}', [redirectController::class, 'destroy'])->name('product.destroy');
+Route::delete('/admin/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 
-Route::get('/admin/edit/{id}', [redirectController::class, 'edit']);
+Route::get('/admin/edit/{id}', [ProductController::class, 'edit']);
 
-Route::post('admin/update/{id}', [redirectController::class, 'update']);
+Route::post('admin/update/{id}', [ProductController::class, 'update']);
