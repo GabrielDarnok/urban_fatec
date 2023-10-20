@@ -49,3 +49,5 @@ Route::get('/welcome', [redirectController::class, 'welcome']);
 Route::get('/admin', [redirectController::class, 'admin']);
 
 Route::post('/products', [redirectController::class, 'store']);
+
+Route::delete('/admin/{product}', [redirectController::class, 'destroy'])->name('product.destroy');
