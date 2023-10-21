@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -41,9 +42,21 @@ class ProductController extends Controller
     }
     
     public function destroy($id){
-
-        $product = product::findOrFail($id)->delete();
         
+        // Localize o produto
+        $product = Product::find($id);
+
+        if ($product) {
+            
+            $imagePath = $product->imagem_produto;
+
+            if (Storage::exists("img/product/$imagePath")) {
+                Storage::delete("img/product/$imagePath");
+            }
+
+            $product->delete();
+        }
+
         return redirect('/admin');
     }
     
