@@ -101,19 +101,20 @@
         <i class="bx bx-x login__close" id="login-close"></i>
 
         <h2 class="login__title-center">Login</h2>
-        <form action="" class="login__form grid">
+        <form method="POST" action="{{ route('login') }}" class="login__form grid">
+            @csrf
             <div class="login__content">
-                <label for="" class="login__label">Email</label>
-                <input type="email" class="login__input">
+                <label for="email" value="{{ __('Email') }}" class="login__label">Email</label>
+                <input id="email" class="login__input" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
             </div>
 
             <div class="login__content">
-                <label for="" class="login__label">Senha</label>
-                <input type="password" class="login__input">
+                <label for="password" value="{{ __('Password') }}" class="login__label">Senha</label>
+                <input id="password" class="login__input" type="password" name="password" required autocomplete="current-password">
             </div>
 
             <div>
-                <a href="#" class="button">Entrar</a>
+                <button type="submit" class="button">Entrar</button>
             </div>
 
             <div>

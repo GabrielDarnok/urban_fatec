@@ -83,13 +83,12 @@
                             <p>Meus Pedidos</p>
                             <span>></span>
                         </a>
-                        
-                        <a href="#" class="sub-menu-link">
-                            <i class="bx bx-log-out"> </i>
-                            <p>Sair</p>
-                            <span>></span>
-                        </a>
-                        
+                        @auth
+                        <form action="/logout" method="POST" class="sub-menu-link">
+							@csrf
+							<a href="/logout" class="bx bx-log-out" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
+						</form>
+                        @endauth
                     </div>
                 </div>
 
