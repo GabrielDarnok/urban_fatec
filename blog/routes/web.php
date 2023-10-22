@@ -28,7 +28,7 @@ Route::get('/details',[redirectController::class, 'details']);
 
 Route::get('/procura',[redirectController::class, 'procura']);
 
-Route::get('/profile',[redirectController::class, 'profile']);
+Route::get('/profile/{id}',[redirectController::class, 'profile']);
 
 Route::get('/registro',[redirectController::class, 'registro']);
 

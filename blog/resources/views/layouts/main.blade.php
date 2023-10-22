@@ -71,19 +71,17 @@
                             <h3> Marisa Oliveira Cunha </h3>
                         </div>
                         <hr>
-
-                        <a href="/profile" class="sub-menu-link">
+                        @auth
+                        <a href="/profile/ {{ auth()->user()->id }}" class="sub-menu-link">
                             <i class="bx bx-user-circle"> </i>
                             <p>Meu perfil</p>
                             <span>></span>
                         </a>
-
                         <a href="#" class="sub-menu-link">
                             <i class="bx bx-package"> </i>
                             <p>Meus Pedidos</p>
                             <span>></span>
                         </a>
-                        @auth
                         <form action="/logout" method="POST" class="sub-menu-link">
 							@csrf
 							<a href="/logout" class="bx bx-log-out" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
