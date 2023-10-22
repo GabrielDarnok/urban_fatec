@@ -107,6 +107,124 @@
             </div>
         </nav>
     </header>
+    <!--=============== CART ===============-->
+    <div class="cart" id="cart">
+        <i class="bx bx-x cart__close" id="cart-close"></i>
+        
+        <h2 class="cart__title-center">Carrinho</h2>
+
+        <div class="cart__container">
+            <article class="cart__card">
+                <div class="cart__box">
+                    <img src="/img/cart-1.png" alt="" class="cart__img">
+                </div>
+                <div class="cart__details">
+                    <h3 class="cart__title">Top de manga comprida</h3>
+                    <span class="cart__price">R$ 50,00</span>
+                    <div class="cart__amount">
+                        <div class="cart__amount-content">
+                            <span class="cart__amount-box">
+                                <i class="bx bx-minus"></i>
+                            </span>
+
+                            <span class="cart__amount-number">1</span>
+
+                            <span class="cart__amount-box">
+                                <i class="bx bx-plus"></i>
+                            </span>
+                        </div>
+
+                        <i class="bx bx-trash-alt cart__amount-trash"></i>
+                    </div>
+                </div>
+            </article>
+            <article class="cart__card">
+                <div class="cart__box">
+                    <img src="/img/cart-2.png" alt="" class="cart__img">
+                </div>
+
+                <div class="cart__details">
+                    <h3 class="cart__title">Cardigã de textura sólida</h3>
+                    <span class="cart__price">R$ 50,00</span>
+
+                    <div class="cart__amount">
+                        <div class="cart__amount-content">
+                            <span class="cart__amount-box">
+                                <i class="bx bx-minus"></i>
+                            </span>
+
+                            <span class="cart__amount-number">1</span>
+
+                            <span class="cart__amount-box">
+                                <i class="bx bx-plus"></i>
+                            </span>
+                        </div>
+
+                        <i class="bx bx-trash-alt cart__amount-trash"></i>
+                    </div>
+                </div>
+            </article>
+
+            <article class="cart__card">
+                <div class="cart__box">
+                    <img src="/img/cart-3.png" alt="" class="cart__img">
+                </div>
+
+                <div class="cart__details">
+                    <h3 class="cart__title">SHEIN ICON Gorpcore</h3>
+                    <span class="cart__price">R$ 45,00</span>
+
+                    <div class="cart__amount">
+                        <div class="cart__amount-content">
+                            <span class="cart__amount-box">
+                                <i class="bx bx-minus"></i>
+                            </span>
+
+                            <span class="cart__amount-number">1</span>
+
+                            <span class="cart__amount-box">
+                                <i class="bx bx-plus"></i>
+                            </span>
+                        </div>
+
+                        <i class="bx bx-trash-alt cart__amount-trash"></i>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="cart__prices">
+            <span class="cart__prices-item">3 Produtos</span>
+            <span class="cart__prices-total">Total R$ 145,00</span>
+        </div>
+    </div>
+
+    <!--=============== LOGIN ===============-->
+    <div class="login" id="login">
+        <i class="bx bx-x login__close" id="login-close"></i>
+
+        <h2 class="login__title-center">Login</h2>
+        <form method="POST" action="{{ route('login') }}" class="login__form grid">
+            @csrf
+            <div class="login__content">
+                <label for="email" value="{{ __('Email') }}" class="login__label">Email</label>
+                <input id="email" class="login__input" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
+            </div>
+
+            <div class="login__content">
+                <label for="password" value="{{ __('Password') }}" class="login__label">Senha</label>
+                <input id="password" class="login__input" type="password" name="password" required autocomplete="current-password">
+            </div>
+
+            <div>
+                <button type="submit" class="button">Entrar</button>
+            </div>
+
+            <div>
+                <p class="signup">Nãe é cadastrado? <a href="/registro">Cadastrar-se agora.</a></p>
+            </div>
+        </form>
+    </div>
 
     <main>
 
