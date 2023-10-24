@@ -115,7 +115,7 @@ var body = document.body;
 
 if (localStorage.getItem("dark-mode") === "enabled") {
     body.classList.add("dark-mode");
-    icon.src = "../Urban Rebel/assets/img/sun.png";
+    icon.src = "img/sun.png";
 } else {
     icon.src = "img/moon.png";
 }
@@ -123,7 +123,7 @@ if (localStorage.getItem("dark-mode") === "enabled") {
 icon.onclick = function () {
     body.classList.toggle("dark-mode");
     if (body.classList.contains("dark-mode")) {
-        icon.src = "../Urban Rebel/assets/img/sun.png";
+        icon.src = "img/sun.png";
         localStorage.setItem("dark-mode", "enabled");
     } else {
         icon.src = "img/moon.png";
