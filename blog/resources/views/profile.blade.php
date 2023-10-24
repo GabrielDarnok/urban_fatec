@@ -16,13 +16,13 @@
 
                 <div class="profile__box">
                     <img src="/img/profile-pic.png" class="profile-pic">
-                    <h3 class="breadcrumb__subtitle">Olá, Marisa Oliveira Cunha.
+                    <h3 class="breadcrumb__subtitle">Olá, {{ auth()->user()->name }}.
                 </div>  
 
                 <form action="" class="register__form grid">
                         <div class="info">
                             <h2 class="info__text">Informações Pessoais</h2>
-                            <p>{{ $user->name }}</p>
+                            <p>{{ auth()->user()->name }}</p>
                             <p>Idade: 30 anos</p>
                             <p>Sexo: Masculino</p>
                         </div>

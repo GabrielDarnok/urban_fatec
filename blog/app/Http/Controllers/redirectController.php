@@ -35,10 +35,10 @@ class redirectController extends Controller
     public function profile($id){
         
         $user = User::findOrFail($id);
-
+        
         #Condição que verifica se o usuario que está acessando a view  tem o mesmo ID do usuario autenticado
-        if (Gate::allows('view', $user)) {
-            return view('profile', ['user' => $user]);
+        if ($user->id == auth()->user()->id) {
+            return view('profile');
         }
 
         abort(403); // Acesso não autorizado

@@ -68,11 +68,11 @@
                     <div class="sub-menu">
                         <div class="user-info">
                             <img src="/img/profile-pic.png">
-                            <h3> Marisa Oliveira Cunha </h3>
+                            <h3> {{ auth()->user()->name }} </h3>
                         </div>
                         <hr>
                         @auth
-                        <a href="/profile/ {{ auth()->user()->id }}" class="sub-menu-link">
+                        <a href="/profile/{{ auth()->user()->id }}" class="sub-menu-link">
                             <i class="bx bx-user-circle"> </i>
                             <p>Meu perfil</p>
                             <span>></span>

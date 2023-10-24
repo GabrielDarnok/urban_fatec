@@ -93,4 +93,17 @@ class ProductController extends Controller
         return redirect('/admin');
 
     }
+
+    public function busca_product(){
+        $busca = request('search');
+        
+        $message = 'Nenhum produto encontrado com os critérios de busca: ' . $busca;
+        
+        $Product_find = Product::where('nome_produto', 'LIKE', "%$busca%")->orWhere('categoria', 'LIKE', "%$busca%");
+        
+        #if ($Product_find->isEmpty() || empty($busca)) {
+        #    return view('procura',['message' => $message, 'busca' =>  $busca]);
+        #}
+        return view('procura', ['Product_find'=>$Product_find, 'busca' =>  $busca]);
+    }
 }
