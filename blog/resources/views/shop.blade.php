@@ -10,6 +10,20 @@
         <section class="shop section container">
             <h2 class="breadcrumb__title">Shop</h2>
             <h3 class="breadcrumb__subtitle">Inicio > <span>Shop</span></h3>
+            <div style="display: flex; margin-bottom: 40px;">
+                <div class="search__box" style = "background-color: #ffffff">
+                    <form action="{{ route('busca.busca_product') }} " style="display: flex; justify-content: space-between; width: 100%">
+                        @if (!isset($busca))
+                        <input class="input" style="border-radius: 10px; border: black" name="search" placeholder="Pesquise aqui">
+                        @else
+                        <input class="input" style="border-radius: 10px; border: black" name="search" placeholder="Pesquise aqui" value="{{ $busca }}">
+                        @endif
+                        <button type="submit" style="background: white;">
+                            <img src="/img/loupe.png" alt="lupa" height="20" width="20">
+                        </button>
+                    </form>
+                </div>
+            </div>
 
             <div class="shop__container grid">
                 <div class="sidebar">

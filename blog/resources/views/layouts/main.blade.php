@@ -66,12 +66,12 @@
                 <div class="sub-menu-wrap" id="subMenu">
 
                     <div class="sub-menu">
+                        @auth
                         <div class="user-info">
                             <img src="/img/profile-pic.png">
                             <h3> {{ auth()->user()->name }} </h3>
                         </div>
-                        <hr>
-                        @auth
+                        <hr>                       
                         <a href="/profile/{{ auth()->user()->id }}" class="sub-menu-link">
                             <i class="bx bx-user-circle"> </i>
                             <p>Meu perfil</p>
