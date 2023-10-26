@@ -99,7 +99,7 @@
                 </div>
 
                 <div>
-                    <img src="img/moon.png" id="moon">
+                    <img src="/img/moon.png" id="moon">
                 </div>
 
             </div>
@@ -213,7 +213,12 @@
                 <label for="password" value="{{ __('Password') }}" class="login__label">Senha</label>
                 <input id="password" class="login__input" type="password" name="password" required autocomplete="current-password">
             </div>
-
+            <div class="block mt-4">
+                <label for="remember_me" class="flex items-center">
+                    <x-checkbox id="remember_me" name="remember" />
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Lembrar de mim') }}</span>
+                </label>
+            </div>
             <div>
                 <button type="submit" class="button">Entrar</button>
             </div>

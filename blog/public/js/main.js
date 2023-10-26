@@ -115,18 +115,18 @@ var body = document.body;
 
 if (localStorage.getItem("dark-mode") === "enabled") {
     body.classList.add("dark-mode");
-    icon.src = "img/sun.png";
+    icon.src = "/img/sun.png";
 } else {
-    icon.src = "img/moon.png";
+    icon.src = "/img/moon.png";
 }
 
 icon.onclick = function () {
     body.classList.toggle("dark-mode");
     if (body.classList.contains("dark-mode")) {
-        icon.src = "img/sun.png";
+        icon.src = "/img/sun.png";
         localStorage.setItem("dark-mode", "enabled");
     } else {
-        icon.src = "img/moon.png";
+        icon.src = "/img/moon.png";
         localStorage.setItem("dark-mode", "disabled");
     }
 };

@@ -99,11 +99,11 @@ class ProductController extends Controller
         
         $message = 'Nenhum produto encontrado com os critérios de busca: ' . $busca;
         
-        $Product_find = product::where('nome_produto', 'LIKE', "%$busca%")->orWhere('categoria_produto', 'LIKE', "%$busca%")->get();
+        $products = product::where('nome_produto', 'LIKE', "%$busca%")->orWhere('categoria_produto', 'LIKE', "%$busca%")->get();
         
         #if ($Product_find->isEmpty() || empty($busca)) {
         #    return view('procura',['message' => $message, 'busca' =>  $busca]);
         #}
-        return view('procura', ['Product_find' =>$Product_find, 'busca' =>  $busca]);
+        return view('shop', ['products' =>$products, 'busca' =>  $busca]);
     }
 }
