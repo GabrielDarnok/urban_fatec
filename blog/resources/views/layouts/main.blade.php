@@ -57,16 +57,18 @@
                 <div class="nav__search" id="nav-search">
                     <a href="/procura" class="bx bx-search"></a>
                 </div>
-
+                @guest
                 <div class="login__toggle" id="login-toggle">
                     <i class="bx bx-user"> </i>
                 </div>
-
-                <img src="/img/profile-pic.png" class="user__pic" id="userPic">
+                @endguest
+                @auth
+                <div>
+                    <img src="/img/profile-pic.png" class="user__pic" id="userPic">
+                </div>
                 <div class="sub-menu-wrap" id="subMenu">
 
                     <div class="sub-menu">
-                        @auth
                         <div class="user-info">
                             <img src="/img/profile-pic.png">
                             <h3> {{ auth()->user()->name }} </h3>
@@ -86,8 +88,8 @@
 							@csrf
 							<a href="/logout" class="bx bx-log-out" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
 						</form>
-                        @endauth
                     </div>
+                @endauth
                 </div>
 
                 <div class="nav__shop" id="cart-shop">
