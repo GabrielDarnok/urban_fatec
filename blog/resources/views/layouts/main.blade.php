@@ -202,6 +202,9 @@
         <i class="bx bx-x login__close" id="login-close"></i>
 
         <h2 class="login__title-center">Login</h2>
+
+        <x-validation-errors class="mb-4" />
+
         <form method="POST" action="{{ route('login') }}" class="login__form grid">
             @csrf
             <div class="login__content">
