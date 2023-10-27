@@ -106,4 +106,12 @@ class ProductController extends Controller
         #}
         return view('shop', ['products' =>$products, 'busca' =>  $busca]);
     }
+
+    public function show_product($id){
+
+        $Product = product::findOrfail($id);
+
+        return view('details', ['Product' => $Product]);
+
+    }
 }

@@ -55,7 +55,7 @@
             <div class="nav__btns">
 
                 <div class="nav__search" id="nav-search">
-                    <a href="/procura" class="bx bx-search"></a>
+                    <a href="/shop" class="bx bx-search"></a>
                 </div>
                 @guest
                 <div class="login__toggle" id="login-toggle">

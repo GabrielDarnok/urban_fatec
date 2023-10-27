@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="product__info">
-                    <h3 class="details__subtitle">Top de manga comprida</h3>
+                    <h3 class="details__subtitle">{{ $Product->nome_produto }}</h3>
                     <p class="details__title">You Matter</p>
 
                     <div class="rating">
@@ -47,14 +47,13 @@
                     </div>
 
                     <div class="details__prices">
-                        <span class="details__price">R$ 50,00</span>
+                        <span class="details__price">{{ $Product->valor_produto }}</span>
                     </div>
 
                     <div class="details__description">
                         <h3 class="description__tittle">Detalhes do Produto</h3>
                         <div class="description__details">
-                            <p>Camisa feita com composição acrílica, leve e vindo com estilo para
-                            fazer você se destacar.
+                            <p>{{ $Product->descricao_produto }}
                             </p>
                         </div>
                     </div>

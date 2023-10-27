@@ -29,9 +29,6 @@ class redirectController extends Controller
     public function details(){
         return view('details');
     }
-    public function procura(){
-        return view('procura');
-    }
     public function profile($id){
         
         $user = User::findOrFail($id);

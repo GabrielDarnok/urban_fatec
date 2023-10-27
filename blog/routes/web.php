@@ -26,8 +26,6 @@ Route::get('/contato',[redirectController::class, 'contato']);
 
 Route::get('/details',[redirectController::class, 'details']);
 
-Route::get('/procura',[redirectController::class, 'procura']);
-
 Route::get('/profile/{id}',[redirectController::class, 'profile']);
 
 Route::get('/registro',[redirectController::class, 'registro']);
@@ -59,3 +57,5 @@ Route::get('/admin/edit/{id}', [ProductController::class, 'edit']);
 Route::post('admin/update/{id}', [ProductController::class, 'update']);
 
 Route::get('/procura/product', [ProductController::class, 'busca_product'])->name('busca.busca_product');
+
+Route::get('/shop/product/{id}', [ProductController::class, 'show_product']);

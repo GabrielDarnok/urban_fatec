@@ -153,7 +153,7 @@
                     @foreach ($products as $product)
                     <div class="shop__content">
                         <div class="shop__tag">Novo</div>
-                        <a href="/details">
+                        <a href="/shop/product/{{ $product->id }}">
                             <img src="/img/product/{{ $product->imagem_produto }}" alt="" class="shop__img">
                         </a>
                         <h3 class="shop__title">{{ $product->nome_produto }}</h3>
