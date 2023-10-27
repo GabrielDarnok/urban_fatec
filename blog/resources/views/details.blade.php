@@ -107,101 +107,26 @@
             <div class="new__container container">
                 <div class="swiper new-swiper">
                     <div class="swiper-wrapper">
-                        <!--Nova coleção 1-->
+                        @if(isset($Products))
+                        @foreach ($Products as $product_show)
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
-                            <img src=" /img/new-1.png" alt="" class="new__img">
-                            <h3 class="new__title">Camisa 023</h3>
-                            <span class="new__subtitle">Stree Art</span>
+                            <a href="/shop/product/{{ $product_show->id }}">
+                                <img src="/img/new-1.png" alt="" class="new__img">
+                            </a>
+                            <h3 class="new__title">{{ $product_show->nome_produto }}</h3>
+                            <span class="new__subtitle">You Matter</span>
 
                             <div class="new__prices">
-                                <span class="new__price">R$ 40,00</span>
+                                <span class="new__price">{{ $product_show->valor_produto }}</span>
                             </div>
 
-                            <a href="shop.html" class="button new__button">
+                            <a href="/shop/product/{{ $product_show->id }}" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
-
-                        <!--Nova coleção 2-->
-                        <div class="new__content swiper-slide">
-                            <div class="new__tag">Novo</div>
-                            <img src=" /img/new-2.png" alt="" class="new__img">
-                            <h3 class="new__title">Camisa Envy</h3>
-                            <span class="new__subtitle">Stree Art</span>
-
-                            <div class="new__prices">
-                                <span class="new__price">R$ 40,00</span>
-                            </div>
-
-                            <a href="shop.html" class="button new__button">
-                                 <i class="bx bx-cart-alt new__icon"></i>
-                            </a>
-                        </div>
-
-                        <!--Nova coleção 3-->
-                        <div class="new__content swiper-slide">
-                            <div class="new__tag">Novo</div>
-                            <img src=" /img/new-3.png" alt="" class="new__img">
-                            <h3 class="new__title">Blusa Dead Inside</h3>
-                            <span class="new__subtitle">Stree Art</span>
-
-                            <div class="new__prices">
-                                <span class="new__price">R$ 60,00</span>
-                            </div>
-
-                            <a href="shop.html" class="button new__button">
-                                 <i class="bx bx-cart-alt new__icon"></i>
-                            </a>
-                        </div>
-
-                        <!--Nova coleção 4-->
-                        <div class="new__content swiper-slide">
-                            <div class="new__tag">Novo</div>
-                            <img src=" /img/new-4.png" alt="" class="new__img">
-                            <h3 class="new__title">Camisa Dead Inside</h3>
-                            <span class="new__subtitle">Stree Art</span>
-
-                            <div class="new__prices">
-                                <span class="new__price">R$ 40,00</span>
-                            </div>
-
-                            <a href="shop.html" class="button new__button">
-                                 <i class="bx bx-cart-alt new__icon"></i>
-                            </a>
-                        </div>
-
-                        <!--Nova coleção 5-->
-                        <div class="new__content swiper-slide">
-                            <div class="new__tag">Novo</div>
-                            <img src=" /img/new-5.png" alt="" class="new__img">
-                            <h3 class="new__title">Camisa Queen</h3>
-                            <span class="new__subtitle">Stree Art</span>
-
-                            <div class="new__prices">
-                                <span class="new__price">R$ 40,00</span>
-                            </div>
-
-                            <a href="shop.html" class="button new__button">
-                                 <i class="bx bx-cart-alt new__icon"></i>
-                            </a>
-                        </div>
-
-                        <!--Nova coleção 6-->
-                        <div class="new__content swiper-slide">
-                            <div class="new__tag">Novo</div>
-                            <img src=" /img/new-6.png" alt="" class="new__img">
-                            <h3 class="new__title">Camisa Happy</h3>
-                            <span class="new__subtitle">Stree Art</span>
-
-                            <div class="new__prices">
-                                <span class="new__price">R$ 40,00</span>
-                            </div>
-
-                            <a href="shop.html" class="button new__button">
-                                 <i class="bx bx-cart-alt new__icon"></i>
-                            </a>
-                        </div>
+                        @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
