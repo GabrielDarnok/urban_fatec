@@ -101,9 +101,9 @@ class ProductController extends Controller
         
         $products = product::where('nome_produto', 'LIKE', "%$busca%")->orWhere('categoria_produto', 'LIKE', "%$busca%")->get();
         
-        #if ($Product_find->isEmpty() || empty($busca)) {
-        #    return view('procura',['message' => $message, 'busca' =>  $busca]);
-        #}
+        if ($products->isEmpty() || empty($busca)) {
+            return view('shop',['message' => $message, 'busca' =>  $busca]);
+        }
         return view('shop', ['products' =>$products, 'busca' =>  $busca]);
     }
 
