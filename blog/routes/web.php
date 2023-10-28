@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\redirectController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CarrinhoController;
 use App\Models\Product;
 
 /*
@@ -64,3 +65,5 @@ Route::get('/endereco/edit/{id}', [UserController::class, 'edit_endereco']);
 Route::post('/endereco/update/{id}', [UserController::class, 'update_endereco']);
 
 Route::delete('/endereco/{endereco}', [UserController::class, 'destroy_endereco'])->name('endereco.destroy');
+
+Route::post('/car/{id}', [CarrinhoController::class, 'add_carrinho']);

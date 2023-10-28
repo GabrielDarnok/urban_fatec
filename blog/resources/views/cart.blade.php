@@ -23,7 +23,7 @@
                         <div class="out__box">
                             <img src="/img/cart-1.png" alt="" class="out__img">
                         </div>
-        
+                        
                         <div class="out__details">
                             <h3 class="out__title">Top de manga comprida</h3>
                             <span class="out__price">R$ 50,00</span>

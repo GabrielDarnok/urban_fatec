@@ -94,8 +94,10 @@
 
                         <i class="bx bx-heart cart__amount-heart"></i>
                     </div>
-
-                    <a href="#" class="button">Adicionar ao carrinho</a>
+                    <form action="/car/{{ $Product->id }}" method="POST">
+                        @csrf
+                        <button type="submit" class="button">Adicionar ao carrinho</button> 
+                    </form>
                 </div>
             </div>
         </section>
