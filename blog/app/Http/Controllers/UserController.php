@@ -24,14 +24,18 @@ class UserController extends Controller
 
         $endereco->save();
         
-        return redirect('/registro');
+        return redirect('/registro_end');
     }
     
     public function edit_endereco($id){
 
         $endereco = Endereco::findOrfail($id);
 
-        return view('registro_edit', ['endereco' => $endereco]);
+        if($endereco->id_usuario == auth()->user()->id){
+            return view('user.registro_edit', ['endereco' => $endereco]);
+        }
+
+        abort(403); //acesso não autorizado
     }
 
     public function update_endereco(Request $request){
@@ -40,7 +44,7 @@ class UserController extends Controller
 
         Endereco::FindOrFail($request->id)->update($dados);
         
-        return redirect('/registro');
+        return redirect('/registro_end');
     }
 
     public function destroy_endereco($id){
@@ -50,6 +54,6 @@ class UserController extends Controller
 
         $endereco->delete();
         
-        return redirect('/registro');
+        return redirect('/registro_end');
     }
 }

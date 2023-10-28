@@ -36,7 +36,7 @@ class redirectController extends Controller
         
         #Condição que verifica se o usuario que está acessando a view  tem o mesmo ID do usuario autenticado
         if ($user->id == auth()->user()->id) {
-            return view('profile');
+            return view('user.profile');
         }
 
         abort(403); // Acesso não autorizado
@@ -45,7 +45,7 @@ class redirectController extends Controller
 
         $enderecos = Endereco::where('id_usuario', auth()->user()->id)->get();
 
-        return view('registro', ['enderecos' => $enderecos]);
+        return view('user.registro_end', ['enderecos' => $enderecos]);
     }
     public function shop(){
         $produtcs = Product::all();
