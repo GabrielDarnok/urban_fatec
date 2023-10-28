@@ -45,7 +45,7 @@ class UserController extends Controller
 
     public function destroy_endereco($id){
         
-        // Localize o produto
+        // Localize o endereco
         $endereco = Endereco::find($id);
 
         $endereco->delete();
