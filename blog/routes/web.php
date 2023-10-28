@@ -67,3 +67,5 @@ Route::post('/endereco/update/{id}', [UserController::class, 'update_endereco'])
 Route::delete('/endereco/{endereco}', [UserController::class, 'destroy_endereco'])->name('endereco.destroy');
 
 Route::post('/car/{id}', [CarrinhoController::class, 'add_carrinho']);
+
+Route::delete('/car/delete/{id}', [CarrinhoController::class, 'destroy_car'])->name('car.destroy');

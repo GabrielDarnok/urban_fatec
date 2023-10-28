@@ -17,16 +17,15 @@
                         <span class="out__prices-total">CARRINHO</span>
                         <span class="Out__prices-item">3 Produtos</span>
                     </div>
-
+                    @foreach ($produtosNoCarrinho as $cart)
                     <div class="out__container">
                     <article class="out__card">
                         <div class="out__box">
                             <img src="/img/cart-1.png" alt="" class="out__img">
                         </div>
-                        
                         <div class="out__details">
-                            <h3 class="out__title">Top de manga comprida</h3>
-                            <span class="out__price">R$ 50,00</span>
+                            <h3 class="out__title">{{ $cart->nome_produto }}</h3>
+                            <span class="out__price">{{ $cart->valor_produto }}</span>
         
                             <div class="out__amount">
                                 <div class="out__amount-content">
@@ -40,68 +39,16 @@
                                         <i class="bx bx-plus"></i>
                                     </span>
                                 </div>
-        
-                                <i class="bx bx-trash-alt out__amount-trash"></i>
+                                <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
+                                </form>
                             </div>
                         </div>
                     </article>
-        
-                    <article class="out__card">
-                        <div class="out__box">
-                            <img src="/img/cart-2.png" alt="" class="out__img">
-                        </div>
-        
-                        <div class="out__details">
-                            <h3 class="out__title">Cardigã de textura sólida</h3>
-                            <span class="cart__price">R$ 50,00</span>
-        
-                            <div class="out__amount">
-                                <div class="out__amount-content">
-                                    <span class="out__amount-box">
-                                        <i class="bx bx-minus"></i>
-                                    </span>
-        
-                                    <span class="out__amount-number">1</span>
-        
-                                    <span class="out__amount-box">
-                                        <i class="bx bx-plus"></i>
-                                    </span>
-                                </div>
-        
-                                <i class="bx bx-trash-alt out__amount-trash"></i>
-                            </div>
-                        </div>
-                    </article>
-        
-                    <article class="out__card">
-                        <div class="out__box">
-                            <img src="/img/cart-3.png" alt="" class="out__img">
-                        </div>
-        
-                        <div class="out__details">
-                            <h3 class="out__title">SHEIN ICON Gorpcore</h3>
-                            <span class="out__price">R$ 45,00</span>
-        
-                            <div class="out__amount">
-                                <div class="out__amount-content">
-                                    <span class="out__amount-box">
-                                        <i class="bx bx-minus"></i>
-                                    </span>
-        
-                                    <span class="out__amount-number">1</span>
-        
-                                    <span class="out__amount-box">
-                                        <i class="bx bx-plus"></i>
-                                    </span>
-                                </div>
-        
-                                <i class="bx bx-trash-alt out__amount-trash"></i>
-                            </div>
-                        </div>
-                    </article>
-                    </div>
                 </div>
-
+                @endforeach
                 <div class="checksider__container">
                     <h3 class="check__title">Checkout</h3>
                     <div class="filter__content">

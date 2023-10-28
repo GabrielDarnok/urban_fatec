@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Role;
+use App\Models\Car;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -61,16 +62,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function Products(){
-        return $this->hasMany('App\Models\Products');
-    }
-
-    public function ProductsAsCarrinho() {
-        return $this->belongsToMany('App\Models\Products')->withPivot('quantidade_produto');
-    }
-    
-    public function roles()
-    {
-        return $this->belongsToMany('App\Models\User');
+    public function carrinho(){
+        return $this->hasMany(Car::class, 'id_usuario', 'id');
     }
 }

@@ -52,8 +52,13 @@ class UserController extends Controller
         // Localize o endereco
         $endereco = Endereco::find($id);
 
-        $endereco->delete();
+        //Valida se o usuario dono do cadastro que está realizando a exclusão do produto
+        if($endereco->id_usuario == auth()->user()->id){
+            $endereco->delete();
+            
+            return redirect('/registro_end');
+        }
         
-        return redirect('/registro_end');
+        abort(403);
     }
 }
