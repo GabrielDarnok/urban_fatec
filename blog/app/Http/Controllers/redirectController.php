@@ -6,6 +6,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Endereco;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Gate;
 
@@ -41,7 +42,10 @@ class redirectController extends Controller
         abort(403); // Acesso não autorizado
     }
     public function registro(){
-        return view('registro');
+
+        $enderecos = Endereco::all();
+
+        return view('registro', ['enderecos' => $enderecos]);
     }
     public function shop(){
         $produtcs = Product::all();

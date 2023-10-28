@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\redirectController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use App\Models\Product;
 
 /*
@@ -59,3 +60,11 @@ Route::post('admin/update/{id}', [ProductController::class, 'update']);
 Route::get('/procura/product', [ProductController::class, 'busca_product'])->name('busca.busca_product');
 
 Route::get('/shop/product/{id}', [ProductController::class, 'show_product']);
+
+Route::post('/user/endereco', [UserController::class, 'cadastrar_endereco']);
+
+Route::get('/endereco/edit/{id}', [UserController::class, 'edit_endereco']);
+
+Route::post('/endereco/update/{id}', [UserController::class, 'update_endereco']);
+
+Route::delete('/endereco/{endereco}', [UserController::class, 'destroy_endereco'])->name('endereco.destroy');

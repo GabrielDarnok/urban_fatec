@@ -229,7 +229,7 @@
             </div>
 
             <div>
-                <p class="signup">Nãe é cadastrado? <a href="/registro">Cadastrar-se agora.</a></p>
+                <p class="signup">Nãe é cadastrado? <a href="/register">Cadastrar-se agora.</a></p>
             </div>
         </form>
     </div>
