@@ -43,7 +43,7 @@ class redirectController extends Controller
     }
     public function registro(){
 
-        $enderecos = Endereco::all();
+        $enderecos = Endereco::where('id_usuario', auth()->user()->id)->get();
 
         return view('registro', ['enderecos' => $enderecos]);
     }
