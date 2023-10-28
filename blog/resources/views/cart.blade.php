@@ -15,7 +15,7 @@
                 <div class="checksider__container">
                     <div class="out__prices">
                         <span class="out__prices-total">CARRINHO</span>
-                        <span class="Out__prices-item">3 Produtos</span>
+                        <span class="Out__prices-item">{{ $count }} Produtos</span>
                     </div>
                     @foreach ($produtosNoCarrinho as $cart)
                     <div class="out__container">

@@ -29,14 +29,18 @@ class redirectController extends Controller
         //Atribuir os valores encontrados em um array
         $produtosNoCarrinho = [];
 
+        //Retorna a quantidade de produtos no carrinho
+        $count = 0;
+
         // Acesse os produtos relacionados a partir dos registros do carrinho
         foreach ($carrinho as $item) {
             $produto = $item->produto;
             $produto->carrinho_id = $item->id; // Adicione o ID do carrinho ao objeto de produto para poder ser referenciado na view
             $produtosNoCarrinho[] = $produto;
+            $count++;
         }
            
-        return view('cart', ['produtosNoCarrinho' => $produtosNoCarrinho]);
+        return view('cart', ['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count]);
     }
     public function contato(){
         return view('contato');
