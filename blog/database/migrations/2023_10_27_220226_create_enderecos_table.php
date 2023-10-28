@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('cep');
             $table->string('rua');
             $table->string('number_house');
-            $table->string('complemento');
+            $table->string('complemento')->nullable();
             $table->timestamps();
 
             // Definindo a chave estrangeira
