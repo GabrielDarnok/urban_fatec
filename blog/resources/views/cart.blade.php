@@ -52,7 +52,7 @@
                 <div class="checksider__container">
                     <h3 class="check__title">Checkout</h3>
                     <div class="filter__content">
-                        <h3 class="check__subtitle">Subtotal</h3> <span>R$ 145,00</span>
+                        <h3 class="check__subtitle">Subtotal</h3> <span>R$ {{ number_format($subtotal, 2, ',', '.') }}</span>
                         <h3 class="check__subtitle">Frete</h3> <span>R$ 20,00</span>
                         <h3 class="check__subtitle">Total</h3> <span>R$ 165,00</span>
                     </div>

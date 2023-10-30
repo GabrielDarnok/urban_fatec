@@ -32,15 +32,20 @@ class redirectController extends Controller
         //Retorna a quantidade de produtos no carrinho
         $count = 0;
 
+        //Retorna o valor do que está no carrinho
+        $subtotal = 0;
+
         // Acesse os produtos relacionados a partir dos registros do carrinho
         foreach ($carrinho as $item) {
             $produto = $item->produto;
             $produto->carrinho_id = $item->id; // Adicione o ID do carrinho ao objeto de produto para poder ser referenciado na view
             $produtosNoCarrinho[] = $produto;
             $count++;
+            // Some o valor do produto ao subtotal
+            $subtotal += $produto->valor_produto;
         }
            
-        return view('cart', ['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count]);
+        return view('cart', ['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count, 'subtotal' => $subtotal]);
     }
     public function contato(){
         return view('contato');
