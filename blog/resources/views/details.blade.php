@@ -57,45 +57,44 @@
                             </p>
                         </div>
                     </div>
-
-                    <div>
-                        <h3 class="size__title">Tamanho</h3>
-                    </div>
-
-                    <div class="size__selector">
-                        <div class="size__option">G</div>
-                        <div class="size__option">GG</div>
-                        <div class="size__option">G2</div>
-                        <div class="size__option">G3</div>
-                        <div class="size__option">G4</div>
-                        <div class="size__option">G5</div>
-                    </div>
-
-                    <div>
-                        <br><h3 class="size__title">Cores</h3>
-                    </div>
-
-                    <div class="color__selector">
-                        <div class="color__option" ></div>
-                    </div>
-
-                    <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class="cart__amount-box">
-                                <i class="bx bx-minus"></i>
-                            </span>
-
-                            <span class="cart__amount-number">1</span>
-
-                            <span class="cart__amount-box">
-                                <i class="bx bx-plus"></i>
-                            </span>
+                    <form action="/car/add_car" method="POST">
+                    @csrf
+                        <input type="hidden" name="id" value="{{ $Product->id }}">
+                        <input type="hidden" name="quantidade_car" value="123">
+                        <div>
+                            <h3 class="size__title">Tamanho</h3>
                         </div>
 
-                        <i class="bx bx-heart cart__amount-heart"></i>
-                    </div>
-                    <form action="/car/{{ $Product->id }}" method="POST">
-                        @csrf
+                        <div class="size__selector">
+                            <div class="size__option">G</div>
+                            <div class="size__option">GG</div>
+                            <div class="size__option">G2</div>
+                            <div class="size__option">G3</div>
+                            <div class="size__option">G4</div>
+                            <div class="size__option">G5</div>
+                        </div>
+
+                        <div>
+                            <br><h3 class="size__title">Cores</h3>
+                        </div>
+
+                        <div class="color__selector"></div>
+                        <div class="color__option" ></div>
+                        <div class="cart__amount">
+                            <div class="cart__amount-content">
+                                <span class="cart__amount-box">
+                                    <i class="bx bx-minus"></i>
+                                </span>
+
+                                <span class="cart__amount-number">5</span>
+
+                                <span class="cart__amount-box">
+                                    <i class="bx bx-plus"></i>
+                                </span>
+                            </div>
+
+                            <i class="bx bx-heart cart__amount-heart"></i>
+                        </div>
                         <button type="submit" class="button">Adicionar ao carrinho</button> 
                     </form>
                 </div>

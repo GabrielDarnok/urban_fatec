@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_usuario'); // Coluna que será a chave estrangeira
             $table->unsignedBigInteger('id_produto');
+            $table->integer('quantidade_car');
             $table->timestamps();
 
             // Definindo as chaves estrangeiras

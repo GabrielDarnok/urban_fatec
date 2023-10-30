@@ -8,11 +8,12 @@ use App\Models\Car;
 
 class CarrinhoController extends Controller
 {
-    public function add_carrinho($id){
+    public function add_carrinho(Request $request){
         $car = new Car();
 
-        $car->id_produto = $id;
+        $car->id_produto = $request->id;
         $car->id_usuario = auth()->user()->id;
+        $car->quantidade_car = $request->quantidade_car;
 
         $car->save();
         
