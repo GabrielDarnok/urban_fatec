@@ -20,7 +20,7 @@ use App\Models\Product;
 
 Route::get('/',[redirectController::class, 'index']);
 
-Route::get('/cart',[redirectController::class, 'cart']);
+Route::get('/cart',[redirectController::class, 'cart'])->middleware('auth');
 
 Route::get('/contato',[redirectController::class, 'contato']);
 
