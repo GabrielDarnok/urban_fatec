@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" href="/img/Logo.png" type="image/x-icon">
     <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
@@ -235,7 +235,11 @@
     </div>
 
     <main>
-
+    <div>
+        @if(session('msg'))
+        <p class="msg">{{ session('msg') }}</p>
+        @endif
+    </div>
     @yield ('content')
     
     </main>

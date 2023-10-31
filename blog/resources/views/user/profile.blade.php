@@ -40,8 +40,8 @@
             <br><br>
 
             <div class="card">
-                <a href="#" id="toggleFields" class="collapse-btn">Atualizar Dados</a>
-                <a href="/registro_end" id="toggleFields" class="collapse-btn">Cadastrar endereco</a>
+                <a href="#" id="toggleFields" class="collapse-btn" style= "width: 50%;">Atualizar Dados</a>
+                <a href="/registro_end" id="toggleFields" class="collapse-btn" style= "width: 50%; margin-top: 15px">Cadastrar endereco</a>
                 <div id="fieldsToToggle" style="display: none;">
                     <div class="register__inputs grid">
                         <div class="register__content">

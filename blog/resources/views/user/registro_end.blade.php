@@ -37,7 +37,7 @@
                             <input type="text" class="register__input" name="complemento" id="complemento">
                         </div>
                     </div>
-                   <div>
+                   <div style = "justify-content: center; display: flex; margin-top: 10px">
                    <button type="submit" class="button">Cadastrar endereço</button>
                    </div>
                 </form>

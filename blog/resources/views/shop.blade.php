@@ -152,7 +152,7 @@
                 </div>       
                 <div class="shop__items grid">
                     @foreach ($products as $product)
-                    <div class="shop__content">
+                    <div class="shop__content" style = "max-height: 40%">
                         <div class="shop__tag">Novo</div>
                         <a href="/shop/product/{{ $product->id }}">
                             <img src="/img/product/{{ $product->imagem_produto }}" alt="" class="shop__img">

@@ -24,7 +24,7 @@ class UserController extends Controller
 
         $endereco->save();
         
-        return redirect('/registro_end');
+        return redirect('/registro_end')->with('msg', 'Endereço cadastrado com sucesso!');
     }
     
     public function edit_endereco($id){
@@ -44,7 +44,7 @@ class UserController extends Controller
 
         Endereco::FindOrFail($request->id)->update($dados);
         
-        return redirect('/registro_end');
+        return redirect('/registro_end')->with('msg', 'Endereço editado com sucesso!');
     }
 
     public function destroy_endereco($id){
@@ -56,7 +56,7 @@ class UserController extends Controller
         if($endereco->id_usuario == auth()->user()->id){
             $endereco->delete();
             
-            return redirect('/registro_end');
+            return redirect('/registro_end')->with('msg', 'Endereço excluido com sucesso!');
         }
         
         abort(403);

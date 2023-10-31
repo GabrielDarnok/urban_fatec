@@ -24,7 +24,10 @@ class redirectController extends Controller
     }
     public function cart(){
         
-        $carrinho = Car::where('id_usuario', auth()->user()->id)->get();
+        if(!isset(auth()->user()->id)){
+            return redirect('/login');
+        }
+            $carrinho = Car::where('id_usuario', auth()->user()->id)->get();
         
         //Atribuir os valores encontrados em um array
         $produtosNoCarrinho = [];
