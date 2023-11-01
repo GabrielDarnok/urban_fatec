@@ -17,7 +17,7 @@ class CarrinhoController extends Controller
 
         $car->save();
         
-        return redirect('/cart');
+        return redirect('/cart')->with('msg','Produto adicionado no carrinho!');
     }
 
     public function destroy_car($id){
@@ -29,7 +29,7 @@ class CarrinhoController extends Controller
         if($cart->id_usuario == auth()->user()->id){
             $cart->delete();
             
-            return redirect('/cart');
+            return redirect('/cart')->with('msg','Produto removido do carrinho!');
         }
           
         abort(403);//Acesso negado

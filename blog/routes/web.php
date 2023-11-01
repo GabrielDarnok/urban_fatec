@@ -44,7 +44,7 @@ Route::middleware([
     })->name('index');
 });
 
-Route::get('/admin', [redirectController::class, 'admin'])->middleware('auth');;
+Route::get('/admin', [redirectController::class, 'admin']);
 
 Route::post('/products', [ProductController::class, 'store']);
 
