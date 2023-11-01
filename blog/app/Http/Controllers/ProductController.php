@@ -38,7 +38,7 @@ class ProductController extends Controller
     
         $product->save();
         
-        return redirect('/admin');
+        return redirect('/admin')->with('msg', 'Add com sucesso!');
     }
     
     public function destroy($id){
@@ -90,7 +90,7 @@ class ProductController extends Controller
 
         product::FindOrFail($request->id)->update($dados);
 
-        return redirect('/admin');
+        return redirect('/admin')->with('msg', 'Editado com sucesso!');
 
     }
 

@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="/css/colors/color-1.css">
 
     <title>You Matter</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <!--=============== HEADER ===============-->
@@ -45,6 +47,9 @@
 
                     <li class="nav__item">
                         <a href="/contato" class="nav__link">Contato</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/admin" class="nav__link">Admin Page</a>
                     </li>
                 </ul>
 
@@ -234,12 +239,20 @@
         </form>
     </div>
 
-    <main>
-    <div>
+    <main> 
         @if(session('msg'))
-        <p class="msg">{{ session('msg') }}</p>
+        <input type="hidden" id="msg" value="{{ session('msg') }}">
+        <script>
+            var mensagem = document.getElementById('msg').value;
+            if(mensagem){
+                Swal.fire(
+                'Sucesso!',
+                mensagem,
+                'success'
+                );
+            }
+        </script>          
         @endif
-    </div>
     @yield ('content')
     
     </main>
