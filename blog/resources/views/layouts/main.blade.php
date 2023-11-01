@@ -36,11 +36,11 @@
                     <li class="nav__item">
                         <a href="/shop" class="nav__link">Shop</a>
                     </li>
-
+                    @auth
                     <li class="nav__item">
                         <a href="/cart" class="nav__link">Carrinho</a>
                     </li>
-
+                    @endauth
                     <li class="nav__item">
                         <a href="/sobre" class="nav__link">Quem somos</a>
                     </li>
