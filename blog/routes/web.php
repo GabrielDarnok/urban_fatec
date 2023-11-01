@@ -26,7 +26,7 @@ Route::get('/contato',[redirectController::class, 'contato']);
 
 Route::get('/details',[redirectController::class, 'details']);
 
-Route::get('/profile/{id}',[redirectController::class, 'profile']);
+Route::get('/profile/{id}',[redirectController::class, 'profile'])->middleware('auth');;
 
 Route::get('/registro_end',[redirectController::class, 'registro']);
 
@@ -44,7 +44,7 @@ Route::middleware([
     })->name('index');
 });
 
-Route::get('/admin', [redirectController::class, 'admin']);
+Route::get('/admin', [redirectController::class, 'admin'])->middleware('auth');;
 
 Route::post('/products', [ProductController::class, 'store']);
 
@@ -58,14 +58,14 @@ Route::get('/procura/product', [ProductController::class, 'busca_product'])->nam
 
 Route::get('/shop/product/{id}', [ProductController::class, 'show_product']);
 
-Route::post('/user/endereco', [UserController::class, 'cadastrar_endereco']);
+Route::post('/user/endereco', [UserController::class, 'cadastrar_endereco'])->middleware('auth');;
 
-Route::get('/endereco/edit/{id}', [UserController::class, 'edit_endereco']);
+Route::get('/endereco/edit/{id}', [UserController::class, 'edit_endereco'])->middleware('auth');;
 
-Route::post('/endereco/update/{id}', [UserController::class, 'update_endereco']);
+Route::post('/endereco/update/{id}', [UserController::class, 'update_endereco'])->middleware('auth');;
 
 Route::delete('/endereco/{endereco}', [UserController::class, 'destroy_endereco'])->name('endereco.destroy');
 
-Route::post('/car/add_car', [CarrinhoController::class, 'add_carrinho'])->middleware('auth');;
+Route::post('/car/add_car', [CarrinhoController::class, 'add_carrinho'])->middleware('auth');
 
-Route::delete('/car/delete/{id}', [CarrinhoController::class, 'destroy_car'])->name('car.destroy');
+Route::delete('/car/delete/{id}', [CarrinhoController::class, 'destroy_car'])->name('car.destroy')->middleware('auth');
