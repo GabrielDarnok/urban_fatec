@@ -234,7 +234,7 @@
                 </label>
             </div>
             <div>
-                <button type="submit" class="button">Entrar</button>
+                <button type="submit" class="button" onclick="verifyLogin()">Entrar</button>
             </div>
 
             <div>
@@ -250,9 +250,9 @@
             var mensagem = document.getElementById('msg').value;
             if(mensagem){
                 Swal.fire(
-                'Sucesso!',
-                mensagem,
-                'success'
+                    'Sucesso!',
+                    mensagem,
+                    'success'
                 );
             }
         </script>          
