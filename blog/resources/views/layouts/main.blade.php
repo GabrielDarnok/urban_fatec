@@ -49,9 +49,11 @@
                         <a href="/contato" class="nav__link">Contato</a>
                     </li>
                     @auth
+                    @if(auth()->user()->role == "admin")
                     <li class="nav__item">
                         <a href="/admin" class="nav__link">Admin Page</a>
                     </li>
+                    @endif
                     @endauth
                 </ul>
 
