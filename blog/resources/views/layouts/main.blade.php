@@ -48,9 +48,11 @@
                     <li class="nav__item">
                         <a href="/contato" class="nav__link">Contato</a>
                     </li>
+                    @auth
                     <li class="nav__item">
                         <a href="/admin" class="nav__link">Admin Page</a>
                     </li>
+                    @endauth
                 </ul>
 
                 <div class="nav__close" id="nav-close">
