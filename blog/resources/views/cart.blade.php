@@ -15,9 +15,9 @@
                 <div class="checksider__container">
                     <div class="out__prices">
                         <span class="out__prices-total">CARRINHO</span>
-                        <span class="Out__prices-item">{{ $count }} Produtos</span>
+                        <span class="Out__prices-item">{{ $dados['count'] }} Produtos</span>
                     </div>
-                    @foreach ($produtosNoCarrinho as $cart)
+                    @foreach ($dados['produtosNoCarrinho'] as $cart)
                     <div class="out__container">
                     <article class="out__card">
                         <div class="out__box">
@@ -52,7 +52,7 @@
                 <div class="checksider__container">
                     <h3 class="check__title">Checkout</h3>
                     <div class="filter__content">
-                        <h3 class="check__subtitle">Subtotal</h3> <span>R$ {{ number_format($subtotal, 2, ',', '.') }}</span>
+                        <h3 class="check__subtitle">Subtotal</h3> <span>R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
                         <h3 class="check__subtitle">Frete</h3> <span>R$ 20,00</span>
                         <h3 class="check__subtitle">Total</h3> <span>R$ 165,00</span>
                     </div>
