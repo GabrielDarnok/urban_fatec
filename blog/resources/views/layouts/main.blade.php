@@ -124,13 +124,14 @@
         <h2 class="cart__title-center">Carrinho</h2>
 
         <div class="cart__container">
+            @foreach ($dados['produtosNoCarrinho'] as $cart)
             <article class="cart__card">
                 <div class="cart__box">
-                    <img src="/img/cart-1.png" alt="" class="cart__img">
+                    <img src="/img/product/{{$cart->imagem_produto}}" alt="" class="cart__img">
                 </div>
                 <div class="cart__details">
-                    <h3 class="cart__title">Top de manga comprida</h3>
-                    <span class="cart__price">R$ 50,00</span>
+                    <h3 class="cart__title">{{$cart->nome_produto}}</h3>
+                    <span class="cart__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
                     <div class="cart__amount">
                         <div class="cart__amount-content">
                             <span class="cart__amount-box">
@@ -143,69 +144,20 @@
                                 <i class="bx bx-plus"></i>
                             </span>
                         </div>
-
-                        <i class="bx bx-trash-alt cart__amount-trash"></i>
+                        <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
+                        </form>
                     </div>
                 </div>
             </article>
-            <article class="cart__card">
-                <div class="cart__box">
-                    <img src="/img/cart-2.png" alt="" class="cart__img">
-                </div>
-
-                <div class="cart__details">
-                    <h3 class="cart__title">Cardigã de textura sólida</h3>
-                    <span class="cart__price">R$ 50,00</span>
-
-                    <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class="cart__amount-box">
-                                <i class="bx bx-minus"></i>
-                            </span>
-
-                            <span class="cart__amount-number">1</span>
-
-                            <span class="cart__amount-box">
-                                <i class="bx bx-plus"></i>
-                            </span>
-                        </div>
-
-                        <i class="bx bx-trash-alt cart__amount-trash"></i>
-                    </div>
-                </div>
-            </article>
-
-            <article class="cart__card">
-                <div class="cart__box">
-                    <img src="/img/cart-3.png" alt="" class="cart__img">
-                </div>
-
-                <div class="cart__details">
-                    <h3 class="cart__title">SHEIN ICON Gorpcore</h3>
-                    <span class="cart__price">R$ 45,00</span>
-
-                    <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class="cart__amount-box">
-                                <i class="bx bx-minus"></i>
-                            </span>
-
-                            <span class="cart__amount-number">1</span>
-
-                            <span class="cart__amount-box">
-                                <i class="bx bx-plus"></i>
-                            </span>
-                        </div>
-
-                        <i class="bx bx-trash-alt cart__amount-trash"></i>
-                    </div>
-                </div>
-            </article>
+            @endforeach
         </div>
 
         <div class="cart__prices">
-            <span class="cart__prices-item">3 Produtos</span>
-            <span class="cart__prices-total">Total R$ 145,00</span>
+            <span class="cart__prices-item">{{ $dados['count'] }} Produtos</span>
+            <span class="cart__prices-total">Total R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
         </div>
     </div>
 
