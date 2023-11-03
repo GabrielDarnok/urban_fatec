@@ -122,6 +122,7 @@
         
         <h2 class="cart__title-center">Carrinho</h2>
 
+        @if (isset($dados))
         <div class="cart__container">
             @foreach ($dados['produtosNoCarrinho'] as $cart)
             <article class="cart__card">
@@ -158,7 +159,9 @@
             <span class="cart__prices-item">{{ $dados['count'] }} Produtos</span>
             <span class="cart__prices-total">Total R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
         </div>
+        @endif
     </div>
+        
 
     <!--=============== LOGIN ===============-->
     <div class="login" id="login">

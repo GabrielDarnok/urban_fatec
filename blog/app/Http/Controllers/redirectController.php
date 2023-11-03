@@ -17,9 +17,7 @@ class redirectController extends Controller
         
         $produtcs = Product::all();
 
-        $dados = parent::consultaCarrinho();
-
-        return view('index',['products' => $produtcs, 'dados' => $dados]);
+        return view('index',['products' => $produtcs]);
     }
     public function cart(){
         
@@ -28,10 +26,8 @@ class redirectController extends Controller
         return view('cart', ['dados' => $dados]);
     }
     public function contato(){
-        
-        $dados = parent::consultaCarrinho();
 
-        return view('contato',['dados' => $dados]);
+        return view('contato');
     }
     public function details(){
         return view('details');
