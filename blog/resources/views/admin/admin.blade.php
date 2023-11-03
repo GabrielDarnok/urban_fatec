@@ -15,7 +15,7 @@
 
                 <div class="admin-product-form-container">
              
-                   <form action="/products" method="post" enctype="multipart/form-data">
+                   <form enctype="multipart/form-data" id="newProductAdd">
                    @csrf
                         <div class="add">
                             <h3>Adicionar um novo Produto</h3>
@@ -67,7 +67,7 @@
                       
                       <div>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
-                        <input type="submit" class="btn" name="add_product" value="add produto">
+                        <input type="submit" class="btn" name="add_product" onclick="createProduct()" value="add_produto">
                       </div>
                    </form>
              
@@ -87,31 +87,33 @@
                          <th>Ação</th>
                       </tr>
                       </thead>
+                      <tbody id= "tableContent">
                       @foreach ($products as $product)
                       <tr>
-                        <td><img src="img/product/{{ $product->imagem_produto }}" height="100" alt=""></td>
-                        <td>{{ $product->nome_produto }}</td>
-                        <td>{{ $product->descricao_produto }}</td>
-                        <td>{{ $product->valor_produto }}</td>
-                        <td>{{ $product->quantidade_estoq }}</td>
-                        <td>{{ $product->tamanho_roupa}}</td>
-                        <td>{{ $product->cor_produto}}</td>
-                        <td>
-                           <a href="/admin/edit/{{ $product->id }}" class="btn"><i class="fas fa-edit"></i> editar </a> 
-                            <form action="{{ route('product.destroy', ['product' => $product]) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn"> <i class="fas fa-edit"></i> DELETAR</button>
-                            </form>
-                        </td>
-                     </tr>
+                          <td><img src="img/product/{{ $product->imagem_produto }}" height="100" alt=""></td>
+                          <td>{{ $product->nome_produto }}</td>
+                          <td>{{ $product->descricao_produto }}</td>
+                          <td>{{ $product->valor_produto }}</td>
+                          <td>{{ $product->quantidade_estoq }}</td>
+                          <td>{{ $product->tamanho_roupa}}</td>
+                          <td>{{ $product->cor_produto}}</td>
+                          <td>
+                            <a href="/admin/edit/{{ $product->id }}" class="btn"><i class="fas fa-edit"></i> editar </a> 
+                              <form action="{{ route('product.destroy', ['product' => $product]) }}" method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button type="submit" class="btn"> <i class="fas fa-edit"></i> DELETAR</button>
+                              </form>
+                          </td>
+                       </tr>
                      @endforeach
+                      </tbody>
                    </table>
                 </div>
              </div>
         </section>
     </main>
-
+    
     <!--=============== SCROLL UP ===============-->
     <a href="#" class="scrollup" id="scroll-up">
         <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
@@ -122,5 +124,79 @@
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>
+        function createProduct(){
+            event.preventDefault();
+            var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            const nome_produto = document.getElementById('nome_produto').value;
+            const descricao_produto = document.getElementById('descricao_produto').value;
+            const valor_produto = document.getElementById('valor_produto').value;
+            const quantidade_estoq = document.getElementById('quantidade_estoq').value;
+            const tamanho_roupa = document.getElementById('tamanho_roupa').value;
+            const cor_produto = document.getElementById('cor_produto').value;
+            const categoria_produto = document.getElementById('categoria_produto').value;
+            const imagem_produtoSt = document.getElementById('imagem_produto').value;
+            const imagem_produto = imagem_produtoSt.replace(/^.*[\\\/]/, '');
+            console.log(imagem_produto);
+
+            $.ajax({
+                url: '/products',
+                type: 'POST',
+                data: {'nome_produto': nome_produto,
+                      'descricao_produto': descricao_produto,
+                      'valor_produto': valor_produto,
+                      'quantidade_estoq': quantidade_estoq,
+                      'tamanho_roupa': tamanho_roupa,
+                      'cor_produto': cor_produto,
+                      'categoria_produto': categoria_produto,
+                      'imagem_produto': imagem_produto},
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                success: function(response){
+                  Swal.fire(
+                    'Sucesso!',
+                    'Produto adicionado com sucesso',
+                    'success',
+                  ); 
+                  adicionarObjetosATabela(response);
+                  document.getElementById('newProductAdd').reset();
+                },
+                error: function(xhr, status, error) {
+                  Swal.fire(
+                      'Erro!',
+                      'Ocorreu um erro ao adicionar o produto: ' + error,
+                      'error'
+                  );
+                }
+            });
+        }
+        function adicionarObjetosATabela(objetos) {
+            var corpoDaTabela = document.getElementById("tableContent");
+            var htmlLinhas = '';
+
+            objetos.products.forEach(function(objeto) {
+                htmlLinhas += '<tr>';
+                htmlLinhas += '<td>' + "<img src='img/product/"+objeto.imagem_produto+"' height='100' alt=>" + '</td>';
+                htmlLinhas += '<td>' + objeto.nome_produto + '</td>';
+                htmlLinhas += '<td>' + objeto.descricao_produto + '</td>';
+                htmlLinhas += '<td>' + objeto.valor_produto + '</td>';
+                htmlLinhas += '<td>' + objeto.quantidade_estoq + '</td>';
+                htmlLinhas += '<td>' + objeto.tamanho_roupa + '</td>';
+                htmlLinhas += '<td>' + objeto.cor_produto + '</td>';
+                htmlLinhas += '<td>' + '<a href="/admin/edit/{{ $product->id }}" class="btn"><i class="fas fa-edit"></i> editar </a>' +
+                                        '<form action="{{ route("product.destroy", ["product" => $product]) }}" method="POST">' +
+                                        '    @csrf' +
+                                        '    @method("DELETE")' +
+                                        '    <button type="submit" class="btn"> <i class="fas fa-edit"></i> DELETAR</button>' +
+                                        '</form>' + '</td>';
+                htmlLinhas += '</tr>';
+            });
+
+            corpoDaTabela.innerHTML = htmlLinhas;
+        }            
+    </script>
 </body>
 </html>

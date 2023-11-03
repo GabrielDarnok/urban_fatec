@@ -34,6 +34,8 @@ Route::get('/shop',[redirectController::class, 'shop']);
 
 Route::get('/sobre',[redirectController::class, 'sobre']);
 
+Route::get('/cadastroPage',[redirectController::class, 'cadastroPage']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

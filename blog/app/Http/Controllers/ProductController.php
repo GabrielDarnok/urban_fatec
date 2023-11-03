@@ -37,8 +37,9 @@ class ProductController extends Controller
         }
     
         $product->save();
+        $produtcs = Product::all();
         
-        return redirect('/admin')->with('msg', 'Add com sucesso!');
+        return ['products' => $produtcs];
     }
     
     public function destroy($id){
