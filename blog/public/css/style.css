@@ -466,7 +466,7 @@ input {
 }
 
 .discount__title {
-    font-size: var(--h2-font-size);
+    font-size: var(--h2-font-size);40%
     margin-bottom: var(--mb-2);
 }
 
@@ -754,6 +754,9 @@ input {
 }
 
 .size__option {
+    display: flex;
+    justify-content: center;
+    width: 13%;
     padding: 10px 15px;
     background-color: rgba(255, 255, 255, 0.562);
     border-radius: 10px;

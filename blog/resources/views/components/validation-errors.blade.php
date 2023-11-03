@@ -14,7 +14,7 @@
             console.log(msgErro);
             if(msgErro){
                 Swal.fire(
-                    'Sucesso!',
+                    'Opa!',
                     msgErro,
                     'error',
                 );

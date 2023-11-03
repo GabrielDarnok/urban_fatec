@@ -67,12 +67,15 @@ class redirectController extends Controller
     }
     public function admin(){
         
-        if(!isset(auth()->user()->id) || auth()->user()->id != "admin"){
-            return redirect('/');
-        }
+        #$if(!isset(auth()->user()->id) || auth()->user()->id != "admin"){
+       #    return redirect('/');
+       # }
 
         $produtcs = Product::all();
 
         return view('admin.admin',['products' => $produtcs]);
+    }
+    public function cadastroPage(){
+        return view('cadastroPage');
     }
 }

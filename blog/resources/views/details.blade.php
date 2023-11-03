@@ -82,17 +82,16 @@
                         <div class="color__option" ></div>
                         <div class="cart__amount">
                             <div class="cart__amount-content">
-                                <span class="cart__amount-box">
+                                <span class="cart__amount-box" onclick="countProduct('-')">
                                     <i class="bx bx-minus"></i>
                                 </span>
 
-                                <span class="cart__amount-number">5</span>
+                                <span class="cart__amount-number" id= "CountProduct">1</span>
 
-                                <span class="cart__amount-box">
+                                <span class="cart__amount-box" onclick="countProduct('+')">
                                     <i class="bx bx-plus"></i>
                                 </span>
                             </div>
-
                             <i class="bx bx-heart cart__amount-heart"></i>
                         </div>
                         <button type="submit" class="button">Adicionar ao carrinho</button> 
@@ -239,7 +238,23 @@
             if(event.target === lightboxClose || event.target === lightbox) {
                 toggleLightbox()
             }
-        })
+        });
+        function countProduct(operation){
+            const quantidadeProdutoElement = document.getElementById('CountProduct');
+            var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
+
+            if(operation === '-'){
+                quantidadeProduto -= 1; 
+            }
+            if(operation === '+'){
+                quantidadeProduto += 1;
+            }
+            
+            if(quantidadeProduto >= 1){
+                quantidadeProdutoElement.textContent = quantidadeProduto;
+            }
+        }
+        
     </script>
     <!--=============== SWIPER JS ===============-->
     <script src="/js/swiper-bundle.min.js"></script>
