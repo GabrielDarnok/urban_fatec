@@ -99,12 +99,12 @@
 							<a href="/logout" class="bx bx-log-out" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
 						</form>
                     </div>
-                @endauth
                 </div>
 
                 <div class="nav__shop" id="cart-shop">
                     <i class="bx bx-shopping-bag"> </i>
                 </div>
+                @endauth
 
                 <div class="nav__toggle" id="nav-toggle">
                     <i class="bx bx-grid-alt"> </i>
