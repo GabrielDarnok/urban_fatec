@@ -28,22 +28,8 @@
 				<p style="text-align: center;">{{ $message }}</p>
             @elseif(isset($products))
             <div class="shop__container grid">
-                <div class="sidebar">
+                <div class="sidebar" style="height: fit-content">
                     <h3 class="filter__title">Seleção de Filtro</h3>
-                    <div class="filter__content">
-                        <h3 class="filter__subtitle">Produto</h3>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Novo</p> <span>(35)</span>
-                        </div>
-
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Desconto</p> <span>(15)</span>
-                        </div>
-                    </div>
-
                     <div class="filter__content">
                         <h3 class="filter__subtitle">Categoria</h3>
 
@@ -57,10 +43,6 @@
                             <p>Maior Preço</p>
                         </div>
 
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Popular</p>
-                        </div>
                     </div>
 
                     <div class="filter__content">
@@ -125,29 +107,6 @@
                             <p>Elegante</p> <span>(168)</span>
                         </div>
 
-                        <div class="filter__content">
-                            <h3 class="filter__subtitle">Sub Categoria</h3>
-    
-                            <div class="filter">
-                                <input type="checkbox" name="" id="">
-                                <p>Top & Camisas</p> <span>(105)</span>
-                            </div>
-    
-                            <div class="filter">
-                                <input type="checkbox" name="" id="">
-                                <p>Blusa</p> <span>(135)</span>
-                            </div>
-
-                            <div class="filter">
-                                <input type="checkbox" name="" id="">
-                                <p>Saia & Minissaia</p> <span>(185)</span>
-                            </div>
-    
-                            <div class="filter">
-                                <input type="checkbox" name="" id="">
-                                <p>Acessórios</p> <span>(104)</span>
-                            </div>
-                        </div>
                     </div>
                 </div>       
                 <div class="shop__items grid">
