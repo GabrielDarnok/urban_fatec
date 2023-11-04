@@ -873,6 +873,7 @@ input {
     font-size: 1.15rem;
     color: var(--first-color);
     cursor: pointer;
+    background: none;
 }
 
 .out__prices{
@@ -1737,6 +1738,8 @@ input {
 .cart__container {
     display: grid;
     row-gap: 1.5rem;
+    max-height: 30rem;
+    overflow: auto;
 }
 
 .cart__card {
