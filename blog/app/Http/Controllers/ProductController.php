@@ -102,10 +102,12 @@ class ProductController extends Controller
         
         $products = product::where('nome_produto', 'LIKE', "%$busca%")->orWhere('categoria_produto', 'LIKE', "%$busca%")->get();
         
+        $dados = parent::consultaCarrinho();
+
         if ($products->isEmpty() || empty($busca)) {
-            return view('shop',['message' => $message, 'busca' =>  $busca]);
+            return view('shop',['message' => $message, 'busca' =>  $busca, 'dados' => $dados]);
         }
-        return view('shop', ['products' =>$products, 'busca' =>  $busca]);
+        return view('shop', ['products' =>$products, 'busca' =>  $busca, 'dados' => $dados]);
     }
 
     public function show_product($id){
@@ -114,7 +116,9 @@ class ProductController extends Controller
 
         $Products = product::all();
 
-        return view('details', ['Product' => $Product , 'Products' => $Products]);
+        $dados = parent::consultaCarrinho();
+
+        return view('details', ['Product' => $Product , 'Products' => $Products, 'dados' => $dados]);
 
     }
 }

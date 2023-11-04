@@ -17,7 +17,9 @@ class redirectController extends Controller
         
         $produtcs = Product::all();
 
-        return view('index',['products' => $produtcs]);
+        $dados = parent::consultaCarrinho();
+
+        return view('index',['products' => $produtcs, 'dados' => $dados]);
     }
     public function cart(){
         
@@ -27,18 +29,25 @@ class redirectController extends Controller
     }
     public function contato(){
 
-        return view('contato');
+        $dados = parent::consultaCarrinho();
+
+        return view('contato',['dados' => $dados]);
     }
     public function details(){
-        return view('details');
+        
+        $dados = parent::consultaCarrinho();
+
+        return view('details',['dados' => $dados]);
     }
     public function profile($id){
         
+        $dados = parent::consultaCarrinho();
+
         $user = User::findOrFail($id);
         
         #Condição que verifica se o usuario que está acessando a view  tem o mesmo ID do usuario autenticado
         if ($user->id == auth()->user()->id) {
-            return view('user.profile');
+            return view('user.profile',['dados' => $dados]);
         }
 
         abort(403); // Acesso não autorizado
@@ -47,33 +56,46 @@ class redirectController extends Controller
 
         $enderecos = Endereco::where('id_usuario', auth()->user()->id)->get();
 
-        return view('user.registro_end', ['enderecos' => $enderecos]);
+        $dados = parent::consultaCarrinho();
+
+        return view('user.registro_end', ['enderecos' => $enderecos, 'dados' => $dados]);
     }
     public function shop(){
+        
+        $dados = parent::consultaCarrinho();
+
         $produtcs = Product::all();
 
-        return view('shop', ['products' => $produtcs]);
+        return view('shop', ['products' => $produtcs, 'dados' => $dados]);
     }
     public function sobre(){
-        return view('sobre');
+        
+        $dados = parent::consultaCarrinho();
+
+        return view('sobre',['dados' => $dados]);
     }
     public function welcome(){
         
+        $dados = parent::consultaCarrinho();
+        
         $produtcs = Product::all();
 
-        return view('welcome', ['products' => $produtcs]);
+        return view('welcome', ['products' => $produtcs, 'dados' => $dados]);
     }
     public function admin(){
         
-        #$if(!isset(auth()->user()->id) || auth()->user()->id != "admin"){
-       #    return redirect('/');
-       # }
+        if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){
+           return redirect('/');
+        }
 
         $produtcs = Product::all();
 
         return view('admin.admin',['products' => $produtcs]);
     }
     public function cadastroPage(){
-        return view('cadastroPage');
+        
+        $dados = parent::consultaCarrinho();
+        
+        return view('cadastroPage',['dados' => $dados]);
     }
 }

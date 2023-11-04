@@ -160,6 +160,8 @@
             <span class="cart__prices-item">{{ $dados['count'] }} Produtos</span>
             <span class="cart__prices-total">Total R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
         </div>
+        @else
+        <p>Nenhum produto foi adicionado no carrinho<p>
         @endif
     </div>
         
