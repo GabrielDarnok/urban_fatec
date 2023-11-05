@@ -136,7 +136,10 @@ class ProductController extends Controller
 
         $Products = product::all();
 
-        return view('details', ['Product' => $Product , 'Products' => $Products]);
+        //Faz a consulta se o usuario está logado e retorna o $dados com os produtos do carrinho
+        $dados = parent::verificaUsuarioLog();
+
+        return view('details', ['Product' => $Product , 'Products' => $Products, 'dados' => $dados]);
 
     }
 }

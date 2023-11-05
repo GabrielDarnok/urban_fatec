@@ -28,7 +28,7 @@ Route::get('/details',[redirectController::class, 'details']);
 
 Route::get('/profile/{id}',[redirectController::class, 'profile'])->middleware('auth');;
 
-Route::get('/registro_end',[redirectController::class, 'registro']);
+Route::get('/registro_end',[redirectController::class, 'registro'])->middleware('auth');;
 
 Route::get('/shop',[redirectController::class, 'shop']);
 

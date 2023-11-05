@@ -37,4 +37,12 @@ class Controller extends BaseController
 
             return (['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count, 'subtotal' => $subtotal]);
         }
+    
+        public function verificaUsuarioLog(){
+        
+        if(isset(auth()->user()->id)){
+            $this->consultaCarrinho();
+        }
+    }
+    
 }
