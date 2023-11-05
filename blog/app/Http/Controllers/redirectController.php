@@ -17,31 +17,32 @@ class redirectController extends Controller
         
         $produtcs = Product::all();
 
-        $dados = parent::consultaCarrinho();
+        
+
+        $dados = parent::verificaUsuarioLog();
 
         return view('index',['products' => $produtcs, 'dados' => $dados]);
     }
     public function cart(){
         
-        $dados = parent::consultaCarrinho();
+        $dados = parent::verificaUsuarioLog();
            
         return view('cart', ['dados' => $dados]);
     }
     public function contato(){
 
-        $dados = parent::consultaCarrinho();
-
+        $dados = parent::verificaUsuarioLog();
         return view('contato',['dados' => $dados]);
     }
     public function details(){
         
-        $dados = parent::consultaCarrinho();
+        $dados = parent::verificaUsuarioLog();
 
         return view('details',['dados' => $dados]);
     }
     public function profile($id){
         
-        $dados = parent::consultaCarrinho();
+        $dados = parent::verificaUsuarioLog();
 
         $user = User::findOrFail($id);
         
@@ -56,13 +57,13 @@ class redirectController extends Controller
 
         $enderecos = Endereco::where('id_usuario', auth()->user()->id)->get();
 
-        $dados = parent::consultaCarrinho();
+        $dados = parent::verificaUsuarioLog();
 
         return view('user.registro_end', ['enderecos' => $enderecos, 'dados' => $dados]);
     }
     public function shop(){
         
-        $dados = parent::consultaCarrinho();
+        $dados = parent::verificaUsuarioLog();
 
         $produtcs = Product::all();
 
@@ -70,13 +71,13 @@ class redirectController extends Controller
     }
     public function sobre(){
         
-        $dados = parent::consultaCarrinho();
+        $dados = parent::verificaUsuarioLog();
 
         return view('sobre',['dados' => $dados]);
     }
     public function welcome(){
         
-        $dados = parent::consultaCarrinho();
+        $dados = parent::verificaUsuarioLog();
         
         $produtcs = Product::all();
 
@@ -94,7 +95,7 @@ class redirectController extends Controller
     }
     public function cadastroPage(){
         
-        $dados = parent::consultaCarrinho();
+        $dados = parent::verificaUsuarioLog();
         
         return view('cadastroPage',['dados' => $dados]);
     }

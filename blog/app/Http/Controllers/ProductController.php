@@ -102,7 +102,7 @@ class ProductController extends Controller
         
         $products = product::where('nome_produto', 'LIKE', "%$busca%")->orWhere('categoria_produto', 'LIKE', "%$busca%")->get();
         
-        $dados = parent::consultaCarrinho();
+        $dados = parent::verificaUsuarioLog();
 
         if ($products->isEmpty() || empty($busca)) {
             return view('shop',['message' => $message, 'busca' =>  $busca, 'dados' => $dados]);
@@ -116,7 +116,8 @@ class ProductController extends Controller
 
         $Products = product::all();
 
-        $dados = parent::consultaCarrinho();
+        //Faz a consulta se o usuario está logado e retorna o $dados com os produtos do carrinho
+        $dados = parent::verificaUsuarioLog();
 
         return view('details', ['Product' => $Product , 'Products' => $Products, 'dados' => $dados]);
 
