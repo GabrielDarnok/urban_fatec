@@ -45,8 +45,9 @@
 
             <div class="container">
                 <div>
-                    <form  style = "display: flex; flex-direction: column">
-                        <div class = "form_input">   
+                    <form method="POST" action="{{ route('register') }}">
+                        <div class = "form_input"> 
+                            @csrf  
                             <div class = "form_section">
                                 <div class = "contact__label">
                                     <label for="nome" class = "contact__label">Nome:</label>
@@ -68,6 +69,7 @@
                                 </div>
                             </div>
                         </div>
+                        <x-validation-errors class="mb-4" style="color: #e9d2d2 "/>
                         <div style= "display: flex; justify-content: center; width: 100%; margin-top: 1.25rem;">
                             <input class= "button" type="submit" value="Cadastrar" style="width: 40%">
                         </div>
@@ -87,5 +89,6 @@
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
+
 
 @endsection

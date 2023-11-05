@@ -56,7 +56,7 @@ Route::get('/admin/edit/{id}', [ProductController::class, 'edit']);
 
 Route::post('admin/update/{id}', [ProductController::class, 'update']);
 
-Route::get('/procura/product', [ProductController::class, 'busca_product'])->name('busca.busca_product');
+Route::post('/procura/product', [ProductController::class, 'busca_product'])->name('busca.busca_product');
 
 Route::get('/shop/product/{id}', [ProductController::class, 'show_product']);
 

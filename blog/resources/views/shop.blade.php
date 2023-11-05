@@ -12,16 +12,12 @@
             <h3 class="breadcrumb__subtitle">Inicio > <span>Shop</span></h3>
             <div style="display: flex; margin-bottom: 40px;">
                 <div class="search__box" style = "background-color: #ffffff">
-                    <form action="{{ route('busca.busca_product') }} " style="display: flex; justify-content: space-between; width: 100%">
-                        @if (!isset($busca))
-                        <input class="input" style="border-radius: 10px; border: black" name="search" placeholder="Pesquise aqui">
-                        @else
-                        <input class="input" style="border-radius: 10px; border: black" name="search" placeholder="Pesquise aqui" value="{{ $busca }}">
-                        @endif
-                        <button type="submit" style="background: white;">
+                    <div  style="display: flex; justify-content: space-between; width: 100%">
+                        <input class="input" style="border-radius: 10px; border: black" name="search" placeholder="Pesquise aqui" id="valorPesquisa" oninput="productFilter()">
+                        <button style="background: white;" onclick="productFilter()">
                             <img src="/img/loupe.png" alt="lupa" height="20" width="20">
                         </button>
-                    </form>
+                    </div>
                 </div>
             </div>
             @if(isset($message))
@@ -34,12 +30,12 @@
                         <h3 class="filter__subtitle">Categoria</h3>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
+                            <input type="checkbox" value="-" class="inputCategoria" onclick= "productFilter()" name="" id="">
                             <p>Menor Preço</p>
                         </div>
 
-                        <div class="filter">
-                            <input type="checkbox" name="" id="">
+                        <div class="filter" >
+                            <input type="checkbox" value="+" class="inputCategoria" onclick= "productFilter()" name="" id="">
                             <p>Maior Preço</p>
                         </div>
 
@@ -49,33 +45,33 @@
                         <h3 class="filter__subtitle">Tamanho</h3>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>G</p> <span>(105)</span>
+                            <input type="checkbox" name="" id="" value="G" onclick= "productFilter()" class="inputTamanho">
+                            <p>G</p> 
                         </div>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>GG</p> <span>(85)</span>
+                            <input type="checkbox" name="" id="" value="GG" onclick= "productFilter()" class="inputTamanho">
+                            <p>GG</p> 
                         </div>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>G2</p> <span>(59)</span>
+                            <input type="checkbox" name="" id="" value="G2" onclick= "productFilter()" class="inputTamanho">
+                            <p>G2</p> 
                         </div>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>G3</p> <span>(94)</span>
+                            <input type="checkbox" name="" id="" value="G3" onclick= "productFilter()" class="inputTamanho">
+                            <p>G3</p> 
                         </div>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>G4</p> <span>(75)</span>
+                            <input type="checkbox" name="" id="" value="G4" onclick= "productFilter()" class="inputTamanho">
+                            <p>G4</p> 
                         </div>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>G5</p> <span>(95)</span>
+                            <input type="checkbox" name="" id="" value="G5" onclick= "productFilter()" class="inputTamanho">
+                            <p>G5</p> 
                         </div>
                     </div>
 
@@ -83,36 +79,35 @@
                         <h3 class="filter__subtitle">Estilos</h3>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Casual</p> <span>(200)</span>
+                            <input type="checkbox" name="" id="" value="Casual" onclick= "productFilter()" class="inputEstilo">
+                            <p>Casual</p> 
                         </div>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Streetwear</p> <span>(124)</span>
+                            <input type="checkbox" name="" id="" value="Streetwear" onclick= "productFilter()" class="inputEstilo">
+                            <p>Streetwear</p> 
                         </div>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Fofo</p> <span>(489)</span>
+                            <input type="checkbox" name="" id="" value="Fofo" onclick= "productFilter()" class="inputEstilo">
+                            <p>Fofo</p> 
                         </div>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Festa</p> <span>(156)</span>
+                            <input type="checkbox" name="" id="" value="Festa" onclick= "productFilter()" class="inputEstilo">
+                            <p>Festa</p> 
                         </div>
 
                         <div class="filter">
-                            <input type="checkbox" name="" id="">
-                            <p>Elegante</p> <span>(168)</span>
+                            <input type="checkbox" name="" id="" value="Elegante" onclick= "productFilter()" class="inputEstilo">
+                            <p>Elegante</p> 
                         </div>
 
                     </div>
                 </div>       
-                <div class="shop__items grid">
+                <div class="shop__items grid" id="tableContent">
                     @foreach ($products as $product)
                     <div class="shop__content">
-                        <div class="shop__tag">Novo</div>
                         <a href="/shop/product/{{ $product->id }}">
                             <img src="/img/product/{{ $product->imagem_produto }}" alt="" class="shop__img">
                         </a>
@@ -155,5 +150,75 @@
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
+    
+    <script>
+        function productFilter() {
+            const pesquisaValor = document.getElementById('valorPesquisa').value;
+            var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            var categorias = [];
+            var tamanhos = [];
+            var estilos = [];
+            var allCategorias = document.querySelectorAll('.inputCategoria');
+            var allEstilos = document.querySelectorAll('.inputEstilo');
+            var allTamanhos = document.querySelectorAll('.inputTamanho');
+
+            allCategorias.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    categorias.push(checkbox.value);
+                }
+            });
+
+            allEstilos.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    estilos.push(checkbox.value);
+                }
+            });
+
+            allTamanhos.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    tamanhos.push(checkbox.value);
+                }
+            });
+
+            console.log("Categorias selecionadas:", categorias);
+            console.log("Estilos selecionados:", estilos);
+            console.log("Tamanhos selecionados:", tamanhos);
+
+            $.ajax({
+                url: '/procura/product',
+                type: 'POST',
+                data: { 'search': pesquisaValor,
+                        'categorias': categorias,
+                        'estilos': estilos,
+                        'tamanhos': tamanhos, 
+                    },
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                success: function(response){
+                    console.log(response);
+                    adicionarProdutosTabela(response);
+                },
+            });
+        }
+        function adicionarProdutosTabela(objetos){
+            var corpoTabela = document.getElementById('tableContent');
+            var htmlProduct = '';
+            if(objetos.message === undefined){
+                objetos.products.forEach(function(objeto) {
+                    htmlProduct += '<div class="shop__content">';
+                    htmlProduct += '<a href="/shop/product/'+objeto.id+'">';
+                    htmlProduct += '<img src="/img/product/'+objeto.imagem_produto+'" alt="" class="shop__img"></a>';
+                    htmlProduct += '<h3 class="shop__title">'+objeto.nome_produto+'</h3>';
+                    htmlProduct += '<span class="shop__subtitle">'+objeto.descricao_produto+'</span>';
+                    htmlProduct += ' <div class="shop__prices"><span class="shop__price">'+objeto.valor_produto+'</span></div>';
+                    htmlProduct += '<a href="/shop/product/'+ objeto.id+'" class="button shop__button"><i class="bx bx-cart-alt shop__icon"></i></a></div>';
+                });
+                corpoTabela.innerHTML = htmlProduct;
+            }else{
+                corpoTabela.innerHTML =  objetos.message;
+            }
+        }
+    </script>
     
 @endsection

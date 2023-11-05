@@ -22,7 +22,7 @@ class redirectController extends Controller
     public function cart(){
         
         $dados = parent::consultaCarrinho();
-           
+        
         return view('cart', ['dados' => $dados]);
     }
     public function contato(){

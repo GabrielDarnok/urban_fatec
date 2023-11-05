@@ -95,17 +95,39 @@ class ProductController extends Controller
 
     }
 
-    public function busca_product(){
-        $busca = request('search');
+    public function busca_product(Request $request){
+        $busca = $request->search;
+        $tamanhos = $request->tamanhos;
+        $estilos = $request->estilos;
+        $categorias = $request->categorias;
         
-        $message = 'Nenhum produto encontrado com os critérios de busca: ' . $busca;
+        $message = 'Nenhum produto encontrado com os critérios de busca :(';
         
-        $products = product::where('nome_produto', 'LIKE', "%$busca%")->orWhere('categoria_produto', 'LIKE', "%$busca%")->get();
-        
-        if ($products->isEmpty() || empty($busca)) {
-            return view('shop',['message' => $message, 'busca' =>  $busca]);
+        $query = Product::query();
+
+        if (!empty($busca)) {
+            $query->where('nome_produto', 'like', '%' . $busca . '%');
         }
-        return view('shop', ['products' =>$products, 'busca' =>  $busca]);
+        if (!empty($tamanhos)) {
+            $query->whereIn('tamanho_roupa', $tamanhos);
+        }
+        if (!empty($estilos)) {
+            $query->whereIn('categoria_produto', $estilos);
+        }
+        if (!empty($categorias)) {
+            if (in_array('-', $categorias)){               
+                $query->orderBy('valor_produto', 'asc'); //menor preço
+            }
+            if (in_array('+', $categorias)){              
+                $query->orderBy('valor_produto', 'desc'); //maior preço
+            }
+        }
+        $products = $query->get();
+        
+        if ($products->isEmpty()) {
+            return ['message' => $message];
+        }
+        return ['products' =>$products];
     }
 
     public function show_product($id){

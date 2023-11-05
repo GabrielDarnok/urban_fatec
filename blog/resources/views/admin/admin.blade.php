@@ -137,24 +137,30 @@
             const tamanho_roupa = document.getElementById('tamanho_roupa').value;
             const cor_produto = document.getElementById('cor_produto').value;
             const categoria_produto = document.getElementById('categoria_produto').value;
-            const imagem_produtoSt = document.getElementById('imagem_produto').value;
-            const imagem_produto = imagem_produtoSt.replace(/^.*[\\\/]/, '');
+            const imagem_produtoSt = document.getElementById('imagem_produto');
+            //const imagem_produto = imagem_produtoSt.replace(/^.*[\\\/]/, '');
             console.log(imagem_produto);
 
+            var formData = new FormData();
+            formData.append('nome_produto', nome_produto);
+            formData.append('descricao_produto', descricao_produto);
+            formData.append('valor_produto', valor_produto);
+            formData.append('quantidade_estoq', quantidade_estoq);
+            formData.append('tamanho_roupa', tamanho_roupa);
+            formData.append('cor_produto', cor_produto);
+            formData.append('categoria_produto', categoria_produto);
+            formData.append('imagem_produto', imagem_produtoSt.files[0]);
+
+            console.log(formData);
             $.ajax({
                 url: '/products',
                 type: 'POST',
-                data: {'nome_produto': nome_produto,
-                      'descricao_produto': descricao_produto,
-                      'valor_produto': valor_produto,
-                      'quantidade_estoq': quantidade_estoq,
-                      'tamanho_roupa': tamanho_roupa,
-                      'cor_produto': cor_produto,
-                      'categoria_produto': categoria_produto,
-                      'imagem_produto': imagem_produto},
+                data: formData,
                 headers: {
                     'X-CSRF-TOKEN': csrfToken
                 },
+                contentType: false,
+                processData: false,
                 success: function(response){
                   Swal.fire(
                     'Sucesso!',
