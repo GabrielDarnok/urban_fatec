@@ -41,7 +41,7 @@ class Controller extends BaseController
         public function verificaUsuarioLog(){
         
         if(isset(auth()->user()->id)){
-            $this->consultaCarrinho();
+            return $this->consultaCarrinho();
         }
     }
     

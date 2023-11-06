@@ -17,8 +17,6 @@ class redirectController extends Controller
         
         $produtcs = Product::all();
 
-        
-
         $dados = parent::verificaUsuarioLog();
 
         return view('index',['products' => $produtcs, 'dados' => $dados]);
