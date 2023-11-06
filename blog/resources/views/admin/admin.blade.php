@@ -93,7 +93,7 @@
                           <td><img src="img/product/{{ $product->imagem_produto }}" height="100" alt=""></td>
                           <td>{{ $product->nome_produto }}</td>
                           <td>{{ $product->descricao_produto }}</td>
-                          <td>{{ $product->valor_produto }}</td>
+                          <td>{{ number_format($product->valor_produto, 2, ',', '.') }}</td>
                           <td>{{ $product->quantidade_estoq }}</td>
                           <td>{{ $product->tamanho_roupa}}</td>
                           <td>{{ $product->cor_produto}}</td>

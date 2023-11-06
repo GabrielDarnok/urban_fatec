@@ -22,11 +22,11 @@
                     <div class="out__container">
                     <article class="out__card">
                         <div class="out__box">
-                            <img src="/img/cart-1.png" alt="" class="out__img">
+                            <img src="/img/product/{{ $cart->imagem_produto }}" alt="" class="out__img">
                         </div>
                         <div class="out__details">
                             <h3 class="out__title">{{ $cart->nome_produto }}</h3>
-                            <span class="out__price">{{ $cart->valor_produto }}</span>
+                            <span class="out__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
         
                             <div class="out__amount">
                                 <div class="out__amount-content">
@@ -55,7 +55,7 @@
                     <div class="filter__content">
                         <h3 class="check__subtitle">Subtotal</h3> <span>R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
                         <h3 class="check__subtitle">Frete</h3> <span>R$ 20,00</span>
-                        <h3 class="check__subtitle">Total</h3> <span>R$ 165,00</span>
+                        <h3 class="check__subtitle">Total</h3> <span>R$ {{ number_format($dados['subtotal'] + 20, 2, ',', '.') }}</span>
                     </div>
                 @endif
                     <div class="adress__content">

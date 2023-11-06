@@ -15,7 +15,7 @@
                 <div class="product__images grid">
                     <div class="product__img">
                         <div class="details__img-tag">Novo</div>
-                        <img src=" /img/details-1.png" alt="">
+                        <img src=" /img/product/{{ $Product->imagem_produto }}" alt="">
                     </div>
 
                     <div class="product__img">
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="details__prices">
-                        <span class="details__price">{{ $Product->valor_produto }}</span>
+                        <span class="details__price">{{ number_format($Product->valor_produto, 2, ',', '.') }}</span>
                     </div>
 
                     <div class="details__description">
@@ -102,29 +102,30 @@
 
         <!--=============== RELATED PRODUCTS ===============-->
         <section class="related__products section">
-            <h2 class="section__title"> Produtos Relacionados</h2>
-
             <div class="new__container container">
                 <div class="swiper new-swiper">
+                <h2 class="section__title"> Produtos Relacionados</h2>
                     <div class="swiper-wrapper">
                         @if(isset($Products))
                         @foreach ($Products as $product_show)
+                        @if($product_show->categoria_produto == $Product->categoria_produto && $product_show->id != $Product->id)
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
                             <a href="/shop/product/{{ $product_show->id }}">
-                                <img src="/img/new-1.png" alt="" class="new__img">
+                                <img src="/img/product/{{ $product_show->imagem_produto }}" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">{{ $product_show->nome_produto }}</h3>
                             <span class="new__subtitle">You Matter</span>
 
                             <div class="new__prices">
-                                <span class="new__price">{{ $product_show->valor_produto }}</span>
+                                <span class="new__price">{{ number_format($product_show->valor_produto, 2, ',', '.') }}</span>
                             </div>
 
                             <a href="/shop/product/{{ $product_show->id }}" class="button new__button">
                                  <i class="bx bx-cart-alt new__icon"></i>
                             </a>
                         </div>
+                        @endif
                         @endforeach
                         @endif
                     </div>

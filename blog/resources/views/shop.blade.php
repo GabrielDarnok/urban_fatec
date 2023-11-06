@@ -115,7 +115,7 @@
                         <span class="shop__subtitle">{{ $product->descricao_produto }}r</span>
 
                         <div class="shop__prices">
-                            <span class="shop__price">{{ $product->valor_produto }}</span>
+                            <span class="shop__price">{{ number_format($product->valor_produto, 2, ',', '.') }}</span>
                         </div>
                         <a href="/shop/product/{{ $product->id }}" class="button shop__button">
                             <i class="bx bx-cart-alt shop__icon"></i>

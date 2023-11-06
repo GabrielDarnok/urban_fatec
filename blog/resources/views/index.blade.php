@@ -125,13 +125,13 @@
                         <div class="new__content swiper-slide">
                             <div class="new__tag">Novo</div>
                             <a href="/shop/product/{{ $product->id }}">
-                                <img src="/img/new-1.png" alt="" class="new__img">
+                                <img src="/img/product/{{ $product->imagem_produto }}" alt="" class="new__img">
                             </a>
                             <h3 class="new__title">{{ $product->nome_produto }}</h3>
                             <span class="new__subtitle">You Matter</span>
 
                             <div class="new__prices">
-                                <span class="new__price">{{ $product->valor_produto }}</span>
+                                <span class="new__price">{{ number_format($product->valor_produto, 2, ',', '.') }}</span>
                             </div>
 
                             <a href="/shop/product/{{ $product->id }}" class="button new__button">
