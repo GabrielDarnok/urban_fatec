@@ -15,6 +15,7 @@
                 <div class="checksider__container">
                     <div class="out__prices">
                         <span class="out__prices-total">CARRINHO</span>
+                    @if(isset($dados))
                         <span class="Out__prices-item">{{ $dados['count'] }} Produtos</span>
                     </div>
                     @foreach ($dados['produtosNoCarrinho'] as $cart)
@@ -56,7 +57,7 @@
                         <h3 class="check__subtitle">Frete</h3> <span>R$ 20,00</span>
                         <h3 class="check__subtitle">Total</h3> <span>R$ 165,00</span>
                     </div>
-
+                @endif
                     <div class="adress__content">
                         <label for="" class="adress__label">CEP</label>
                         <input type="email" class="adress__input">
