@@ -51,21 +51,21 @@
                             <div class = "form_section">
                                 <div class = "contact__label">
                                     <label for="nome" class = "contact__label">Nome:</label>
-                                    <input  class="contact__input" style ="width: 100%" type="text" id="nome" name="nome" required>
+                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem;" type="text" id="nome" name="nome" required>
                                 </div>
                                 <div class = "contact__label">
                                     <label for="email" class = "contact__label" >Email:</label>
-                                    <input class="contact__input" style ="width: 100%" type="email" id="email" name="email" required>
+                                    <input class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem;" type="email" id="email" name="email" required>
                                 </div>
                             </div>
                             <div class = "form_section">
                                 <div class = "contact__label">
                                     <label for="senha" class = "contact__label">Senha:</label>
-                                    <input  class="contact__input" style ="width: 100%" type="password" id="senha" name="senha" required>
+                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem;" type="password" id="senha" name="senha" required>
                                 </div>
                                 <div class = "contact__label">
                                     <label for="confirmar_senha" class = "contact__label">Confirmar Senha:</label>
-                                    <input  class="contact__input" style ="width: 100%" type="password" id="confirmar_senha" name="confirmar_senha" required>
+                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem;" type="password" id="confirmar_senha" name="confirmar_senha" required>
                                 </div>
                             </div>
                         </div>
