@@ -20,7 +20,7 @@ class Controller extends BaseController
             $produtosNoCarrinho = [];
 
             //Retorna a quantidade de produtos no carrinho
-            $count = 0;
+            $count = Car::whereNotNull('quantidade_car')->count();
 
             //Retorna o valor do que está no carrinho
             $subtotal = 0;
@@ -30,7 +30,6 @@ class Controller extends BaseController
                 $produto = $item->produto;
                 $produto->carrinho_id = $item->id; // Adicione o ID do carrinho ao objeto de produto para poder ser referenciado na view
                 $produtosNoCarrinho[] = $produto;
-                $count++;
                 // Some o valor do produto ao subtotal
                 $subtotal += $produto->valor_produto * $item->quantidade_car;
             }
