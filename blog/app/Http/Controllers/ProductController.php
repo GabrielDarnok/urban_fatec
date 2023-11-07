@@ -122,7 +122,7 @@ class ProductController extends Controller
                 $query->orderBy('valor_produto', 'desc'); //maior preço
             }
         }
-        $products = $query->get();
+        $products = $query->paginate(2);
         
         if ($products->isEmpty()) {
             return ['message' => $message];

@@ -924,6 +924,10 @@ input {
 
 .pagination__icon {
     font-size: var(--h2-font-size);
+
+}
+.pagination__icon:hover{
+    cursor: pointer;
 }
 
 /*=============== Details Page ===============*/
