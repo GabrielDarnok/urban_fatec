@@ -32,7 +32,7 @@ class Controller extends BaseController
                 $produtosNoCarrinho[] = $produto;
                 $count++;
                 // Some o valor do produto ao subtotal
-                $subtotal += $produto->valor_produto;
+                $subtotal += $produto->valor_produto * $item->quantidade_car;
             }
 
             return (['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count, 'subtotal' => $subtotal]);

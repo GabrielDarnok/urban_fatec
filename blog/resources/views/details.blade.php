@@ -60,7 +60,7 @@
                     <form action="/car/add_car" method="POST">
                     @csrf
                         <input type="hidden" name="id" value="{{ $Product->id }}">
-                        <input type="hidden" name="quantidade_car" value="123">
+                        <input type="hidden" name="quantidade_car" value="1">
                         <div>
                             <h3 class="size__title">Tamanho</h3>
                         </div>

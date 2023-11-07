@@ -9,11 +9,23 @@ use App\Models\Car;
 class CarrinhoController extends Controller
 {
     public function add_carrinho(Request $request){
-        $car = new Car();
+        
+        // Verificar se o produto já está no carrinho para o usuário atual
+        $car = Car::where('id_produto', $request->id)
+        ->where('id_usuario', auth()->user()->id)
+        ->first();
 
-        $car->id_produto = $request->id;
-        $car->id_usuario = auth()->user()->id;
-        $car->quantidade_car = $request->quantidade_car;
+        if ($car) {
+            // Se o produto já está no carrinho, atualize a quantidade
+            $car->quantidade_car += $request->quantidade_car;
+        } else {
+            // Se o produto não está no carrinho, crie uma nova entrada
+            $car = new Car();
+
+            $car->id_produto = $request->id;
+            $car->id_usuario = auth()->user()->id;
+            $car->quantidade_car = $request->quantidade_car;
+        }
 
         $car->save();
         
