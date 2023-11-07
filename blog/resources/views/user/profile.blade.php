@@ -28,9 +28,9 @@
                 </form>
                 </div>
             </div>
-            <br><br>
-            <div class="card">
-                <a href="/registro_end" id="toggleFields" class="collapse-btn" style= "width: 50%; margin-top: 15px">Cadastrar endereco</a>
+            
+            <div class="card" style="margin-top: 2.0rem; padding: 20px;">
+                <a href="/registro_end" id="toggleFields" class="collapse-btn" style= "width: 50%">Cadastrar endereco</a>
             </div>
         </section>
     </main>

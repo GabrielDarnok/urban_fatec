@@ -60,7 +60,7 @@
                     <form action="/car/add_car" method="POST">
                     @csrf
                         <input type="hidden" name="id" value="{{ $Product->id }}">
-                        <input type="hidden" name="quantidade_car" value="1">
+                        <input type="hidden" name="quantidade_car" id="countProduct" value="1">
                         <div>
                             <h3 class="size__title">Tamanho</h3>
                         </div>
@@ -186,6 +186,7 @@
     </a>
     <!--=============== LIGHTBOX===============-->
     <script>
+        
         const productItems = document.querySelectorAll(".product__img"),
               totalProductItems = productItems.length,
               lightbox = document.querySelector(".lightbox"),
@@ -241,6 +242,7 @@
             }
         });
         function countProduct(operation){
+            const countProduct = document.getElementById('countProduct');
             const quantidadeProdutoElement = document.getElementById('CountProduct');
             var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
 
@@ -253,7 +255,9 @@
             
             if(quantidadeProduto >= 1){
                 quantidadeProdutoElement.textContent = quantidadeProduto;
+                countProduct.value = quantidadeProduto;
             }
+            
         }
         
     </script>

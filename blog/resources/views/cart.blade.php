@@ -68,6 +68,14 @@
                </div>
                 </div>
             </div>
+            <div class="checksider__container">
+                <div class="out__prices">
+                    <span class="out__prices-total">ENDEREÇO DE ENTREGA</span>
+                </div>
+                <div class="endereco_select">
+                    
+                </div>
+            </div>
         </section>
     </main>
 

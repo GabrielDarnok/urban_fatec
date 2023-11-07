@@ -812,7 +812,6 @@ input {
 
 .checkout__container {
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 7rem;
 }
 
 .out__container {
