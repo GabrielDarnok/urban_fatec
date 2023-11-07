@@ -665,6 +665,8 @@ input {
 }
 
 .shop__content {
+    height: 17.9rem;
+    width: 18.2rem;
     position: relative;
     background-color: var(--container-color);
     padding: 2rem 0;
