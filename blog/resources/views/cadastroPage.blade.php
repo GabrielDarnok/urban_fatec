@@ -51,7 +51,7 @@
                             <div class = "form_section">
                                 <div class = "contact__label">
                                     <label for="nome" class = "contact__label">Nome:</label>
-                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem;" type="text" id="nome" name="nome" required>
+                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem;" type="text" id="name" name="name" required>
                                 </div>
                                 <div class = "contact__label">
                                     <label for="email" class = "contact__label" >Email:</label>
@@ -61,17 +61,17 @@
                             <div class = "form_section">
                                 <div class = "contact__label">
                                     <label for="senha" class = "contact__label">Senha:</label>
-                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem;" type="password" id="senha" name="senha" required>
+                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem;" type="password" id="password" name="password" required>
                                 </div>
                                 <div class = "contact__label">
                                     <label for="confirmar_senha" class = "contact__label">Confirmar Senha:</label>
-                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem;" type="password" id="confirmar_senha" name="confirmar_senha" required>
+                                    <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem;" type="password" id="password_confirmation" name="password_confirmation" required>
                                 </div>
                             </div>
                         </div>
                         <x-validation-errors class="mb-4" style="color: #e9d2d2 "/>
                         <div style= "display: flex; justify-content: center; width: 100%; margin-top: 1.25rem;">
-                            <input class= "button" type="submit" value="Cadastrar" style="width: 40%">
+                            <input class= "button cad" type="submit" value="Cadastrar" style="width: 40%">
                         </div>
                     </form> 
                 </div>

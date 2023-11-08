@@ -2537,6 +2537,7 @@ input {
     background-color: var(--body-color);
     border-radius: 1rem !important;
     padding: 0.8rem;
+    border: 1px solid #ffb8b8;
 }
 .adress_information{
     display: flex;
@@ -2558,4 +2559,7 @@ input {
     height: 2.5rem;
     display: flex;
     align-items: center;
+}
+.cad:hover{
+    cursor: pointer;
 }

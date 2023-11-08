@@ -115,7 +115,7 @@
                 <span class="atual current" id="atual" onclick= "productFilter('atual')">1</span>
                 <span class="preview" id="atual-proxima" onclick= "productFilter('proxima')">2</span>
                 <span>&middot; &middot; &middot;</span>
-                <span class="last-page" id="ultima" onclick= "productFilter('ultima')">35</span>
+                <span class="last-page" id="ultima" onclick= "productFilter('ultima')">1</span>
 
                 <i class="bx bx-chevron-right pagination__icon" id="proxima" onclick= "productFilter('proxima')"></i>
             </div>

@@ -173,37 +173,6 @@
         
 
     <!--=============== LOGIN ===============-->
-    <div class="login" id="login">
-        <i class="bx bx-x login__close" id="login-close"></i>
-
-        <h2 class="login__title-center">Login</h2>
-
-        <form method="POST" action="{{ route('login') }}" class="login__form grid">
-            @csrf
-            <div class="login__content">
-                <label for="email" value="{{ __('Email') }}" class="login__label">Email</label>
-                <input id="email" class="login__input" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
-            </div>
-
-            <div class="login__content">
-                <label for="password" value="{{ __('Password') }}" class="login__label">Senha</label>
-                <input id="password" class="login__input" type="password" name="password" required autocomplete="current-password">
-            </div>
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Lembrar de mim') }}</span>
-                </label>
-            </div>
-            <div>
-                <button type="submit" class="button" onclick="verifyLogin()">Entrar</button>
-            </div>
-
-            <div>
-                <p class="signup">Nãe é cadastrado? <a href="/register">Cadastrar-se agora.</a></p>
-            </div>
-        </form>
-    </div>
 
     <main> 
         @if(session('msg'))

@@ -81,7 +81,7 @@
                 <div class="out__container adress">
                     <div class="adress-head" style="letter-spacing: 0.5px; ">
                         <h4><strong>Endereço principal</strong><h4>
-                        <input type="radio" id="endereco_selecionado" name="genero" value="endereco_selecionado" style="width:18px; height:18px">
+                        <input type="radio" id="endereco_selecionado" name="genero" value="endereco_selecionado" style="width:18px; height:18px">                   
                     </div>
                     <div class="adress_information">
                         <span>CEP:</span>
