@@ -78,19 +78,23 @@
                 <div class="out__prices">
                     <span class="out__prices-total">ENDEREÇO DE ENTREGA</span>
                 </div>
+                @if (isset($enderecos))
                 <div class="out__container adress">
                     <div class="adress-head" style="letter-spacing: 0.5px; ">
                         <h4><strong>Endereço principal</strong><h4>
                         <input type="radio" id="endereco_selecionado" name="genero" value="endereco_selecionado" style="width:18px; height:18px">
                     </div>
+                    @foreach ($enderecos as $endereco)
                     <div class="adress_information">
-                        <span>CEP:</span>
-                        <span>Rua:</span>
-                        <span>Número:</span>
-                        <span>Complemento:</span>
-                        <span>Data de criação:</span>
+                        <span>CEP: {{ $endereco->cep }}</span>
+                        <span>Rua: {{ $endereco->rua }}</span>
+                        <span>Número: {{ $endereco->number_house }}</span>
+                        <span>Complemento: {{ $endereco->complemento }}</span>
+                        <span>Data de criação: {{ $endereco->created_at->format('d/m/Y') }}</span>
                     </div>
+                    @endforeach 
                 </div>
+                @endif
                 <div class="adress-bottom">
                 <a class="button btn-adress" href="/registro_end">Novo Endereço</a>
                 </div>
