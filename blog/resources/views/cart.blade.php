@@ -40,6 +40,12 @@
                                         <i class="bx bx-plus"></i>
                                     </span>
                                 </div>
+                                <form action="/edit/car" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="quantidade_car" id="countProduct" value="10">
+                                    <input type="hidden" name="id" value="{{ $cart->id }}">
+                                    <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
+                                </form>
                                 <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')

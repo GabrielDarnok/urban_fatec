@@ -32,6 +32,20 @@ class CarrinhoController extends Controller
         return redirect('/cart')->with('msg','Produto adicionado no carrinho!');
     }
 
+    public function edit_carrinho(Request $request){
+
+        // Verificar se o produto já está no carrinho para o usuário atual
+        $car = Car::where('id_produto', $request->id)
+        ->where('id_usuario', auth()->user()->id)
+        ->first();
+
+        $car->quantidade_car = $request->quantidade_car;
+
+        $car->save();
+
+        return redirect('/cart')->with('msg', 'Editado a quantidade de produtos do carrinho');
+    }
+
     public function destroy_car($id){
         
         // Localize o produto
