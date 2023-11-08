@@ -75,7 +75,7 @@
                 <div class="out__container adress">
                     <div class="adress-head" style="letter-spacing: 0.5px; ">
                         <h4><strong>Endereço principal</strong><h4>
-                        <input type="radio" id="endereco_selecionado" name="genero" value="endereco_selecionado">
+                        <input type="radio" id="endereco_selecionado" name="genero" value="endereco_selecionado" style="width:18px; height:18px">
                     </div>
                     <div class="adress_information">
                         <span>CEP:</span>
@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="adress-bottom">
-                <button class="button btn-adress" href="/registro_end">Novo Endereço</button>
+                <a class="button btn-adress" href="/registro_end">Novo Endereço</a>
                 </div>
             </div>
         </section>
