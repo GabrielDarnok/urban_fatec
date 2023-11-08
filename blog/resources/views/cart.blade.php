@@ -30,13 +30,13 @@
         
                             <div class="out__amount">
                                 <div class="out__amount-content">
-                                    <span class="out__amount-box">
+                                    <span class="out__amount-box" onclick="countProduct('-', {{ $cart->carrinho_id }})">
                                         <i class="bx bx-minus"></i>
                                     </span>
         
-                                    <span class="out__amount-number">1</span>
+                                    <span class="out__amount-number" id="CountProduct{{ $cart->carrinho_id }}">1</span>
         
-                                    <span class="out__amount-box">
+                                    <span class="out__amount-box" onclick="countProduct('+', {{ $cart->carrinho_id }})">
                                         <i class="bx bx-plus"></i>
                                     </span>
                                 </div>
@@ -68,12 +68,25 @@
                </div>
                 </div>
             </div>
-            <div class="checksider__container">
+            <div class="checksider__container" style="height: fit-content">
                 <div class="out__prices">
                     <span class="out__prices-total">ENDEREÇO DE ENTREGA</span>
                 </div>
-                <div class="endereco_select">
-                    
+                <div class="out__container adress">
+                    <div class="adress-head" style="letter-spacing: 0.5px; ">
+                        <h4><strong>Endereço principal</strong><h4>
+                        <input type="radio" id="endereco_selecionado" name="genero" value="endereco_selecionado">
+                    </div>
+                    <div class="adress_information">
+                        <span>CEP:</span>
+                        <span>Rua:</span>
+                        <span>Número:</span>
+                        <span>Complemento:</span>
+                        <span>Data de criação:</span>
+                    </div>
+                </div>
+                <div class="adress-bottom">
+                <button class="button btn-adress" href="/registro_end">Novo Endereço</button>
                 </div>
             </div>
         </section>
@@ -90,4 +103,22 @@
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
 
+    <script>
+        function countProduct(operation, id){
+            const quantidadeProdutoElement = document.getElementById('CountProduct'+id);
+            var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
+
+            if(operation === '-'){
+                quantidadeProduto -= 1; 
+            }
+            if(operation === '+'){
+                quantidadeProduto += 1;
+            }
+            
+            if(quantidadeProduto >= 1){
+                quantidadeProdutoElement.textContent = quantidadeProduto;
+            }
+            
+        }
+    </script>
 @endsection

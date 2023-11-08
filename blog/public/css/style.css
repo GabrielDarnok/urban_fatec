@@ -2532,3 +2532,30 @@ input {
     }
 
 }
+.adress{
+    margin-top: 1rem;
+    background-color: var(--body-color);
+    border-radius: 1rem !important;
+    padding: 0.8rem;
+}
+.adress_information{
+    display: flex;
+    flex-direction: column;
+}
+.adress:hover{
+    cursor: pointer;
+}
+.adress-head{
+    display: flex;
+    justify-content: space-between;
+}
+.adress-bottom{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.btn-adress{
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+}
