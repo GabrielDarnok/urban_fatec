@@ -16,26 +16,26 @@ class Controller extends BaseController
         
         $carrinho = Car::where('id_usuario', auth()->user()->id)->get();
             
-            //Atribuir os valores encontrados em um array
-            $produtosNoCarrinho = [];
+        //Atribuir os valores encontrados em um array
+        $produtosNoCarrinho = [];
 
-            //Retorna a quantidade de produtos no carrinho
-            $count = Car::whereNotNull('quantidade_car')->count();
+        //Retorna a quantidade de produtos no carrinho
+        $count = Car::whereNotNull('quantidade_car')->count();
 
-            //Retorna o valor do que está no carrinho
-            $subtotal = 0;
+        //Retorna o valor do que está no carrinho
+        $subtotal = 0;
 
-            // Acesse os produtos relacionados a partir dos registros do carrinho
-            foreach ($carrinho as $item) {
-                $produto = $item->produto;
-                $produto->carrinho_id = $item->id; // Adicione o ID do carrinho ao objeto de produto para poder ser referenciado na view
-                $produtosNoCarrinho[] = $produto;
-                // Some o valor do produto ao subtotal
-                $subtotal += $produto->valor_produto * $item->quantidade_car;
-            }
-
-            return (['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count, 'subtotal' => $subtotal]);
+        // Acesse os produtos relacionados a partir dos registros do carrinho
+        foreach ($carrinho as $item) {
+            $produto = $item->produto;
+            $produto->carrinho_id = $item->id; // Adicione o ID do carrinho ao objeto de produto para poder ser referenciado na view
+            $produtosNoCarrinho[] = $produto;
+            // Some o valor do produto ao subtotal
+            $subtotal += $produto->valor_produto * $item->quantidade_car;
         }
+
+        return (['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count, 'subtotal' => $subtotal]);
+    }
     
         public function verificaUsuarioLog(){
         

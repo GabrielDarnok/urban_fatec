@@ -71,3 +71,5 @@ Route::delete('/endereco/{endereco}', [UserController::class, 'destroy_endereco'
 Route::post('/car/add_car', [CarrinhoController::class, 'add_carrinho'])->middleware('auth');
 
 Route::delete('/car/delete/{id}', [CarrinhoController::class, 'destroy_car'])->name('car.destroy')->middleware('auth');
+
+Route::post('/edit/car', [CarrinhoController::class, 'edit_carrinho'])->middleware('auth');
