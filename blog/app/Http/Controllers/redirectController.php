@@ -73,14 +73,6 @@ class redirectController extends Controller
 
         return view('sobre',['dados' => $dados]);
     }
-    public function welcome(){
-        
-        $dados = parent::verificaUsuarioLog();
-        
-        $produtcs = Product::all();
-
-        return view('welcome', ['products' => $produtcs, 'dados' => $dados]);
-    }
     public function admin(){
         
         if(!isset(auth()->user()->id) || auth()->user()->role != "admin"){

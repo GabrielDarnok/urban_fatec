@@ -15,19 +15,19 @@
                 <div class="product__images grid">
                     <div class="product__img">
                         <div class="details__img-tag">Novo</div>
-                        <img src=" /img/product/{{ $Product->imagem_produto }}" alt="">
+                        <img src="/img/product/{{ $Product->imagem_produto }}" alt="">
                     </div>
 
                     <div class="product__img">
-                        <img src=" /img/details-2.png" alt="">
+                        <img src="/img/details-2.png" alt="">
                     </div>
 
                     <div class="product__img">
-                        <img src=" /img/details-3.png" alt="">
+                        <img src="/img/details-3.png" alt="">
                     </div>
 
                     <div class="product__img">
-                        <img src=" /img/details-4.png" alt="">
+                        <img src="/img/details-4.png" alt="">
                     </div>
                 </div>
 

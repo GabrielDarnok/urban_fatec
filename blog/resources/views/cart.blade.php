@@ -44,7 +44,7 @@
                                     @csrf
                                     <input type="hidden" name="quantidade_car" id="countProduct" value="10">
                                     <input type="hidden" name="id" value="{{ $cart->id }}">
-                                    <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
+                                    <button type="submit" class="bx bx-edit-alt out__amount-edit"></button>
                                 </form>
                                 <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
                                     @csrf
