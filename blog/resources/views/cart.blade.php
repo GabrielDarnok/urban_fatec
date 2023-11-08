@@ -64,13 +64,9 @@
                         <h3 class="check__subtitle">Total</h3> <span>R$ {{ number_format($dados['subtotal'] + 20, 2, ',', '.') }}</span>
                     </div>
                 @endif
-                    <div class="adress__content">
-                        <label for="" class="adress__label">CEP</label>
-                        <input type="email" class="adress__input">
-                    </div>
                 <br>
                 <div>
-                    <a href="#" class="button">Comprar</a>
+                    <a href="#" class="button">Confirmar Pedido</a>
                </div>
                 </div>
             </div>
