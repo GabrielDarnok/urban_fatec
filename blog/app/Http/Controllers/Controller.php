@@ -19,9 +19,6 @@ class Controller extends BaseController
         //Atribuir os valores encontrados em um array
         $produtosNoCarrinho = [];
 
-        //Retorna a quantidade de produtos no carrinho
-        $count = Car::whereNotNull('quantidade_car')->count();
-
         //Retorna o valor do que está no carrinho
         $subtotal = 0;
 
@@ -33,6 +30,9 @@ class Controller extends BaseController
             // Some o valor do produto ao subtotal
             $subtotal += $produto->valor_produto * $item->quantidade_car;
         }
+        
+        //Retorna a quantidade de produtos no carrinho
+        $count = Car::where('id_usuario', auth()->user()->id)->sum('quantidade_car');
 
         return (['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count, 'subtotal' => $subtotal]);
     }

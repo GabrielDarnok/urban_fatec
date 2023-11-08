@@ -44,7 +44,7 @@
                                     @csrf
                                     <input type="hidden" name="quantidade_car" id="countProduct" value="10">
                                     <input type="hidden" name="id" value="{{ $cart->id }}">
-                                    <button type="submit" class="bx bx-trash-alt out__amount-trash"></button>
+                                    <button type="submit" class="bx bx-edit-alt out__amount-edit"></button>
                                 </form>
                                 <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
                                     @csrf
@@ -64,13 +64,9 @@
                         <h3 class="check__subtitle">Total</h3> <span>R$ {{ number_format($dados['subtotal'] + 20, 2, ',', '.') }}</span>
                     </div>
                 @endif
-                    <div class="adress__content">
-                        <label for="" class="adress__label">CEP</label>
-                        <input type="email" class="adress__input">
-                    </div>
                 <br>
                 <div>
-                    <a href="#" class="button">Comprar</a>
+                    <a href="#" class="button">Confirmar Pedido</a>
                </div>
                 </div>
             </div>
@@ -78,19 +74,23 @@
                 <div class="out__prices">
                     <span class="out__prices-total">ENDEREÇO DE ENTREGA</span>
                 </div>
+                @if (isset($enderecos))
                 <div class="out__container adress">
                     <div class="adress-head" style="letter-spacing: 0.5px; ">
                         <h4><strong>Endereço principal</strong><h4>
                         <input type="radio" id="endereco_selecionado" name="genero" value="endereco_selecionado" style="width:18px; height:18px">                   
                     </div>
+                    @foreach ($enderecos as $endereco)
                     <div class="adress_information">
-                        <span>CEP:</span>
-                        <span>Rua:</span>
-                        <span>Número:</span>
-                        <span>Complemento:</span>
-                        <span>Data de criação:</span>
+                        <span>CEP: {{ $endereco->cep }}</span>
+                        <span>Rua: {{ $endereco->rua }}</span>
+                        <span>Número: {{ $endereco->number_house }}</span>
+                        <span>Complemento: {{ $endereco->complemento }}</span>
+                        <span>Data de criação: {{ $endereco->created_at->format('d/m/Y') }}</span>
                     </div>
+                    @endforeach 
                 </div>
+                @endif
                 <div class="adress-bottom">
                 <a class="button btn-adress" href="/registro_end">Novo Endereço</a>
                 </div>

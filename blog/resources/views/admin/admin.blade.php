@@ -182,23 +182,22 @@
         function adicionarObjetosATabela(objetos) {
             var corpoDaTabela = document.getElementById("tableContent");
             var htmlLinhas = '';
-
-            objetos.products.forEach(function(objeto) {
-                htmlLinhas += '<tr>';
-                htmlLinhas += '<td>' + "<img src='img/product/"+objeto.imagem_produto+"' height='100' alt=>" + '</td>';
-                htmlLinhas += '<td>' + objeto.nome_produto + '</td>';
-                htmlLinhas += '<td>' + objeto.descricao_produto + '</td>';
-                htmlLinhas += '<td>' + objeto.valor_produto + '</td>';
-                htmlLinhas += '<td>' + objeto.quantidade_estoq + '</td>';
-                htmlLinhas += '<td>' + objeto.tamanho_roupa + '</td>';
-                htmlLinhas += '<td>' + objeto.cor_produto + '</td>';
-                htmlLinhas += '<td>' + '<a href="/admin/edit/{{ $product->id }}" class="btn"><i class="fas fa-edit"></i> editar </a>' +
-                                        '<form action="{{ route("product.destroy", ["product" => $product]) }}" method="POST">' +
-                                        '    @csrf' +
-                                        '    @method("DELETE")' +
-                                        '    <button type="submit" class="btn"> <i class="fas fa-edit"></i> DELETAR</button>' +
-                                        '</form>' + '</td>';
-                htmlLinhas += '</tr>';
+              objetos.products.forEach(function(objeto) {
+                  htmlLinhas += '<tr>';
+                  htmlLinhas += '<td>' + "<img src='img/product/"+objeto.imagem_produto+"' height='100' alt=>" + '</td>';
+                  htmlLinhas += '<td>' + objeto.nome_produto + '</td>';
+                  htmlLinhas += '<td>' + objeto.descricao_produto + '</td>';
+                  htmlLinhas += '<td>' + objeto.valor_produto + '</td>';
+                  htmlLinhas += '<td>' + objeto.quantidade_estoq + '</td>';
+                  htmlLinhas += '<td>' + objeto.tamanho_roupa + '</td>';
+                  htmlLinhas += '<td>' + objeto.cor_produto + '</td>';
+                  htmlLinhas += '<td>' + '<a href="/admin/edit/{{ $product->id }}" class="btn"><i class="fas fa-edit"></i> editar </a>' +
+                                          '<form action="{{ route("product.destroy", ["product" => $product]) }}" method="POST">' +
+                                          '    @csrf' +
+                                          '    @method("DELETE")' +
+                                          '    <button type="submit" class="btn"> <i class="fas fa-edit"></i> DELETAR</button>' +
+                                          '</form>' + '</td>';
+                  htmlLinhas += '</tr>';
             });
 
             corpoDaTabela.innerHTML = htmlLinhas;
