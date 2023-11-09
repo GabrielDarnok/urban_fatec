@@ -135,13 +135,13 @@
                     <span class="cart__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
                     <div class="cart__amount">
                         <div class="cart__amount-content">
-                            <span class="cart__amount-box">
+                            <span class="cart__amount-box" onclick="countProduct('-', {{ $cart->id }})">
                                 <i class="bx bx-minus"></i>
                             </span>
 
-                            <span class="cart__amount-number">1</span>
+                            <span class="cart__amount-number" id="CountProductMain{{ $cart->id }}">{{ $cart->quantidade_car }}</span>
 
-                            <span class="cart__amount-box">
+                            <span class="cart__amount-box" onclick="countProduct('+', {{ $cart->id }})">
                                 <i class="bx bx-plus"></i>
                             </span>
                         </div>
@@ -280,3 +280,23 @@
         </div>
        <span class="footer__copy">&#169; Grimm Graphic Designer. All rights reserved.</span>
     </footer>
+    <script>
+        function countProduct(operation, id){
+            const countProduct = document.getElementById('countProductMain'+id);
+            const quantidadeProdutoElement = document.getElementById('CountProductMain'+id);
+            var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
+
+            if(operation === '-'){
+                quantidadeProduto -= 1; 
+            }
+            if(operation === '+'){
+                quantidadeProduto += 1;
+            }
+            
+            if(quantidadeProduto >= 1){
+                quantidadeProdutoElement.textContent = quantidadeProduto;
+                countProduct.value = quantidadeProduto;
+            }
+            
+        }
+    </script>

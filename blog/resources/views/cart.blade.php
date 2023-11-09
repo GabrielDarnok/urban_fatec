@@ -74,11 +74,11 @@
                 <div class="out__prices">
                     <span class="out__prices-total">ENDEREÇO DE ENTREGA</span>
                 </div>
-                @if (isset($enderecos))
+                @if ($enderecos)
                 @foreach ($enderecos as $endereco)
                 <div class="out__container adress">
                     <div class="adress-head" style="letter-spacing: 0.5px; ">
-                        <h4><strong>Endereço</strong><h4>
+                        <h4><strong>Endereço</strong></h4>
                         <input type="radio" id="endereco_selecionado" name="genero" value="endereco_selecionado" style="width:18px; height:18px">                   
                     </div>
                     <div class="adress_information">
@@ -90,6 +90,12 @@
                     </div>
                 </div>
                 @endforeach
+                @else
+                <div class="out__container adress">
+                    <div class="adress-head" style="letter-spacing: 0.5px;">
+                        <h4><strong>Nenhum endereço cadastrado</strong></h4>
+                    </div>
+                </div>
                 @endif
                 <div class="adress-bottom">
                 <a class="button btn-adress" href="/registro_end">Novo Endereço</a>
@@ -115,7 +121,6 @@
             const quantidadeProdutoElement = document.getElementById('CountProduct'+id);
             var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
 
-            console.log(countProduct);
             if(operation === '-'){
                 quantidadeProduto -= 1; 
             }
