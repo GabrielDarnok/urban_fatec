@@ -19,7 +19,7 @@
                     <div class="register__inputs grid">
                         <div class="register__content">
                              <label for="" class="register__label">CEP</label>
-                             <input type="text" class="register__input" name="cep" id="cep "required>
+                             <input type="text" class="register__input" name="cep" id="cep" required>
                         </div>
 
                         <div class="register__content">
@@ -85,5 +85,4 @@
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
-
 @endsection

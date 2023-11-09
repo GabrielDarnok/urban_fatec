@@ -15,16 +15,22 @@ class UserController extends Controller
     public function cadastrar_endereco(Request $request){
         
         $endereco = new Endereco;
-
-        $endereco->id_usuario = auth()->user()->id;
-        $endereco->cep = $request->cep;
-        $endereco->rua=$request->rua;
-        $endereco->number_house=$request->number_house;
-        $endereco->complemento=$request->complemento;
-
-        $endereco->save();
         
-        return redirect('/registro_end')->with('msg', 'Endereço cadastrado com sucesso!');
+        $valida = parent::validaCEP($request->cep);
+
+        if($valida != 0){
+            $endereco->id_usuario = auth()->user()->id;
+            $endereco->cep = $valida;
+            $endereco->rua=$request->rua;
+            $endereco->number_house=$request->number_house;
+            $endereco->complemento=$request->complemento;
+
+            $endereco->save();
+
+            return redirect('/registro_end')->with('msg', 'Endereço cadastrado com sucesso!');
+        }else{
+            return redirect('/registro_end')->with('msg', 'CEP fornecido está incorreto');
+        }
     }
     
     public function edit_endereco($id){

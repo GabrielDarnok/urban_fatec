@@ -7,6 +7,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\Models\Car;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class Controller extends BaseController
 {
@@ -44,5 +46,15 @@ class Controller extends BaseController
             return $this->consultaCarrinho();
         }
     }
-    
+    public function validaCEP($cep){
+        
+        // Remove todos os caracteres que não são números
+        $cepNumerico = preg_replace('/[^0-9]/', '', $cep);
+        
+        if (strlen($cepNumerico) == 8) {
+            return $cepNumerico; 
+        } else {
+            return false;
+        }
+    }
 }
