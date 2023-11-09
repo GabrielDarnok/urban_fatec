@@ -1,6 +1,6 @@
 @extends('layouts.maincadastro')
 
-@section('title','sobre')
+@section('title','cadastroPage')
 
 @section('content')
     <style>

@@ -120,7 +120,7 @@
     <a href="#" class="scrollup" id="scroll-up">
         <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
     </a>
-
+    
     <!--=============== SWIPER JS ===============-->
     <script src="/js/swiper-bundle.min.js"></script>
 
@@ -207,5 +207,4 @@
             corpoDaTabela.innerHTML = htmlLinhas;
         }            
       </script>
-</body>
-</html>
+@endsection
