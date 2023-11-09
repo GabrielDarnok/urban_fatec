@@ -67,7 +67,7 @@
                       
                       <div>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
-                        <input type="submit" class="btn" name="add_product" onclick="createProduct()" value="add_produto">
+                        <input class="btn" name="add_product" onclick="createProduct()" value="add_produto">
                       </div>
                    </form>
              
@@ -88,6 +88,7 @@
                       </tr>
                       </thead>
                       <tbody id= "tableContent">
+                      @if (isset($products))
                       @foreach ($products as $product)
                       <tr>
                           <td><img src="img/product/{{ $product->imagem_produto }}" height="100" alt=""></td>
@@ -99,7 +100,7 @@
                           <td>{{ $product->cor_produto}}</td>
                           <td>
                             <a href="/admin/edit/{{ $product->id }}" class="btn"><i class="fas fa-edit"></i> editar </a> 
-                              <form action="{{ route('product.destroy', ['product' => $product]) }}" method="POST">
+                              <form action="{{ route('product.destroy', ['id' => $product->id]) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
                                   <button type="submit" class="btn"> <i class="fas fa-edit"></i> DELETAR</button>
@@ -107,6 +108,7 @@
                           </td>
                        </tr>
                      @endforeach
+                     @endif
                       </tbody>
                    </table>
                 </div>
@@ -127,6 +129,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <script>
+        var deleteRoute = "{{ route('product.destroy', ['id' => ':id']) }}";
+
         function createProduct(){
             event.preventDefault();
             var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -191,8 +195,8 @@
                   htmlLinhas += '<td>' + objeto.quantidade_estoq + '</td>';
                   htmlLinhas += '<td>' + objeto.tamanho_roupa + '</td>';
                   htmlLinhas += '<td>' + objeto.cor_produto + '</td>';
-                  htmlLinhas += '<td>' + '<a href="/admin/edit/{{ $product->id }}" class="btn"><i class="fas fa-edit"></i> editar </a>' +
-                                          '<form action="{{ route("product.destroy", ["product" => $product]) }}" method="POST">' +
+                  htmlLinhas += '<td>' + '<a href="/admin/edit/'+objeto.id+'" class="btn"><i class="fas fa-edit"></i> editar </a>' +
+                                          '<form action="'+ deleteRoute.replace(':id', objeto.id) +'" method="POST">' +
                                           '    @csrf' +
                                           '    @method("DELETE")' +
                                           '    <button type="submit" class="btn"> <i class="fas fa-edit"></i> DELETAR</button>' +
@@ -202,6 +206,6 @@
 
             corpoDaTabela.innerHTML = htmlLinhas;
         }            
-    </script>
+      </script>
 </body>
 </html>

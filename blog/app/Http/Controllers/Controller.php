@@ -26,6 +26,7 @@ class Controller extends BaseController
         foreach ($carrinho as $item) {
             $produto = $item->produto;
             $produto->carrinho_id = $item->id; // Adicione o ID do carrinho ao objeto de produto para poder ser referenciado na view
+            $produto->quantidade_car = $item->quantidade_car;
             $produtosNoCarrinho[] = $produto;
             // Some o valor do produto ao subtotal
             $subtotal += $produto->valor_produto * $item->quantidade_car;
@@ -34,7 +35,7 @@ class Controller extends BaseController
         //Retorna a quantidade de produtos no carrinho
         $count = Car::where('id_usuario', auth()->user()->id)->sum('quantidade_car');
 
-        return (['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count, 'subtotal' => $subtotal]);
+        return (['produtosNoCarrinho' => $produtosNoCarrinho, 'count' => $count, 'subtotal' => $subtotal, 'carrinho' => $carrinho]);
     }
     
         public function verificaUsuarioLog(){

@@ -58,7 +58,7 @@ class ProductController extends Controller
             $product->delete();
         }
 
-        return redirect('/admin');
+        return redirect('/admin')->with('msg', 'Produto removido com sucesso');
     }
     
     public function edit($id){

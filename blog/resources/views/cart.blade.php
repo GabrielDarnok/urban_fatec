@@ -34,7 +34,7 @@
                                         <i class="bx bx-minus"></i>
                                     </span>
         
-                                    <span class="out__amount-number" id="CountProduct{{ $cart->carrinho_id }}">1</span>
+                                    <span class="out__amount-number" id="CountProduct{{ $cart->carrinho_id }}">{{ $cart->quantidade_car }}</span>
         
                                     <span class="out__amount-box" onclick="countProduct('+', {{ $cart->carrinho_id }})">
                                         <i class="bx bx-plus"></i>
@@ -42,7 +42,7 @@
                                 </div>
                                 <form action="/edit/car" method="POST">
                                     @csrf
-                                    <input type="hidden" name="quantidade_car" id="countProduct" value="10">
+                                    <input type="hidden" name="quantidade_car" id="countProduct{{ $cart->carrinho_id }}" value="10">
                                     <input type="hidden" name="id" value="{{ $cart->id }}">
                                     <button type="submit" class="bx bx-edit-alt out__amount-edit"></button>
                                 </form>
@@ -75,12 +75,12 @@
                     <span class="out__prices-total">ENDEREÇO DE ENTREGA</span>
                 </div>
                 @if (isset($enderecos))
+                @foreach ($enderecos as $endereco)
                 <div class="out__container adress">
                     <div class="adress-head" style="letter-spacing: 0.5px; ">
-                        <h4><strong>Endereço principal</strong><h4>
+                        <h4><strong>Endereço</strong><h4>
                         <input type="radio" id="endereco_selecionado" name="genero" value="endereco_selecionado" style="width:18px; height:18px">                   
                     </div>
-                    @foreach ($enderecos as $endereco)
                     <div class="adress_information">
                         <span>CEP: {{ $endereco->cep }}</span>
                         <span>Rua: {{ $endereco->rua }}</span>
@@ -88,8 +88,8 @@
                         <span>Complemento: {{ $endereco->complemento }}</span>
                         <span>Data de criação: {{ $endereco->created_at->format('d/m/Y') }}</span>
                     </div>
-                    @endforeach 
                 </div>
+                @endforeach
                 @endif
                 <div class="adress-bottom">
                 <a class="button btn-adress" href="/registro_end">Novo Endereço</a>
@@ -111,9 +111,11 @@
 
     <script>
         function countProduct(operation, id){
+            const countProduct = document.getElementById('countProduct'+id);
             const quantidadeProdutoElement = document.getElementById('CountProduct'+id);
             var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
 
+            console.log(countProduct);
             if(operation === '-'){
                 quantidadeProduto -= 1; 
             }
@@ -123,6 +125,7 @@
             
             if(quantidadeProduto >= 1){
                 quantidadeProdutoElement.textContent = quantidadeProduto;
+                countProduct.value = quantidadeProduto;
             }
             
         }
