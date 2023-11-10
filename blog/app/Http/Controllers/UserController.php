@@ -73,7 +73,7 @@ class UserController extends Controller
             
             return redirect('/registro_end')->with('msg', 'Endereço editado com sucesso!');
         }else{
-            return redirect()->back()->with('msg', 'CEP informado está incorreto');
+            return redirect()->back()->with('err', 'CEP informado está incorreto');
         }
     }
 
