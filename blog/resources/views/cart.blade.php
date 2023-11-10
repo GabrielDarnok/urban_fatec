@@ -42,7 +42,7 @@
                                 </div>
                                 <form action="/edit/car" method="POST">
                                     @csrf
-                                    <input type="hidden" name="quantidade_car" id="countProduct{{ $cart->carrinho_id }}" value="10">
+                                    <input type="hidden" name="quantidade_car" id="countProduct{{ $cart->carrinho_id }}">
                                     <input type="hidden" name="id" value="{{ $cart->id }}">
                                     <button type="submit" class="bx bx-edit-alt out__amount-edit"></button>
                                 </form>

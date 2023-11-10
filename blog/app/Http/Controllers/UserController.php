@@ -63,7 +63,7 @@ class UserController extends Controller
             //Deixando o CPF apenas com os numeros
             $cep_organiz = parent::organizaCep($request->cep);
 
-            if ($this->validaCepExistente($cep_organiz)) {
+            if ($this->validaCepExistenteEdit($cep_organiz, $request->id)) {
                 return redirect()->back()->with('err', 'Endereço já cadastrado.');
             }
 
@@ -96,6 +96,13 @@ class UserController extends Controller
 
         $cep_cadastrado = Endereco::where('cep', $cep_form)->where('id_usuario', auth()->user()->id)->first();
 
+        return $cep_cadastrado !== null;
+    }
+
+    public function validaCepExistenteEdit($cep_form, $id_endereco){
+        
+        $cep_cadastrado = Endereco::where('cep', $cep_form)->where('id_usuario', auth()->user()->id)->where('id', '!=', $id_endereco)->first();
+        
         return $cep_cadastrado !== null;
     }
 }
