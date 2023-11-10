@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="details__prices">
-                        <span class="details__price">{{ number_format($Product->valor_produto, 2, ',', '.') }}</span>
+                        <span class="details__price" style="color: ">R$ {{ number_format($Product->valor_produto, 2, ',', '.') }}</span>
                     </div>
 
                     <div class="details__description">
