@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\Product;
 
 class CarrinhoController extends Controller
 {
@@ -15,7 +16,7 @@ class CarrinhoController extends Controller
         ->where('id_usuario', auth()->user()->id)
         ->first();
 
-        if ($car) {
+        if ($car) {    
             // Se o produto já está no carrinho, atualize a quantidade
             $car->quantidade_car += $request->quantidade_car;
         } else {
@@ -27,11 +28,16 @@ class CarrinhoController extends Controller
             $car->quantidade_car = $request->quantidade_car;
         }
 
-        $car->save();
-        
-        return redirect('/cart')->with('msg','Produto adicionado no carrinho!');
-    }
+        $valida = $this->validaQuantidade($car->quantidade_car,$request->id);
 
+        if($valida){
+            return redirect()->back()->with('err', "Quantidade excedida. O maximo deste produto é {$valida}.");
+        }else{
+            $car->save();
+
+            return redirect('/cart')->with('msg', 'Produto adicionado no carrinho');
+        }
+    }
     public function edit_carrinho(Request $request){
 
         // Verificar se o produto já está no carrinho para o usuário atual
@@ -41,9 +47,26 @@ class CarrinhoController extends Controller
 
         $car->quantidade_car = $request->quantidade_car;
 
-        $car->save();
+        $valida = $this->validaQuantidade($car->quantidade_car,$request->id);
 
-        return redirect('/cart')->with('msg', 'Editado a quantidade de produtos do carrinho');
+        if($valida){
+            return redirect()->back()->with('err', "Quantidade excedida. O maximo deste produto é {$valida}.");
+        }else{
+            $car->save();
+
+            return redirect('/cart')->with('msg', 'Editado a quantidade de produtos do carrinho');
+        }
+    }
+
+    public function validaQuantidade($car_quantidade, $id_produto){
+        
+        $product = Product::find($id_produto);
+
+        if($car_quantidade > $product->quantidade_estoq){
+            return $product->quantidade_estoq;
+        } 
+
+        return false;
     }
 
     public function destroy_car($id){

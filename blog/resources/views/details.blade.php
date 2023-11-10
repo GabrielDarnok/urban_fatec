@@ -53,8 +53,8 @@
                     <div class="details__description">
                         <h3 class="description__tittle">Detalhes do Produto</h3>
                         <div class="description__details">
-                            <p>{{ $Product->descricao_produto }}
-                            </p>
+                            <p>{{ $Product->descricao_produto }}</p>
+                            <p>Quantidade disponivel: {{$Product->quantidade_estoq}}</p>
                         </div>
                     </div>
                     <form action="/car/add_car" method="POST">
