@@ -18,9 +18,12 @@ class UserController extends Controller
         
         $valida = parent::validaCEP($request->cep);
 
-        if($valida != 0){
+        if($valida !== false){
+            //deixando o CEP  apenas com os numeros
+            $cep_organiz = parent::organizaCep($request->cep);
+            
             $endereco->id_usuario = auth()->user()->id;
-            $endereco->cep = $valida;
+            $endereco->cep = $cep_organiz;
             $endereco->rua=$request->rua;
             $endereco->number_house=$request->number_house;
             $endereco->complemento=$request->complemento;
