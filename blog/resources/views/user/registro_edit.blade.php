@@ -9,8 +9,8 @@
 
     <!--=============== REGISTER ===============-->
     <section class="register section container">
-        <h2 class="breadcrumb__title">Registro de Endereço</h2>
-        <h3 class="breadcrumb__subtitle">Inicio > Perfil > <span>Registro</span></h3>
+        <h2 class="breadcrumb__title">Editar Endereço</h2>
+        <h3 class="breadcrumb__subtitle">Inicio > Perfil > <span>Editar Endereço</span></h3>
         <div class="card">
             <div class="register__container grid">
 
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div style = "justify-content: center; display: flex; margin-top: 10px">
-                        <button type="submit" class="button">Cadastrar endereço</button>
+                        <button type="submit" class="button">Salvar</button>
                     </div>
                 </form>
             </div>

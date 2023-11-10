@@ -26,8 +26,9 @@ class redirectController extends Controller
         $enderecos = Endereco::where('id_usuario', auth()->user()->id)->get();
         
         $dados = parent::verificaUsuarioLog();
-           
+
         return view('cart', ['dados' => $dados, 'enderecos' => $enderecos]);
+        
     }
     public function contato(){
 

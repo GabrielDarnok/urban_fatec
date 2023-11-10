@@ -2545,6 +2545,7 @@ input {
 }
 .adress:hover{
     cursor: pointer;
+    box-shadow: 1px 1px 9px #ffb8b8;
 }
 .adress-head{
     display: flex;

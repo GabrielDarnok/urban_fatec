@@ -74,22 +74,25 @@
                 <div class="out__prices">
                     <span class="out__prices-total">ENDEREÇO DE ENTREGA</span>
                 </div>
-                @if ($enderecos)
-                @foreach ($enderecos as $endereco)
-                <div class="out__container adress">
-                    <div class="adress-head" style="letter-spacing: 0.5px; ">
-                        <h4><strong>Endereço</strong></h4>
-                        <input type="radio" id="endereco_selecionado" name="genero" value="endereco_selecionado" style="width:18px; height:18px">                   
+                @if (count($enderecos) > 0)
+                    @foreach ($enderecos as $endereco)
+                    <div class="out__container adress">
+                        <div class="adress-head" style="letter-spacing: 0.5px; ">
+                            <h4><strong>Endereço</strong></h4>
+                            <input type="radio" id="endereco_selecionado" name="genero" value="endereco_selecionado" style="width:18px; height:18px">                   
+                        </div>
+                        <div class="adress_information">
+                            <span>CEP: {{ $endereco->cep }}</span>
+                            <span>Rua: {{ $endereco->rua }}</span>
+                            <span>Número: {{ $endereco->number_house }}</span>
+                            <span>Complemento: {{ $endereco->complemento }}</span>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span>Data de criação: {{ $endereco->created_at->format('d/m/Y') }}</span>
+                                <a class="button" href="/endereco/edit/{{$endereco->id}}" style = "display: flex; width: 80px; align-items: center; justify-content: center; height: 23px;">Editar</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="adress_information">
-                        <span>CEP: {{ $endereco->cep }}</span>
-                        <span>Rua: {{ $endereco->rua }}</span>
-                        <span>Número: {{ $endereco->number_house }}</span>
-                        <span>Complemento: {{ $endereco->complemento }}</span>
-                        <span>Data de criação: {{ $endereco->created_at->format('d/m/Y') }}</span>
-                    </div>
-                </div>
-                @endforeach
+                    @endforeach
                 @else
                 <div class="out__container adress">
                     <div class="adress-head" style="letter-spacing: 0.5px;">
