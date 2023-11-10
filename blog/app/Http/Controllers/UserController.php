@@ -32,7 +32,7 @@ class UserController extends Controller
 
             return redirect('/registro_end')->with('msg', 'Endereço cadastrado com sucesso!');
         }else{
-            return redirect('/registro_end')->with('msg', 'CEP fornecido está incorreto');
+            return redirect('/registro_end')->with('err', 'CEP fornecido está incorreto');
         }
     }
     

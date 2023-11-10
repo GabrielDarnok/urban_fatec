@@ -225,7 +225,19 @@
                     'success'
                 );
             }
-        </script>          
+        </script>
+        @elseif(session('err')) 
+        <input type="hidden" id="msg" value="{{ session('err') }}">
+        <script>
+            var mensagem = document.getElementById('msg').value;
+            if(mensagem){
+                Swal.fire(
+                    'Opa!',
+                    mensagem,
+                    'error'
+                );
+            }
+        </script>         
         @endif
     @yield ('content')
     
