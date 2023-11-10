@@ -59,11 +59,11 @@
                         <td>{{ $endereco->number_house }}</td>
                         <td>{{ $endereco->complemento }}</td>
                         <td>
-                           <a href="/endereco/edit/{{ $endereco->id }}" class="btn"><i class="fas fa-edit"></i> editar </a> 
+                           <a href="/endereco/edit/{{ $endereco->id }}" class="btn"><i class="fas fa-edit"></i> Editar </a> 
                             <form action= "{{route('endereco.destroy', ['endereco' => $endereco]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn"> <i class="fas fa-edit"></i> DELETAR</button>
+                                <button type="submit" class="btn"> <i class="fas fa-edit"></i> Deletar</button>
                             </form>
                         </td>
                      </tr>

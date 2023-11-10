@@ -49,11 +49,22 @@ class UserController extends Controller
 
     public function update_endereco(Request $request){
 
-        $dados = $request->all();
+        $valida = parent::validaCEP($request->cep);
 
-        Endereco::FindOrFail($request->id)->update($dados);
-        
-        return redirect('/registro_end')->with('msg', 'Endereço editado com sucesso!');
+        if($valida !== false){
+            
+            $dados = $request->all();
+
+            $cep_organiz = parent::organizaCep($request->cep);
+
+            $dados['cep'] = $cep_organiz;
+
+            Endereco::FindOrFail($request->id)->update($dados);
+            
+            return redirect('/registro_end')->with('msg', 'Endereço editado com sucesso!');
+        }else{
+            return redirect()->back()->with('msg', 'CEP informado está incorreto');
+        }
     }
 
     public function destroy_endereco($id){
