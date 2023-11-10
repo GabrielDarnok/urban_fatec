@@ -67,7 +67,7 @@
                       
                       <div>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
-                        <input class="btn" name="add_product" onclick="createProduct()" value="add_produto">
+                        <a class="btn" onclick="createProduct()" value="add_produto">Adicionar Produto</a>
                       </div>
                    </form>
              

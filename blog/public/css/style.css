@@ -2538,6 +2538,7 @@ input {
     border-radius: 1rem !important;
     padding: 0.8rem;
     border: 1px solid #ffb8b8;
+    transition: .3s;
 }
 .adress_information{
     display: flex;
@@ -2546,6 +2547,7 @@ input {
 .adress:hover{
     cursor: pointer;
     box-shadow: 1px 1px 9px #ffb8b8;
+    transform: translateY(-0.25rem);
 }
 .adress-head{
     display: flex;
