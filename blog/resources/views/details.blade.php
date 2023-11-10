@@ -66,12 +66,9 @@
                         </div>
 
                         <div class="size__selector">
-                            <div class="size__option">G</div>
-                            <div class="size__option">GG</div>
-                            <div class="size__option">G2</div>
-                            <div class="size__option">G3</div>
-                            <div class="size__option">G4</div>
-                            <div class="size__option">G5</div>
+                            @foreach ($Product->tamanho_roupa as $tamanho_roupa)
+                              <p>{{ $tamanho_roupa }}</p>
+                            @endforeach
                         </div>
 
                         <div>

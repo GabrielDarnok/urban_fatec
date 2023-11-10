@@ -27,16 +27,20 @@
 
                       <div class="dropdown">
                         <button class="dropbtn">Selecione o tamanho</button>
-                        <div class="dropdown-content">
-                            <select type="text" class="form-control" name="tamanho_roupa" id="tamanho_roupa">
-                                <option value="G">G</option>
-                                <option value="GG">GG</option>
-                                <option value="G2">G2</option>
-                                <option value="G3">G3</option>
-                                <option value="G4">G4</option>
-                                <option value="G5">G5</option>
-                                <option value="Todos">Todos os tamanhos</option>
-                            </select>
+                        <div class="">
+                            <input type="checkbox" class="form-control" name="tamanho_roupa[]" value="G"> G
+                        </div>
+                        <div class="">
+                            <input type="checkbox" class="form-control" name="tamanho_roupa[]" value="GG"> GG
+                        </div>
+                        <div class="">
+                            <input type="checkbox" class="form-control" name="tamanho_roupa[]" value="G3"> G3
+                        </div>
+                        <div class="">
+                            <input type="checkbox" class="form-control" name="tamanho_roupa[]" value="G4"> G4
+                        </div>
+                        <div class="">
+                            <input type="checkbox" class="form-control" name="tamanho_roupa[]" value="G5"> G
                         </div>
                       </div>
                       
@@ -67,7 +71,7 @@
                       
                       <div>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
-                        <a class="btn" onclick="createProduct()" value="add_produto">Adicionar Produto</a>
+                        <input type="submit" class="btn" name="add_product" onclick="createProduct()" value="add_produto">
                       </div>
                    </form>
              
@@ -96,7 +100,6 @@
                           <td>{{ $product->descricao_produto }}</td>
                           <td>{{ number_format($product->valor_produto, 2, ',', '.') }}</td>
                           <td>{{ $product->quantidade_estoq }}</td>
-                          <td>{{ $product->tamanho_roupa}}</td>
                           <td>{{ $product->cor_produto}}</td>
                           <td>
                             <a href="/admin/edit/{{ $product->id }}" class="btn"><i class="fas fa-edit"></i> editar </a> 
