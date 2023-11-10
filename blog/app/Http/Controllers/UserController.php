@@ -15,13 +15,18 @@ class UserController extends Controller
     public function cadastrar_endereco(Request $request){
         
         $endereco = new Endereco;
+
+        //deixando o CEP  apenas com os numeros
+        $cep_organiz = parent::organizaCep($request->cep);
+
+        if ($this->validaCepExistente($cep_organiz)) {
+            return redirect()->back()->with('err', 'Endereço já cadastrado.');
+        }
         
-        $valida = parent::validaCEP($request->cep);
+        $valida = parent::validaCEP($cep_organiz);
 
         if($valida !== false){
-            //deixando o CEP  apenas com os numeros
-            $cep_organiz = parent::organizaCep($request->cep);
-
+            
             $endereco->id_usuario = auth()->user()->id;
             $endereco->cep = $cep_organiz;
             $endereco->rua=$request->rua;
@@ -55,7 +60,12 @@ class UserController extends Controller
             
             $dados = $request->all();
 
+            //Deixando o CPF apenas com os numeros
             $cep_organiz = parent::organizaCep($request->cep);
+
+            if ($this->validaCepExistente($cep_organiz)) {
+                return redirect()->back()->with('err', 'Endereço já cadastrado.');
+            }
 
             $dados['cep'] = $cep_organiz;
 
@@ -80,5 +90,12 @@ class UserController extends Controller
         }
         
         abort(403);
+    }
+
+    public function validaCepExistente($cep_form){
+
+        $cep_cadastrado = Endereco::where('cep', $cep_form)->where('id_usuario', auth()->user()->id)->first();
+
+        return $cep_cadastrado !== null;
     }
 }
