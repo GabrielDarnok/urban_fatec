@@ -12,4 +12,8 @@ class Product extends Model
     protected $dates = ['date'];
 
     protected $guarded = [];
+
+    protected $casts = [
+        'tamanho_roupa' => 'array'
+    ];
 }

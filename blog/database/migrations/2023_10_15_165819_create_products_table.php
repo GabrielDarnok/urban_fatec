@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('quantidade_estoq');
             $table->text('descricao_produto');
             $table->string('cor_produto');
-            $table->string('tamanho_roupa');
+            $table->json('tamanho_roupa');
             $table->float('valor_produto',8 , 2);
         });
     }
