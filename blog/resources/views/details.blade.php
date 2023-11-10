@@ -82,13 +82,13 @@
                         <div class="color__option" ></div>
                         <div class="cart__amount">
                             <div class="cart__amount-content">
-                                <span class="cart__amount-box" onclick="countProduct('-')">
+                                <span class="cart__amount-box" onclick="countProductDetais('-')">
                                     <i class="bx bx-minus"></i>
                                 </span>
 
-                                <span class="cart__amount-number" id= "CountProduct">1</span>
+                                <span class="cart__amount-number" id="CountProduct">1</span>
 
-                                <span class="cart__amount-box" onclick="countProduct('+')">
+                                <span class="cart__amount-box" onclick="countProductDetais('+')">
                                     <i class="bx bx-plus"></i>
                                 </span>
                             </div>
@@ -241,11 +241,12 @@
                 toggleLightbox()
             }
         });
-        function countProduct(operation){
+        function countProductDetais(operation){
             const countProduct = document.getElementById('countProduct');
             const quantidadeProdutoElement = document.getElementById('CountProduct');
             var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
 
+            console.log(quantidadeProduto);
             if(operation === '-'){
                 quantidadeProduto -= 1; 
             }

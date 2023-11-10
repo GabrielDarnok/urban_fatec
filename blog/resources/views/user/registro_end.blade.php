@@ -85,4 +85,36 @@
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>
+        function setEnd(){
+            const cep = document.getElementById('cep').value;
+
+            $.ajax({
+                url: '/user/endereco',
+                type: 'POST',
+                data: {
+                    
+                },
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                success: function(response){
+                  Swal.fire(
+                    'Sucesso!',
+                    'Produto adicionado com sucesso',
+                    'success',
+                  );             
+                },
+                error: function(xhr, status, error) {
+                  Swal.fire(
+                      'Erro!',
+                      'Erro interno: ' + error,
+                      'error'
+                  );
+                }
+            });
+        }
+    </script>
 @endsection

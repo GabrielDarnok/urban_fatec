@@ -30,13 +30,13 @@
         
                             <div class="out__amount">
                                 <div class="out__amount-content">
-                                    <span class="out__amount-box" onclick="countProduct('-', {{ $cart->carrinho_id }})">
+                                    <span class="out__amount-box" onclick="countProductCart('-', {{ $cart->carrinho_id }})">
                                         <i class="bx bx-minus"></i>
                                     </span>
         
                                     <span class="out__amount-number" id="CountProduct{{ $cart->carrinho_id }}">{{ $cart->quantidade_car }}</span>
         
-                                    <span class="out__amount-box" onclick="countProduct('+', {{ $cart->carrinho_id }})">
+                                    <span class="out__amount-box" onclick="countProductCart('+', {{ $cart->carrinho_id }})">
                                         <i class="bx bx-plus"></i>
                                     </span>
                                 </div>
@@ -119,7 +119,7 @@
     <script src="/js/main.js"></script>
 
     <script>
-        function countProduct(operation, id){
+        function countProductCart(operation, id){
             const countProduct = document.getElementById('countProduct'+id);
             const quantidadeProdutoElement = document.getElementById('CountProduct'+id);
             var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);

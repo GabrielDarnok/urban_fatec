@@ -284,19 +284,22 @@
         function countProduct(operation, id){
             const countProduct = document.getElementById('countProductMain'+id);
             const quantidadeProdutoElement = document.getElementById('CountProductMain'+id);
-            var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
+            if(quantidadeProdutoElement){
+                var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
 
-            if(operation === '-'){
-                quantidadeProduto -= 1; 
-            }
-            if(operation === '+'){
-                quantidadeProduto += 1;
+                if(operation === '-'){
+                    quantidadeProduto -= 1; 
+                }
+                if(operation === '+'){
+                    quantidadeProduto += 1;
+                }
+                
+                if(quantidadeProduto >= 1){
+                    quantidadeProdutoElement.textContent = quantidadeProduto;
+                    countProduct.value = quantidadeProduto;
+                }
             }
             
-            if(quantidadeProduto >= 1){
-                quantidadeProdutoElement.textContent = quantidadeProduto;
-                countProduct.value = quantidadeProduto;
-            }
             
         }
     </script>
