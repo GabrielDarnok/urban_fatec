@@ -66,9 +66,7 @@
                         </div>
 
                         <div class="size__selector">
-                            @foreach ($Product->tamanho_roupa as $tamanho_roupa)
-                              <p>{{ $tamanho_roupa }}</p>
-                            @endforeach
+                            
                         </div>
 
                         <div>
