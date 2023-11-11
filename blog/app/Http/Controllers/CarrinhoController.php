@@ -13,7 +13,9 @@ class CarrinhoController extends Controller
         
         // Verificar se o produto já está no carrinho para o usuário atual
         $car = Car::where('id_produto', $request->id)
-        ->where('id_usuario', auth()->user()->id)
+        ->where('id_usuario', auth()->user()->id)->
+        where('cor_car', $request->cor_produto)->
+        where('tamanho_car',$request->tamanho_roupa)
         ->first();
 
         if ($car) {    
@@ -26,15 +28,17 @@ class CarrinhoController extends Controller
             $car->id_produto = $request->id;
             $car->id_usuario = auth()->user()->id;
             $car->quantidade_car = $request->quantidade_car;
+            $car->cor_car = $request->cor_produto;
+            $car->tamanho_car = $request->tamanho_roupa;
         }
 
         $valida = $this->validaQuantidade($car->quantidade_car,$request->id);
 
-        if($valida){
-            return redirect()->back()->with('err', "Quantidade excedida. O maximo deste produto é {$valida}.");
-        }else{
+        if ($valida) {
+            return redirect()->back()->with('err', "Quantidade excedida. O máximo deste produto é {$valida}.");
+        }
+        else {
             $car->save();
-
             return redirect('/cart')->with('msg', 'Produto adicionado no carrinho');
         }
     }
@@ -68,7 +72,6 @@ class CarrinhoController extends Controller
 
         return false;
     }
-
     public function destroy_car($id){
         
         // Localize o produto

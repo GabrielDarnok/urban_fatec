@@ -29,6 +29,8 @@ class Controller extends BaseController
             $produto = $item->produto;
             $produto->carrinho_id = $item->id; // Adicione o ID do carrinho ao objeto de produto para poder ser referenciado na view
             $produto->quantidade_car = $item->quantidade_car;
+            $produto->cor_car = $item->cor_car;
+            $produto->tamanho_car = $item->tamanho_car;
             $produtosNoCarrinho[] = $produto;
             // Some o valor do produto ao subtotal
             $subtotal += $produto->valor_produto * $item->quantidade_car;

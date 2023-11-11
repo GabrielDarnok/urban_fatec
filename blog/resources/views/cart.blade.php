@@ -35,10 +35,12 @@
                                     </span>
         
                                     <span class="out__amount-number" id="CountProduct{{ $cart->carrinho_id }}">{{ $cart->quantidade_car }}</span>
-        
+                                    
                                     <span class="out__amount-box" onclick="countProductCart('+', {{ $cart->carrinho_id }})">
                                         <i class="bx bx-plus"></i>
                                     </span>
+                                    <p>{{$cart->cor_car}}</p>
+                                    <p>{{$cart->tamanho_car}}</p>
                                 </div>
                                 <form action="/edit/car" method="POST">
                                     @csrf

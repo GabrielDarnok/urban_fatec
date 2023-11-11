@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="details__prices">
-                        <span class="details__price" style="color: ">R$ {{ number_format($Product->valor_produto, 2, ',', '.') }}</span>
+                        <span class="details__price">{{ number_format($Product->valor_produto, 2, ',', '.') }}</span>
                     </div>
 
                     <div class="details__description">
@@ -66,11 +66,35 @@
                         </div>
 
                         <div class="size__selector">
-                            
+                            @php
+                                $tamanhos = explode(',', $Product->tamanho_roupa);
+                            @endphp
+
+                            @if(count($tamanhos) > 1)
+                                <select name="tamanho_roupa">
+                                    @foreach ($tamanhos as $tamanho)
+                                        <option value="{{ $tamanho }}">{{ $tamanho }}</option>
+                                    @endforeach
+                                </select>
+                            @else
+                                <p>{{ $Product->tamanho_roupa }}</p>
+                            @endif
                         </div>
 
-                        <div>
-                            <br><h3 class="size__title">Cores</h3>
+                        <div class="size__selector">
+                            @php
+                                $cores = explode(',', $Product->cor_produto);
+                            @endphp
+
+                            @if(count($cores) > 1)
+                                <select name="cor_produto">
+                                    @foreach ($cores as $cor)
+                                        <option value="{{ $cor }}">{{ $cor }}</option>
+                                    @endforeach
+                                </select>
+                            @else
+                                <p>{{ $Product->cor_produto }}</p>
+                            @endif
                         </div>
 
                         <div class="color__selector"></div>
