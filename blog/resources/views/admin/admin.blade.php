@@ -217,8 +217,8 @@
                   'error'
               );
             }
-          
-            
+            Cores = [];
+            Tamanhos = [];            
         }
         function adicionarObjetosATabela(objetos) {
             var corpoDaTabela = document.getElementById("tableContent");
