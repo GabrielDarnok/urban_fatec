@@ -79,7 +79,7 @@
              
                 </div>
              
-                <div class="product-display">
+                <div class="product-display" style="overflow: auto;">
                    <table class="product-display-table">
                       <thead>
                       <tr>
@@ -217,8 +217,8 @@
                   'error'
               );
             }
-          
-            
+            Cores = [];
+            Tamanhos = [];            
         }
         function adicionarObjetosATabela(objetos) {
             var corpoDaTabela = document.getElementById("tableContent");
