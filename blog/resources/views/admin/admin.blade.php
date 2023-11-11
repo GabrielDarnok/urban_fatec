@@ -15,7 +15,7 @@
 
                 <div class="admin-product-form-container">
              
-                   <form enctype="multipart/form-data" id="newProductAdd">
+                   <form enctype="multipart/form-data" id="newProductAdd" onsubmit="return processarFormulario()">
                    @csrf
                         <div class="add">
                             <h3>Adicionar um novo Produto</h3>
@@ -26,34 +26,36 @@
                       <input type="text" placeholder="Insira a quantidade" id="quantidade_estoq" name="quantidade_estoq" class="box">
 
                       <div class="dropdown">
-                        <button class="dropbtn">Selecione o tamanho</button>
                         <div class="">
-                            <input type="checkbox" class="form-control" name="tamanho_roupa[]" value="G"> G
+                            <input type="checkbox" class="checkboxTam" onclick="adicionarValorTam()" value="G"> G
                         </div>
                         <div class="">
-                            <input type="checkbox" class="form-control" name="tamanho_roupa[]" value="GG"> GG
+                            <input type="checkbox" class="checkboxTam" onclick="adicionarValorTam()" value="GG"> GG
                         </div>
                         <div class="">
-                            <input type="checkbox" class="form-control" name="tamanho_roupa[]" value="G3"> G3
+                            <input type="checkbox" class="checkboxTam" onclick="adicionarValorTam()" value="G3"> G3
                         </div>
                         <div class="">
-                            <input type="checkbox" class="form-control" name="tamanho_roupa[]" value="G4"> G4
+                            <input type="checkbox" class="checkboxTam" onclick="adicionarValorTam()" value="G4"> G4
                         </div>
                         <div class="">
-                            <input type="checkbox" class="form-control" name="tamanho_roupa[]" value="G5"> G
+                            <input type="checkbox" class="checkboxTam" onclick="adicionarValorTam()" value="G5"> G5
                         </div>
                       </div>
                       
                       <div class="dropdown">
-                        <button class="dropbtn">Selecione a Cor</button>
-                        <div class="dropdown-content">
-                          <select type="text" class="form-control" name="cor_produto" id="cor_produto">
-                                <option value="P">Preto</option>
-                                <option value="Vm">Vermelho</option>
-                                <option value="Vd">Verde</option>
-                                <option value="Am">Amarelo</option>
-                            </select>
-                        </div>
+                         <div class="">
+                              <input type="checkbox" class="checkboxCor" onclick="adicionarValorCor()" value="Preto"> Preto
+                          </div>
+                          <div class="">
+                              <input type="checkbox" class="checkboxCor" onclick="adicionarValorCor()" value="Vermelho"> Vermelho
+                          </div>
+                          <div class="">
+                              <input type="checkbox" class="checkboxCor" onclick="adicionarValorCor()" value="Verde"> Verde
+                          </div>
+                          <div class="">
+                              <input type="checkbox" class="checkboxCor" onclick="adicionarValorCor()" value="Amarelo"> Amarelo
+                          </div>                                    
                       </div>
 
                       <div class="dropdown">
@@ -71,7 +73,7 @@
                       
                       <div>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
-                        <input type="submit" class="btn" name="add_product" onclick="createProduct()" value="add_produto">
+                        <button class="btn" onclick="createProduct()" value="add_produto">Adicionar Produto</button>
                       </div>
                    </form>
              
@@ -100,6 +102,7 @@
                           <td>{{ $product->descricao_produto }}</td>
                           <td>{{ number_format($product->valor_produto, 2, ',', '.') }}</td>
                           <td>{{ $product->quantidade_estoq }}</td>
+                          <td>{{ $product->tamanho_roupa }}</td>
                           <td>{{ $product->cor_produto}}</td>
                           <td>
                             <a href="/admin/edit/{{ $product->id }}" class="btn"><i class="fas fa-edit"></i> editar </a> 
@@ -133,58 +136,89 @@
 
     <script>
         var deleteRoute = "{{ route('product.destroy', ['id' => ':id']) }}";
+        var Tamanhos = [];
+        var Cores = [];
 
-        function createProduct(){
-            event.preventDefault();
-            var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            const nome_produto = document.getElementById('nome_produto').value;
-            const descricao_produto = document.getElementById('descricao_produto').value;
-            const valor_produto = document.getElementById('valor_produto').value;
-            const quantidade_estoq = document.getElementById('quantidade_estoq').value;
-            const tamanho_roupa = document.getElementById('tamanho_roupa').value;
-            const cor_produto = document.getElementById('cor_produto').value;
-            const categoria_produto = document.getElementById('categoria_produto').value;
-            const imagem_produtoSt = document.getElementById('imagem_produto');
-            //const imagem_produto = imagem_produtoSt.replace(/^.*[\\\/]/, '');
-            console.log(imagem_produto);
-
-            var formData = new FormData();
-            formData.append('nome_produto', nome_produto);
-            formData.append('descricao_produto', descricao_produto);
-            formData.append('valor_produto', valor_produto);
-            formData.append('quantidade_estoq', quantidade_estoq);
-            formData.append('tamanho_roupa', tamanho_roupa);
-            formData.append('cor_produto', cor_produto);
-            formData.append('categoria_produto', categoria_produto);
-            formData.append('imagem_produto', imagem_produtoSt.files[0]);
-
-            console.log(formData);
-            $.ajax({
-                url: '/products',
-                type: 'POST',
-                data: formData,
-                headers: {
-                    'X-CSRF-TOKEN': csrfToken
-                },
-                contentType: false,
-                processData: false,
-                success: function(response){
-                  Swal.fire(
-                    'Sucesso!',
-                    'Produto adicionado com sucesso',
-                    'success',
-                  ); 
-                  adicionarObjetosATabela(response);
-                  document.getElementById('newProductAdd').reset();
-                },
-                error: function(xhr, status, error) {
-                  Swal.fire(
-                      'Erro!',
-                      'Ocorreu um erro ao adicionar o produto: ' + error,
-                      'error'
-                  );
-                }
+        function adicionarValorTam() {
+            Tamanhos = [];
+            var checkboxTam = document.querySelectorAll('.checkboxTam:checked');
+            
+            checkboxTam.forEach(function(checkbox){
+                Tamanhos.push(checkbox.value);
             });
+            console.log(Tamanhos);
+        }
+        function adicionarValorCor(){
+          Cores = [];
+          var checkboxCor = document.querySelectorAll('.checkboxCor:checked');
+            
+            checkboxCor.forEach(function(checkbox){
+                Cores.push(checkbox.value);
+            });
+            console.log(Cores);
+        }
+        function processarFormulario() {
+          return false;
+        }
+        function createProduct(){
+          if(Tamanhos.length !== 0 && Cores.length !== 0){
+              event.preventDefault();
+              var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+              const nome_produto = document.getElementById('nome_produto').value;
+              const descricao_produto = document.getElementById('descricao_produto').value;
+              const valor_produto = document.getElementById('valor_produto').value;
+              const quantidade_estoq = document.getElementById('quantidade_estoq').value;
+              const categoria_produto = document.getElementById('categoria_produto').value;
+              const imagem_produtoSt = document.getElementById('imagem_produto');
+    
+              console.log(imagem_produto);
+
+              var formData = new FormData();
+              formData.append('nome_produto', nome_produto);
+              formData.append('descricao_produto', descricao_produto);
+              formData.append('valor_produto', valor_produto);
+              formData.append('quantidade_estoq', quantidade_estoq);
+              formData.append('tamanho_roupa', Tamanhos);
+              formData.append('cor_produto', Cores);
+              formData.append('categoria_produto', categoria_produto);
+              formData.append('imagem_produto', imagem_produtoSt.files[0]);
+
+              console.log(formData);
+              $.ajax({
+                  url: '/products',
+                  type: 'POST',
+                  data: formData,
+                  headers: {
+                      'X-CSRF-TOKEN': csrfToken
+                  },
+                  contentType: false,
+                  processData: false,
+                  success: function(response){
+                    Swal.fire(
+                      'Sucesso!',
+                      'Produto adicionado com sucesso',
+                      'success',
+                    ); 
+                    adicionarObjetosATabela(response);
+                    document.getElementById('newProductAdd').reset();
+                  },
+                  error: function(xhr, status, error) {
+                    Swal.fire(
+                        'Erro!',
+                        'Ocorreu um erro ao adicionar o produto: ' + error,
+                        'error'
+                    );
+                  }
+              });
+            }else{
+                Swal.fire(
+                  'Opa!',
+                  "Necessário existir tamanho e cor.",
+                  'error'
+              );
+            }
+          
+            
         }
         function adicionarObjetosATabela(objetos) {
             var corpoDaTabela = document.getElementById("tableContent");

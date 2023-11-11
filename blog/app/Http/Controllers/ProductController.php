@@ -13,6 +13,7 @@ class ProductController extends Controller
 
         $product = new Product;
     
+
         $product->nome_produto = $request->nome_produto;
         $product->descricao_produto = $request->descricao_produto;
         $product->valor_produto = $request->valor_produto;
