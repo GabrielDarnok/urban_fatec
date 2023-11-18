@@ -292,7 +292,7 @@
         </div>
        <span class="footer__copy">&#169; Grimm Graphic Designer. All rights reserved.</span>
     </footer>
-    <script>
+    <script>        
         function countProduct(operation, id){
             const countProduct = document.getElementById('countProductMain'+id);
             const quantidadeProdutoElement = document.getElementById('CountProductMain'+id);

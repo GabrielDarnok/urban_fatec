@@ -92,4 +92,9 @@ class redirectController extends Controller
         
         return view('cadastroPage',['dados' => $dados]);
     }
+
+    public function checkout()
+    {
+        return view('checkout');
+    }
 }

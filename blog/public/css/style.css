@@ -676,7 +676,7 @@ input {
 }
 
 .shop__img {
-    width: 130px;
+    width: 150px;
     margin-bottom: var(--mb-1);
     transition: .3s;
     
@@ -2033,42 +2033,43 @@ input {
     text-transform: none;
  }
  
- .product-display{
-    margin:2rem 0;
- }
- 
- .product-display .product-display-table {
+ .product-display {
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.product-display .product-display-table {
     width: 100%;
     text-align: center;
+    white-space: nowrap;
 }
- 
- .product-display .product-display-table thead{
+
+.product-display .product-display-table thead {
     background: var(--bg-color);
- }
- 
- .product-display .product-display-table th{
-    padding:1rem;
+}
+
+.product-display .product-display-table th {
+    padding: 1rem;
     font-size: 2rem;
- }
- 
- 
- .product-display .product-display-table td{
-    padding:1rem;
+}
+
+.product-display .product-display-table td {
+    padding: 1rem;
     font-size: 2rem;
-    border-bottom:.1rem solid rgba(0,0,0,.1);
- }
- 
- .product-display .product-display-table .btn:first-child{
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+
+.product-display .product-display-table .btn:first-child {
     margin-top: 0;
- }
- 
- .product-display .product-display-table .btn:last-child{
+}
+
+.product-display .product-display-table .btn:last-child {
     background: crimson;
- }
- 
- .product-display .product-display-table .btn:last-child:hover{
+}
+
+.product-display .product-display-table .btn:last-child:hover {
     background: rgb(109, 109, 109);
- }
+}
 
  .dropbtn {
     background-color: var(--first-color);
@@ -2125,25 +2126,23 @@ input {
     }
 
     .adm__container {
-        padding: 4rem 0 1rem;
+        padding: 7rem 0 2rem;
     }
-
     .containeradm {
-        padding: 1rem;
+        max-width: 1400px;
+        margin: 2rem auto;
     }
-
     .admin-product-form-container form {
+        padding: 2rem;
+    }
+    .admin-product-form-container form .box {
+        padding: 1.2rem 1.5rem;
+        font-size: 1.7rem;
+    }
+    .product-display .product-display-table th,
+    .product-display .product-display-table td {
         padding: 1rem;
-    }
-
-    .product-display-table {
-        grid-template-columns: 1fr;
-        margin: 0.5rem 0;
-    }
-
-
-    .product-display {
-        margin: 0.1rem 0;
+        font-size: 2rem;
     }
 
     .section__title {
@@ -2265,6 +2264,29 @@ input {
         margin: var(--header-height)0 0 0;
     }
 
+    .adm__container {
+        padding: 3rem 0 1rem;
+    }
+
+    .containeradm {
+        max-width: 100%;
+        margin: 1rem;
+    }
+
+    .admin-product-form-container form {
+        padding: 1rem;
+    }
+
+    .admin-product-form-container form .box {
+        padding: 1rem;
+    }
+
+    .product-display .product-display-table th,
+    .product-display .product-display-table td {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+    }
+
     .section {
         padding: 4.5rem 0 2rem;
     }
@@ -2306,21 +2328,6 @@ input {
     .containeradm {
         padding: 0.5rem;
     }
-
-    .admin-product-form-container form {
-        padding: 0.5rem;
-    }
-
-    .product-display-table {
-        grid-template-columns: 1fr;
-        margin: 0.5rem 0;
-    }
-
-    .product-display {
-        grid-template-columns: 1fr;
-        margin: 0.5rem 0;
-    }
-
 
     .home__content {
         padding: 0;
@@ -2436,20 +2443,23 @@ input {
     }
 
     .adm__container {
-        padding: 2rem 0 0.5rem;
+        padding: 5rem 0 1rem;
     }
-
     .containeradm {
-        padding: 0.5rem;
+        max-width: 100%;
+        margin: 1rem;
     }
-
     .admin-product-form-container form {
-        padding: 0.5rem;
+        padding: 1.5rem;
     }
-
-    .product-display-table {
-        grid-template-columns: 1fr;
-        margin: 0.5rem 0;
+    .admin-product-form-container form .box {
+        padding: 1.1rem 1.4rem;
+        font-size: 1.5rem;
+    }
+    .product-display .product-display-table th,
+    .product-display .product-display-table td {
+        padding: 0.8rem;
+        font-size: 1.8rem;
     }
 
     .pagination span {
@@ -2485,20 +2495,23 @@ input {
     }
 
     .adm__container {
-        padding: 1rem 0 0.5rem;
+        padding: 3rem 0 1rem;
     }
-
     .containeradm {
-        padding: 0.5rem;
+        max-width: 100%;
+        margin: 0.5rem;
     }
-
     .admin-product-form-container form {
-        padding: 0.5rem;
+        padding: 1rem;
     }
-
-    .product-display-table {
-        grid-template-columns: 1fr;
-        margin: 0.5rem 0;
+    .admin-product-form-container form .box {
+        padding: 0.9rem 1.1rem;
+        font-size: 1.3rem;
+    }
+    .product-display .product-display-table th,
+    .product-display .product-display-table td {
+        padding: 0.6rem;
+        font-size: 1.5rem;
     }
 
     .nav {
@@ -2530,39 +2543,4 @@ input {
     .pagination span {
         font-size: var(--small-font-size);
     }
-
-}
-.adress{
-    margin-top: 1rem;
-    background-color: var(--body-color);
-    border-radius: 1rem !important;
-    padding: 0.8rem;
-    border: 1px solid #ffb8b8;
-    transition: .3s;
-}
-.adress_information{
-    display: flex;
-    flex-direction: column;
-}
-.adress:hover{
-    cursor: pointer;
-    box-shadow: 1px 1px 9px #ffb8b8;
-    transform: translateY(-0.25rem);
-}
-.adress-head{
-    display: flex;
-    justify-content: space-between;
-}
-.adress-bottom{
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-}
-.btn-adress{
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-}
-.cad:hover{
-    cursor: pointer;
 }

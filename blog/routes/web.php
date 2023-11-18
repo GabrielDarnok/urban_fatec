@@ -5,6 +5,7 @@ use App\Http\Controllers\redirectController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\CheckoutController;
 use App\Models\Product;
 
 /*
@@ -73,3 +74,7 @@ Route::post('/car/add_car', [CarrinhoController::class, 'add_carrinho'])->middle
 Route::delete('/car/delete/{id}', [CarrinhoController::class, 'destroy_car'])->name('car.destroy')->middleware('auth');
 
 Route::post('/edit/car', [CarrinhoController::class, 'edit_carrinho'])->middleware('auth');
+
+Route::get('/checkout', [redirectController::class, 'checkout']);
+
+Route::post('/checkout/processar', [CheckoutController::class,'processar']);
