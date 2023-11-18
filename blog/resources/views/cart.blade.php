@@ -98,7 +98,7 @@
                 @else
                 <div class="out__container adress">
                     <div class="adress-head" style="letter-spacing: 0.5px;">
-                        <h4><strong>Nenhum endereço cadastrado</strong></h4>
+                        <h4>Nenhum endereço cadastrado</h4>
                     </div>
                 </div>
                 @endif

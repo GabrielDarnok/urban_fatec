@@ -208,7 +208,7 @@
             </div>
 
             <div>
-                <p class="signup">Nãe é cadastrado? <a href="/register">Cadastrar-se agora.</a></p>
+                <p class="signup">Nãe é cadastrado? <a href="/cadastroPage">Cadastrar-se agora.</a></p>
             </div>
         </form>
     </div>
@@ -286,7 +286,7 @@
 
                 <ul class="footer__links">
                     <li><a href="/sobre" class="footer__link">Quem Somos</a></li>
-                    <li><a href="/registro" class="footer__link">Registro</a></li>
+                    <li><a href="/cadastroPage" class="footer__link">Registro</a></li>
                 </ul>
             </div>
         </div>
