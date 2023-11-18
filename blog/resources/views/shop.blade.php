@@ -216,8 +216,11 @@
                     adicionarProdutosTabela(response);
                     pageElement.textContent = page;
                     atualProxima.textContent = page + 1;
-                    lastPageElement.textContent = response.products.last_page;
-                    console.log(response.products.last_page);
+                    if(response.products){
+                        lastPageElement.textContent = response.products.last_page;
+                        console.log(response.products.last_page);
+                    }
+                    
                 },
             });
         }
@@ -242,7 +245,9 @@
             }else{
                 corpoTabela.innerHTML =  "Nenhum produto encontrado com os critérios de busca :(";
             }
-            lastPageElement.textContent = objetos.products.last_page;
+            if(objetos.products){
+                lastPageElement.textContent = objetos.products.last_page;
+            }
         }
     </script>
     
