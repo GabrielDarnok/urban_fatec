@@ -109,8 +109,13 @@ class ProductController extends Controller
         if (!empty($busca)) {
             $query->where('nome_produto', 'like', '%' . $busca . '%');
         }
+        
         if (!empty($tamanhos)) {
-            $query->whereIn('tamanho_roupa', $tamanhos);
+            $query->where(function ($subquery) use ($tamanhos) {
+                foreach ($tamanhos as $tamanho) {
+                    $subquery->orWhere('tamanho_roupa', 'like', '%' . $tamanho . '%');
+                }
+            });
         }
         if (!empty($estilos)) {
             $query->whereIn('categoria_produto', $estilos);
