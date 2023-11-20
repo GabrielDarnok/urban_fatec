@@ -105,6 +105,7 @@ class redirectController extends Controller
         //    $pedido = new Pedido();
 
         //    $pedido->id_endereco = $request->id_endereco;
+        //    $pedido->save();
         //}else{
         //    return redirect('/')->with('err','Endereço fornecido é invalido.');
         //}
