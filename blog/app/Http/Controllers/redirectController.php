@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Endereco;
+use App\Models\Pedido;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Gate;
 
@@ -93,11 +94,20 @@ class redirectController extends Controller
         return view('cadastroPage',['dados' => $dados]);
     }
 
-    public function checkout()
+    public function checkout(Request $request)
     {
         
         $dados = parent::verificaUsuarioLog();
-        
+
+        //Validação para quando passar o id do endereço pelo form de confirmar o pedido
+        //$valida = Endereco::where('id',$request->id_endereco)->where('id_usuario', auth()->user()->id)->get();
+        //if($valida){
+        //    $pedido = new Pedido();
+
+        //    $pedido->id_endereco = $request->id_endereco;
+        //}else{
+        //    return redirect('/')->with('err','Endereço fornecido é invalido.');
+        //}
         if ($dados['subtotal'] === 0) {
             return redirect('/')->with('err','Você precisa adicionar produtos no carrinho para ir para a pagina de pagamentos.');
         }
