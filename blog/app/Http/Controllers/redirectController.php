@@ -95,6 +95,13 @@ class redirectController extends Controller
 
     public function checkout()
     {
-        return view('checkout');
+        
+        $dados = parent::verificaUsuarioLog();
+        
+        if ($dados['subtotal'] === 0) {
+            return redirect('/')->with('err','Você precisa adicionar produtos no carrinho para ir para a pagina de pagamentos.');
+        }
+        
+        return view('checkout',['dados' => $dados]);
     }
 }

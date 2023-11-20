@@ -71,8 +71,7 @@
     <label for="cvc">CVC</label>
     <div id="card-cvc"></div>
 
-    <!-- Adicione um campo de input hidden para o valor -->
-    <input type="hidden" name="valor" value="1000"> <!-- Aqui, o valor é 1000 centavos, equivalente a 10.00 no seu sistema -->
+   <h3 class="check__subtitle">Total: </h3> <span>R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
 
     <button type="submit">Pagar</button>
 </form>
@@ -97,10 +96,7 @@
         console.log('Botão clicado');
         event.preventDefault();
 
-        // Obtenha o valor do campo de input hidden
-        var valor = form.querySelector('[name="valor"]').value;
-
-        stripe.createToken(cardNumber, { amount: valor * 100 }).then(function(result) {
+        stripe.createToken(cardNumber).then(function(result) {
             if (result.error) {
                 // Exiba erros ao usuário
             } else {

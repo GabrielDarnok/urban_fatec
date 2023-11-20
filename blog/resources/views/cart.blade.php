@@ -68,7 +68,7 @@
                 @endif
                 <br>
                 <div>
-                    <a href="#" class="button">Confirmar Pedido</a>
+                    <a href="/checkout" class="button">Confirmar Pedido</a>
                </div>
                 </div>
             </div>
