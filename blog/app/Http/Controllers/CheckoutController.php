@@ -51,11 +51,18 @@ class CheckoutController extends Controller
                 $quantidadeProduto = $dados['quantidadeProdutos'][$index];
 
                 $produto->quantidade_estoq -= $quantidadeProduto;
-                $produto->save();
+
+                if($produto->quantidade_estoq === 0){
+                    Product::where('id',$item)->delete();
+                }else{
+                    $produto->save();
+                }
             }
 
+            foreach($dados['carrinho_id'] as $cart){
+                Car::where('id', $cart)->delete();
+            }
             
-
             return redirect('/')->with('msg', 'Pagamento bem-sucedido!');
         } catch (CardErrorException $e) {
             // Tratamento de erro para falhas relacionadas ao cartão
