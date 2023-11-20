@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_endereco'); // Coluna que será a chave estrangeir
+            $table->unsignedBigInteger('id_endereco')->nullable(); // Coluna que será a chave estrangeir
             $table->json('id_produto');
             $table->json('tamanho_produto');
             $table->json('cor_produto');
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->foreign('id_endereco')
                 ->references('id')
                 ->on('enderecos')
-                ->onDelete('cascade');
+                ->onDelete('set null');
         });
     }
 
