@@ -69,7 +69,7 @@ class CarrinhoController extends Controller
         if($car_quantidade > $product->quantidade_estoq){
             return $product->quantidade_estoq;
         } 
-
+        
         return false;
     }
     public function destroy_car($id){

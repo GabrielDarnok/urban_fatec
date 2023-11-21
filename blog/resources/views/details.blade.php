@@ -70,7 +70,7 @@
                                 $tamanhos = explode(',', $Product->tamanho_roupa);
                             @endphp
 
-                            @if(count($tamanhos) > 1)
+                            @if(count($tamanhos) >= 1)
                                 <select name="tamanho_roupa">
                                     @foreach ($tamanhos as $tamanho)
                                         <option value="{{ $tamanho }}">{{ $tamanho }}</option>
@@ -86,7 +86,7 @@
                                 $cores = explode(',', $Product->cor_produto);
                             @endphp
 
-                            @if(count($cores) > 1)
+                            @if(count($cores) >= 1)
                                 <select name="cor_produto">
                                     @foreach ($cores as $cor)
                                         <option value="{{ $cor }}">{{ $cor }}</option>
