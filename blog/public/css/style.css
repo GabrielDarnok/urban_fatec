@@ -2035,11 +2035,13 @@ input {
  
  .product-display{
     margin:2rem 0;
+    overflow-x: auto;
  }
  
  .product-display .product-display-table {
     width: 100%;
     text-align: center;
+    white-space: nowrap;
 }
  
  .product-display .product-display-table thead{
