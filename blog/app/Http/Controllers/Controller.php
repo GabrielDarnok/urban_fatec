@@ -60,6 +60,8 @@ class Controller extends BaseController
         
         if(isset(auth()->user()->id)){
             return $this->consultaCarrinho();
+        } else {
+            return null;
         }
     }
     public function validaCEP($cep){

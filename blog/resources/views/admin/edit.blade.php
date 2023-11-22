@@ -26,30 +26,36 @@
                       <input type="text" placeholder="Insira a quantidade" value="{{ $Product->quantidade_estoq }}" id="quantidade_estoq" name="quantidade_estoq" class="box">
 
                       <div class="dropdown">
-                        <button class="dropbtn">Selecione o tamanho</button>
-                        <div class="dropdown-content">
-                            <select type="text" class="form-control" name="tamanho_roupa" id="tamanho_roupa">
-                                <option value="G" {{ $Product->tamanho_roupa == "G" ? "selected = 'selected'": "" }}>G</option>
-                                <option value="GG" {{ $Product->tamanho_roupa == "GG" ? "selected = 'selected'": "" }}>GG</option>
-                                <option value="G2" {{ $Product->tamanho_roupa == "G2" ? "selected = 'selected'": "" }}>G2</option>
-                                <option value="G3" {{ $Product->tamanho_roupa == "G3" ? "selected = 'selected'": "" }}>G3</option>
-                                <option value="G4" {{ $Product->tamanho_roupa == "G4" ? "selected = 'selected'": "" }}>G4</option>
-                                <option value="G5" {{ $Product->tamanho_roupa == "G5" ? "selected = 'selected'": "" }}>G5</option>
-                                <option value="Todos" {{ $Product->tamanho_roupa == "Todos" ? "selected = 'selected'": "" }}>Todos os tamanhos</option>
-                            </select>
+                        <div class="">
+                            <input type="checkbox" name="tamanho_roupa[]" value="G"> G
+                        </div>
+                        <div class="">
+                            <input type="checkbox" name="tamanho_roupa[]" value="GG"> GG
+                        </div>
+                        <div class="">
+                            <input type="checkbox" name="tamanho_roupa[]" value="G3"> G3
+                        </div>
+                        <div class="">
+                            <input type="checkbox" name="tamanho_roupa[]" value="G4"> G4
+                        </div>
+                        <div class="">
+                            <input type="checkbox" name="tamanho_roupa[]" value="G5"> G5
                         </div>
                       </div>
                       
                       <div class="dropdown">
-                        <button class="dropbtn">Selecione a Cor</button>
-                        <div class="dropdown-content">
-                          <select type="text" class="form-control" name="cor_produto" id="cor_produto">
-                                <option value="P" {{ $Product->cor_produto == "P" ? "selected = 'selected'": "" }}>Preto</option>
-                                <option value="Vm" {{ $Product->cor_produto == "Vm" ? "selected = 'selected'": "" }}>Vermelho</option>
-                                <option value="Vd" {{ $Product->cor_produto == "Vd" ? "selected = 'selected'": "" }}>Verde</option>
-                                <option value="Am" {{ $Product->cor_produto == "Am" ? "selected = 'selected'": "" }}>Amarelo</option>
-                            </select>
-                        </div>
+                         <div class="">
+                              <input type="checkbox" name="cor_produto[]" value="Preto"> Preto
+                          </div>
+                          <div class="">
+                              <input type="checkbox" name="cor_produto[]" value="Vermelho"> Vermelho
+                          </div>
+                          <div class="">
+                              <input type="checkbox" name="cor_produto[]" value="Verde"> Verde
+                          </div>
+                          <div class="">
+                              <input type="checkbox" name="cor_produto[]" value="Amarelo"> Amarelo
+                          </div>                                    
                       </div>
 
                       <div class="dropdown">
@@ -68,7 +74,7 @@
                       <div>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
                         <img src="/img/product/ {{$Product->imagem_produto}}" alt="{{ $Product->nome_produto }}" class="img-preview">  
-                        <input type="submit" class="btn" value="edit produto">
+                        <input type="submit" class="btn" value="editar produto">
                     </div>
                    </form>
                 </div>

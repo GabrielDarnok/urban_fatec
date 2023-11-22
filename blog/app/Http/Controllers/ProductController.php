@@ -11,36 +11,49 @@ class ProductController extends Controller
 {
     public function store(Request $request){
 
-        $product = new Product;
-    
+        $valida = $this->validaNumeros($request->quantidade_estoq, $request->valor_produto);
 
-        $product->nome_produto = $request->nome_produto;
-        $product->descricao_produto = $request->descricao_produto;
-        $product->valor_produto = $request->valor_produto;
-        $product->quantidade_estoq = $request->quantidade_estoq;
-        $product->tamanho_roupa = $request->tamanho_roupa;
-        $product->cor_produto = $request->cor_produto;
-        $product->categoria_produto = $request->categoria_produto;
-    
-        //image upload
-    
-        if($request->hasFile('imagem_produto') && $request->file('imagem_produto')->isValid()){
+        if ($valida === true) {
+            $product = new Product;
+
+            $product->nome_produto = $request->nome_produto;
+            $product->descricao_produto = $request->descricao_produto;
+            $product->valor_produto = $request->valor_produto;
+            $product->quantidade_estoq = $request->quantidade_estoq;
+            $product->tamanho_roupa = $request->tamanho_roupa;
+            $product->cor_produto = $request->cor_produto;
+            $product->categoria_produto = $request->categoria_produto;
+        
+            //image upload
+        
+            if($request->hasFile('imagem_produto') && $request->file('imagem_produto')->isValid()){
+                
+                $requestImage = $request->imagem_produto;
+        
+                $extension = $requestImage->extension();
+        
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
             
-            $requestImage = $request->imagem_produto;
-    
-            $extension = $requestImage->extension();
-    
-            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+                $request->imagem_produto->move(public_path('img/product'), $imageName);
         
-            $request->imagem_produto->move(public_path('img/product'), $imageName);
-    
-            $product->imagem_produto = $imageName;
+                $product->imagem_produto = $imageName;
+            }
+        
+            $product->save();
+            $produtcs = Product::all();
+            
+            return ['products' => $produtcs];
+        } else {
+            return redirect()->back()->with('err',"Valores inseridos estão incorretos.");
         }
-    
-        $product->save();
-        $produtcs = Product::all();
-        
-        return ['products' => $produtcs];
+    }
+
+    private function validaNumeros($quantidade, $valor){
+        if ($quantidade > 0 && $valor > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public function destroy($id){
@@ -71,29 +84,43 @@ class ProductController extends Controller
 
     public function update(Request $request){
         
-        //Juntando os dados do request
+        $valida = $this->validaNumeros($request->quantidade_estoq, $request->valor_produto);
 
-        $dados = $request->all();
-
-        //image upload update
-
-        if($request->hasFile('imagem_produto') && $request->file('imagem_produto')->isValid()){
-            
-            $requestImage = $request->imagem_produto;
-
-            $extension = $requestImage->extension();
-
-            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+        if ($valida === true) {
         
-            $request->imagem_produto->move(public_path('img/product'), $imageName);
+            //Juntando os dados do request
 
-            $dados ['imagem_produto'] = $imageName;
+            $dados = $request->all();
+            if (isset($dados['tamanho_roupa']) && is_array($dados['tamanho_roupa'])) {
+                $tamanhos = implode(',', $dados['tamanho_roupa']);
+                $dados['tamanho_roupa'] = $tamanhos;
+            }
+            if (isset($dados['cor_produto']) && is_array($dados['cor_produto'])) {
+                $tamanhos = implode(',', $dados['cor_produto']);
+                $dados['cor_produto'] = $tamanhos;
+            }
+
+            //image upload update
+
+            if($request->hasFile('imagem_produto') && $request->file('imagem_produto')->isValid()){
+                
+                $requestImage = $request->imagem_produto;
+
+                $extension = $requestImage->extension();
+
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            
+                $request->imagem_produto->move(public_path('img/product'), $imageName);
+
+                $dados ['imagem_produto'] = $imageName;
+            }
+
+            product::FindOrFail($request->id)->update($dados);
+
+            return redirect('/admin')->with('msg', 'Editado com sucesso!');
+        } else {
+            return redirect()->back()->with('err',"Valores inseridos estão incorretos.");
         }
-
-        product::FindOrFail($request->id)->update($dados);
-
-        return redirect('/admin')->with('msg', 'Editado com sucesso!');
-
     }
 
     public function busca_product(Request $request){

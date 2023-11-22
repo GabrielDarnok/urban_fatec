@@ -14,6 +14,12 @@ class UserController extends Controller
 {
     public function cadastrar_endereco(Request $request){
         
+        $dados = parent::verificaUsuarioLog();
+
+        if ($dados === null) {
+            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
+        }
+
         $endereco = new Endereco;
 
         //deixando o CEP  apenas com os numeros
@@ -43,6 +49,12 @@ class UserController extends Controller
     
     public function edit_endereco($id){
 
+        $dados = parent::verificaUsuarioLog();
+
+        if ($dados === null) {
+            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
+        }
+
         $endereco = Endereco::findOrfail($id);
 
         if($endereco->id_usuario == auth()->user()->id){
@@ -54,6 +66,12 @@ class UserController extends Controller
 
     public function update_endereco(Request $request){
 
+        $dados = parent::verificaUsuarioLog();
+
+        if ($dados === null) {
+            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
+        }
+        
         $valida = parent::validaCEP($request->cep);
 
         if($valida !== false){

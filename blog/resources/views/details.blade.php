@@ -19,15 +19,15 @@
                     </div>
 
                     <div class="product__img">
-                        <img src="/img/details-2.png" alt="">
+                        <img src="/img/product/{{ $Product->imagem_produto }}" alt="">
                     </div>
 
                     <div class="product__img">
-                        <img src="/img/details-3.png" alt="">
+                        <img src="/img/product/{{ $Product->imagem_produto }}" alt="">
                     </div>
 
                     <div class="product__img">
-                        <img src="/img/details-4.png" alt="">
+                        <img src="/img/product/{{ $Product->imagem_produto }}" alt="">
                     </div>
                 </div>
 
@@ -96,9 +96,6 @@
                                 <p>{{ $Product->cor_produto }}</p>
                             @endif
                         </div>
-
-                        <div class="color__selector"></div>
-                        <div class="color__option" ></div>
                         <div class="cart__amount">
                             <div class="cart__amount-content">
                                 <span class="cart__amount-box" onclick="countProductDetais('-')">
@@ -106,12 +103,11 @@
                                 </span>
 
                                 <span class="cart__amount-number" id="CountProduct">1</span>
-
+                    
                                 <span class="cart__amount-box" onclick="countProductDetais('+')">
                                     <i class="bx bx-plus"></i>
                                 </span>
                             </div>
-                            <i class="bx bx-heart cart__amount-heart"></i>
                         </div>
                         <button type="submit" class="button">Adicionar ao carrinho</button> 
                     </form>

@@ -12,6 +12,8 @@ use Cartalyst\Stripe\Exception\UnauthorizedException;
 use App\Models\Car;
 use App\Models\Pedido;
 use App\Models\Product;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NomeDoEmail; 
 
 class CheckoutController extends Controller
 {
@@ -63,7 +65,10 @@ class CheckoutController extends Controller
                 Car::where('id', $cart)->delete();
             }
             
-            return redirect('/')->with('msg', 'Pagamento bem-sucedido!');
+            //Envia um email validando o pagamento.
+            $this->enviarEmail($dados);
+            
+            return redirect('/')->with('msg', "Pagamento bem-sucedido!");
         } catch (CardErrorException $e) {
             // Tratamento de erro para falhas relacionadas ao cartão
             return redirect('/')->with('err', 'Erro no processamento do pagamento: ' . $e->getMessage());
@@ -80,5 +85,13 @@ class CheckoutController extends Controller
             // Tratamento de erro genérico
             return redirect('/')->with('err', 'Erro no processamento do pagamento: ' . $e->getMessage());
         }
+    }
+    private function enviarEmail($dados) {
+        
+        // Crie uma instância da classe de e-mail e passe os dados necessários
+        $email = new NomeDoEmail(auth()->user()->name, $dados['subtotal']);
+        
+        // Envie o e-mail para o destinatário
+        Mail::to(auth()->user()->email)->send($email);
     }
 }
