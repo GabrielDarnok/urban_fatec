@@ -1242,7 +1242,37 @@ input {
     margin-top: 1.75rem;
     margin-bottom: 0.75rem;
 }
-
+.adress{
+    margin-top: 1rem;
+    background-color: var(--body-color);
+    border-radius: 1rem !important;
+    padding: 0.8rem;
+    border: 1px solid #ffb8b8;
+    transition: .3s;
+}
+.adress_information{
+    display: flex;
+    flex-direction: column;
+}
+.adress:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 9px #ffb8b8;
+    transform: translateY(-0.25rem);
+}
+.adress-head{
+    display: flex;
+    justify-content: space-between;
+}
+.adress-bottom{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.btn-adress{
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+}
 .adress__label {
     font-size: var(--smaller-font-size);
     color: var(--title-color);

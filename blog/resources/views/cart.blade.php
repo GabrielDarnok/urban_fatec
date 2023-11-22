@@ -67,7 +67,7 @@
                     </div>
                 @endif
                 <br>
-                <div>
+                <div style="display:flex; justify-content:center;">
                     <a href="/checkout" class="button">Confirmar Pedido</a>
                </div>
                 </div>

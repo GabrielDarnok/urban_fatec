@@ -194,13 +194,15 @@
                   contentType: false,
                   processData: false,
                   success: function(response){
-                    Swal.fire(
-                      'Sucesso!',
-                      'Produto adicionado com sucesso',
-                      'success',
-                    ); 
-                    adicionarObjetosATabela(response);
-                    document.getElementById('newProductAdd').reset();
+                      Swal.fire(
+                        'Sucesso!',
+                        'Produto adicionado com sucesso',
+                        'success',
+                      );
+                      Cores = [];
+                      Tamanhos = [];  
+                      adicionarObjetosATabela(response);
+                      document.getElementById('newProductAdd').reset();
                   },
                   error: function(xhr, status, error) {
                     Swal.fire(
@@ -216,9 +218,7 @@
                   "Necessário existir tamanho e cor.",
                   'error'
               );
-            }
-            Cores = [];
-            Tamanhos = [];            
+            }           
         }
         function adicionarObjetosATabela(objetos) {
             var corpoDaTabela = document.getElementById("tableContent");
