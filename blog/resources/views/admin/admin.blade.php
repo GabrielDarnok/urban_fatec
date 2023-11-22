@@ -20,10 +20,10 @@
                         <div class="add">
                             <h3>Adicionar um novo Produto</h3>
                         </div>
-                      <input type="text" placeholder="Insira o nome do produto" id="nome_produto" name="nome_produto" class="box">
-                      <input type="text" placeholder="Insira a descrição" id="descricao_produto" name="descricao_produto" class="box">
-                      <input type="text" placeholder="Insira o valor" id="valor_produto" name="valor_produto" class="box">
-                      <input type="text" placeholder="Insira a quantidade" id="quantidade_estoq" name="quantidade_estoq" class="box">
+                      <input type="text" placeholder="Insira o nome do produto" id="nome_produto" name="nome_produto" class="box" pattern="[A-Za-zÇç]{10,}">
+                      <input type="text" placeholder="Insira a descrição" id="descricao_produto" name="descricao_produto" class="box" pattern="{10,}">
+                      <input type="text" placeholder="Insira o valor" id="valor_produto" name="valor_produto" class="box" pattern="\d+(\.\d{2})?" >
+                      <input type="text" placeholder="Insira a quantidade" id="quantidade_estoq" name="quantidade_estoq" class="box" pattern="\d+(\.\d{2})?">
 
                       <div class="dropdown">
                         <div class="">

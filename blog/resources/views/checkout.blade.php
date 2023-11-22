@@ -139,7 +139,8 @@
 
             stripe.createToken(cardNumber).then(function(result) {
                 if (result.error) {
-                    // Exiba erros ao usuário
+                    // Exiba mensagens de erro ao usuário
+                    handleStripeError(result.error);
                 } else {
                     var hiddenInput = document.createElement('input');
                     hiddenInput.setAttribute('type', 'hidden');
@@ -152,6 +153,13 @@
                 }
             });
         });
+
+        function handleStripeError(error) {
+        // Aqui você pode lidar com diferentes tipos de erros e exibir mensagens adequadas ao usuário
+            if (error.type) {
+                alert('Informações do cartão fornecidas estão incorretas. Verifique e tente novamente.');
+            }
+        }
     </script>
 
 </body>

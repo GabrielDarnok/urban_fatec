@@ -24,6 +24,12 @@ class redirectController extends Controller
     }
     public function cart(){
         
+        $dados = parent::verificaUsuarioLog();
+
+        if ($dados === null) {
+            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
+        }
+
         $enderecos = Endereco::where('id_usuario', auth()->user()->id)->get();
         
         $dados = parent::verificaUsuarioLog();
@@ -34,6 +40,7 @@ class redirectController extends Controller
     public function contato(){
 
         $dados = parent::verificaUsuarioLog();
+
         return view('contato',['dados' => $dados]);
     }
     public function details(){
@@ -46,6 +53,10 @@ class redirectController extends Controller
         
         $dados = parent::verificaUsuarioLog();
 
+        if ($dados === null) {
+            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
+        }
+
         $user = User::findOrFail($id);
         
         #Condição que verifica se o usuario que está acessando a view  tem o mesmo ID do usuario autenticado
@@ -57,9 +68,13 @@ class redirectController extends Controller
     }
     public function registro(){
 
-        $enderecos = Endereco::where('id_usuario', auth()->user()->id)->get();
-
         $dados = parent::verificaUsuarioLog();
+
+        if ($dados === null) {
+            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
+        }
+        
+        $enderecos = Endereco::where('id_usuario', auth()->user()->id)->get();
 
         return view('user.registro_end', ['enderecos' => $enderecos, 'dados' => $dados]);
     }
@@ -98,6 +113,10 @@ class redirectController extends Controller
     {
         
         $dados = parent::verificaUsuarioLog();
+
+        if ($dados === null) {
+            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
+        }
 
         //Validação para quando passar o id do endereço pelo form de confirmar o pedido
         //$valida = Endereco::where('id',$request->id_endereco)->where('id_usuario', auth()->user()->id)->get();

@@ -247,7 +247,7 @@
         <div class="footer__container container grid">
             <!--FOOTER CONTEUDO 1-->
             <div class="footer__content">
-                <a href="#" class="footer__logo">
+                <a href="/" class="footer__logo">
                     <i class="bx bxs-shopping-bags footer__logo-icon"></i> You Matter
                 </a>
 
@@ -266,7 +266,6 @@
 
                 <ul class="footer__links">
                     <li><a href="/contato" class="footer__link">Fale Conosco</a></li>
-                    <li><a href="/contato" class="footer__link">Suporte</a></li>
                 </ul>
             </div>
 

@@ -11,6 +11,11 @@ class CarrinhoController extends Controller
 {
     public function add_carrinho(Request $request){
         
+        $dados = parent::verificaUsuarioLog();
+
+        if ($dados === null) {
+            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
+        }
         // Verificar se o produto já está no carrinho para o usuário atual
         $car = Car::where('id_produto', $request->id)
         ->where('id_usuario', auth()->user()->id)->
@@ -32,10 +37,10 @@ class CarrinhoController extends Controller
             $car->tamanho_car = $request->tamanho_roupa;
         }
 
-        $valida = $this->validaQuantidade($car->quantidade_car,$request->id);
+        $valida2 = $this->validaQuantidade($car->quantidade_car,$request->id);
 
-        if ($valida) {
-            return redirect()->back()->with('err', "Quantidade excedida. O máximo deste produto é {$valida}.");
+        if ($valida2) {
+            return redirect()->back()->with('err', "Quantidade excedida. O máximo deste produto é {$valida2}.");
         }
         else {
             $car->save();
@@ -43,6 +48,12 @@ class CarrinhoController extends Controller
         }
     }
     public function edit_carrinho(Request $request){
+
+        $dados = parent::verificaUsuarioLog();
+
+        if ($dados === null) {
+            return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
+        }
 
         // Verificar se o produto já está no carrinho para o usuário atual
         $car = Car::where('id_produto', $request->id)
@@ -62,7 +73,7 @@ class CarrinhoController extends Controller
         }
     }
 
-    public function validaQuantidade($car_quantidade, $id_produto){
+    private function validaQuantidade($car_quantidade, $id_produto){
         
         $product = Product::find($id_produto);
 

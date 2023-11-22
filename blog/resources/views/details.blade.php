@@ -108,7 +108,6 @@
                                     <i class="bx bx-plus"></i>
                                 </span>
                             </div>
-                            <i class="bx bx-heart cart__amount-heart"></i>
                         </div>
                         <button type="submit" class="button">Adicionar ao carrinho</button> 
                     </form>
