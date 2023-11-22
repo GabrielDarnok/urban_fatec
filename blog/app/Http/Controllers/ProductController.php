@@ -74,6 +74,14 @@ class ProductController extends Controller
         //Juntando os dados do request
 
         $dados = $request->all();
+        if (isset($dados['tamanho_roupa']) && is_array($dados['tamanho_roupa'])) {
+            $tamanhos = implode(',', $dados['tamanho_roupa']);
+            $dados['tamanho_roupa'] = $tamanhos;
+        }
+        if (isset($dados['cor_produto']) && is_array($dados['cor_produto'])) {
+            $tamanhos = implode(',', $dados['cor_produto']);
+            $dados['cor_produto'] = $tamanhos;
+        }
 
         //image upload update
 
