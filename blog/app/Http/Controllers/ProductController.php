@@ -44,7 +44,7 @@ class ProductController extends Controller
             
             return ['products' => $produtcs];
         } else {
-            return redirect()->back()->with('err',"Valores inseridos estão incorretos.");
+            return view('admin.admin')->with('msg',"Valores inseridos estão incorretos.");
         }
     }
 
@@ -119,7 +119,7 @@ class ProductController extends Controller
 
             return redirect('/admin')->with('msg', 'Editado com sucesso!');
         } else {
-            return redirect()->back()->with('err',"Valores inseridos estão incorretos.");
+            return view('admin.edit')->with('err',"Valores inseridos estão incorretos.");
         }
     }
 

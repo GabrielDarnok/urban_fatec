@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="details__prices">
-                        <span class="details__price">{{ number_format($Product->valor_produto, 2, ',', '.') }}</span>
+                        <span class="details__price">R$ {{ number_format($Product->valor_produto, 2, ',', '.') }}</span>
                     </div>
 
                     <div class="details__description">
@@ -133,7 +133,7 @@
                             <span class="new__subtitle">You Matter</span>
 
                             <div class="new__prices">
-                                <span class="new__price">{{ number_format($product_show->valor_produto, 2, ',', '.') }}</span>
+                                <span class="new__price">R$ {{ number_format($product_show->valor_produto, 2, ',', '.') }}</span>
                             </div>
 
                             <a href="/shop/product/{{ $product_show->id }}" class="button new__button">

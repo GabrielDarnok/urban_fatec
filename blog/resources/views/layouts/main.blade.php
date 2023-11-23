@@ -147,7 +147,7 @@
                         </div>
                         <form action="/edit/car" method="POST">
                             @csrf
-                            <input type="hidden" name="quantidade_car" id="countProductMain{{ $cart->id }}">
+                            <input type="hidden" name="quantidade_car" id="countProductMain{{ $cart->id }}" value="{{ $cart->quantidade_car }}">
                             <input type="hidden" name="id" value="{{ $cart->id }}">
                             <button type="submit" class="bx bx-edit-alt out__amount-edit"></button>
                         </form>
@@ -218,12 +218,13 @@
         <input type="hidden" id="msg" value="{{ session('msg') }}">
         <script>
             var mensagem = document.getElementById('msg').value;
-            if(mensagem){
+            if (mensagem) {
                 Swal.fire(
                     'Sucesso!',
                     mensagem,
                     'success'
                 );
+                <?php session(['msg' => null]); ?>
             }
         </script>
         @elseif(session('err')) 
@@ -236,6 +237,8 @@
                     mensagem,
                     'error'
                 );
+                <?php session(['err' => null]); ?>
+                console.log('Mensagem definida como nula na sessão');
             }
         </script>         
         @endif

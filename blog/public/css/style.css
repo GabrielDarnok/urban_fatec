@@ -676,6 +676,7 @@ input {
 }
 
 .shop__img {
+    height: 120px;
     width: 150px;
     margin-bottom: var(--mb-1);
     transition: .3s;

@@ -136,9 +136,11 @@
 
     <script>
         var deleteRoute = "{{ route('product.destroy', ['id' => ':id']) }}";
-        var Tamanhos = [];
-        var Cores = [];
-
+        if(!Tamanhos && !Cores){
+            var Tamanhos = [];
+            var Cores = [];
+        }
+          
         function adicionarValorTam() {
             Tamanhos = [];
             var checkboxTam = document.querySelectorAll('.checkboxTam:checked');
@@ -160,9 +162,24 @@
         function processarFormulario() {
           return false;
         }
+        function verificaNome(str){
+          var regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?0-9]/;
+
+          return regex.test(str)
+        }
+        function verificaValor(number){
+
+          return /^[0-9.]+$/.test(number);
+        }
+        function varificaQuantidade(number) {
+            
+          return /^\d+$/.test(number);
+        }
         function createProduct(){
-          if(Tamanhos.length !== 0 && Cores.length !== 0){
+          
               event.preventDefault();
+              var permissao = 0;
+              var msgErro = '';
               var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
               const nome_produto = document.getElementById('nome_produto').value;
               const descricao_produto = document.getElementById('descricao_produto').value;
@@ -170,55 +187,77 @@
               const quantidade_estoq = document.getElementById('quantidade_estoq').value;
               const categoria_produto = document.getElementById('categoria_produto').value;
               const imagem_produtoSt = document.getElementById('imagem_produto');
-    
-              console.log(imagem_produto);
 
-              var formData = new FormData();
-              formData.append('nome_produto', nome_produto);
-              formData.append('descricao_produto', descricao_produto);
-              formData.append('valor_produto', valor_produto);
-              formData.append('quantidade_estoq', quantidade_estoq);
-              formData.append('tamanho_roupa', Tamanhos);
-              formData.append('cor_produto', Cores);
-              formData.append('categoria_produto', categoria_produto);
-              formData.append('imagem_produto', imagem_produtoSt.files[0]);
+              if(verificaNome(nome_produto)){
+                permissao++;
+                msgErro = "O nome do produto possui caracteres especiais!\n";             
+              }
+              if(Tamanhos.length === 0 && Cores.length === 0){
+                permissao++;
+                msgErro += "Necessário possuir tamanho e cor!\n";
+              }
+              if(!verificaValor(valor_produto) || (valor_produto < 0)){
+                permissao++;
+                msgErro += "O valor do produto informado é inválido!\n";
+              }
+              if(!varificaQuantidade(quantidade_estoq) || (quantidade_estoq < 0)){
+                permissao++;
+                msgErro += "O valor da quantidade em estoque informado é inválido!";
+              }
+              if(imagem_produtoSt.files[0] == null){
+                permissao++;
+                msgErro += "Nanhuma imagem foi selecionada";
+              }
 
-              console.log(formData);
-              $.ajax({
-                  url: '/products',
-                  type: 'POST',
-                  data: formData,
-                  headers: {
-                      'X-CSRF-TOKEN': csrfToken
-                  },
-                  contentType: false,
-                  processData: false,
-                  success: function(response){
+              if(permissao == 0){
+                console.log(imagem_produto);
+
+                var formData = new FormData();
+                formData.append('nome_produto', nome_produto);
+                formData.append('descricao_produto', descricao_produto);
+                formData.append('valor_produto', valor_produto);
+                formData.append('quantidade_estoq', quantidade_estoq);
+                formData.append('tamanho_roupa', Tamanhos);
+                formData.append('cor_produto', Cores);
+                formData.append('categoria_produto', categoria_produto);
+                formData.append('imagem_produto', imagem_produtoSt.files[0]);
+
+                console.log(formData);
+                $.ajax({
+                    url: '/products',
+                    type: 'POST',
+                    data: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    contentType: false,
+                    processData: false,
+                    success: function(response){
+                        Swal.fire(
+                          'Sucesso!',
+                          'Produto adicionado com sucesso',
+                          'success',
+                        );
+                        Cores = [];
+                        Tamanhos = [];  
+                        adicionarObjetosATabela(response);
+                        document.getElementById('newProductAdd').reset();
+                    },
+                    error: function(xhr, status, error) {
                       Swal.fire(
-                        'Sucesso!',
-                        'Produto adicionado com sucesso',
-                        'success',
+                          'Erro!',
+                          'Ocorreu um erro ao adicionar o produto: ' + error,
+                          'error'
                       );
-                      Cores = [];
-                      Tamanhos = [];  
-                      adicionarObjetosATabela(response);
-                      document.getElementById('newProductAdd').reset();
-                  },
-                  error: function(xhr, status, error) {
-                    Swal.fire(
-                        'Erro!',
-                        'Ocorreu um erro ao adicionar o produto: ' + error,
-                        'error'
-                    );
-                  }
-              });
-            }else{
+                    }
+                });
+              }else{
                 Swal.fire(
                   'Opa!',
-                  "Necessário existir tamanho e cor.",
+                  msgErro,
                   'error'
-              );
-            }           
+                );
+              }              
         }
         function adicionarObjetosATabela(objetos) {
             var corpoDaTabela = document.getElementById("tableContent");

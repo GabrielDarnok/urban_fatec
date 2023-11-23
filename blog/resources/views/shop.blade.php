@@ -113,7 +113,7 @@
 
                 <span class="first-page" id="primeira" onclick= 'productFilter("primeira")' ><<</span>
                 <span class="atual current" id="atual" onclick= "productFilter('atual')">1</span>
-                <span class="preview" id="atual-proxima" onclick= "productFilter('proxima')">2</span>
+                <span class="preview" id="atual-proxima" style=" display:none " onclick= "productFilter('proxima')">2</span>
                 <span>&middot; &middot; &middot;</span>
                 <span class="last-page" id="ultima" onclick= "productFilter('ultima')">1</span>
 
@@ -151,9 +151,11 @@
             if(pageLocation === 'atual'){
                 page = parseInt(pageElement.textContent);
             }else if(pageLocation === 'proxima'){
-                page = parseInt(pageElement.textContent) + 1;
                 if(page < 1){
                     page = 1;
+                }
+                if(page < parseInt(lastPageElement.textContent)){
+                    page++;
                 }
             }else if(pageLocation === 'anterior'){
                 page = parseInt(pageElement.textContent) - 1;
@@ -163,7 +165,7 @@
             }else if(pageLocation === 'primeira'){
                 page = 1;
             }else{
-                page = 1;
+                page = parseInt(lastPageElement.textContent);
             }
             
             console.log(page);
