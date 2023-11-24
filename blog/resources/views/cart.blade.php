@@ -27,6 +27,7 @@
                         <div class="out__details">
                             <h3 class="out__title">{{ $cart->nome_produto }}</h3>
                             <span class="out__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
+                            <input type="hidden" id="quantidadeCart{{ $cart->carrinho_id }}" value="{{ $cart->quantidade_estoq }}">
         
                             <div class="out__amount">
                                 <div class="out__amount-content">
@@ -125,12 +126,15 @@
             const countProduct = document.getElementById('countProduct'+id);
             const quantidadeProdutoElement = document.getElementById('CountProduct'+id);
             var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
-
+            var maxItens = parseInt(document.getElementById('quantidadeCart'+id).value);
             if(operation === '-'){
                 quantidadeProduto -= 1; 
             }
             if(operation === '+'){
                 quantidadeProduto += 1;
+                if(quantidadeProduto > maxItens){
+                    quantidadeProduto--;
+                }
             }
             
             if(quantidadeProduto >= 1){

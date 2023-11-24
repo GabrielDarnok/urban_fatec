@@ -192,7 +192,7 @@
                 permissao++;
                 msgErro = "O nome do produto possui caracteres especiais!\n";             
               }
-              if(Tamanhos.length === 0 && Cores.length === 0){
+              if(Tamanhos.length === 0 || Cores.length === 0){
                 permissao++;
                 msgErro += "Necessário possuir tamanho e cor!\n";
               }

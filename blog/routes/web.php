@@ -43,7 +43,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('index');
+        return redirect()->back();
     })->name('index');
 });
 

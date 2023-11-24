@@ -256,6 +256,8 @@
                 toggleLightbox()
             }
         });
+        const maxItens = {{$Product->quantidade_estoq}}
+
         function countProductDetais(operation){
             const countProduct = document.getElementById('countProduct');
             const quantidadeProdutoElement = document.getElementById('CountProduct');
@@ -267,6 +269,9 @@
             }
             if(operation === '+'){
                 quantidadeProduto += 1;
+                if(quantidadeProduto > maxItens){
+                    quantidadeProduto--;
+                }
             }
             
             if(quantidadeProduto >= 1){

@@ -140,7 +140,7 @@
                             </span>
 
                             <span class="cart__amount-number" id="CountProductMain{{ $cart->id }}">{{ $cart->quantidade_car }}</span>
-
+                            <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
                             <span class="cart__amount-box" onclick="countProduct('+', {{ $cart->id }})">
                                 <i class="bx bx-plus"></i>
                             </span>
@@ -250,10 +250,9 @@
         <div class="footer__container container grid">
             <!--FOOTER CONTEUDO 1-->
             <div class="footer__content">
-                <a href="/" class="footer__logo">
-                    <i class="bx bxs-shopping-bags footer__logo-icon"></i> You Matter
+                <a class="footer__logo">
+                    <i class="bx bxs-shopping-bags footer__logo-icon"></i>You Matter
                 </a>
-
                 <p class="footer__description">Aproveite <br> as compras!</p>
 
                 <div class="footer__social">
@@ -265,7 +264,7 @@
 
             <!--FOOTER CONTEUDO 2-->
             <div class="footer__content">
-                <h3 class="footer__tittle">Sobre</h3>
+                <h3 class="footer__tittle"><b>Sobre</b></h3>
 
                 <ul class="footer__links">
                     <li><a href="/contato" class="footer__link">Fale Conosco</a></li>
@@ -274,7 +273,7 @@
 
             <!--FOOTER CONTEUDO 3-->
             <div class="footer__content">
-                <h3 class="footer__tittle">Nossos Serviços</h3>
+                <h3 class="footer__tittle"><b>Nossos Serviços</b></h3>
 
                 <ul class="footer__links">
                     <li><a href="/shop" class="footer__link">Shop</a></li>
@@ -284,7 +283,7 @@
 
             <!--FOOTER CONTEUDO 4-->
             <div class="footer__content">
-                <h3 class="footer__tittle">Nossa Empresa</h3>
+                <h3 class="footer__tittle"><b>Nossa Empresa</b></h3>
 
                 <ul class="footer__links">
                     <li><a href="/sobre" class="footer__link">Quem Somos</a></li>
@@ -298,6 +297,8 @@
         function countProduct(operation, id){
             const countProduct = document.getElementById('countProductMain'+id);
             const quantidadeProdutoElement = document.getElementById('CountProductMain'+id);
+            var maxItens = parseInt(document.getElementById('quantidadeCart'+id).value);
+
             if(quantidadeProdutoElement){
                 var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
 
@@ -306,6 +307,9 @@
                 }
                 if(operation === '+'){
                     quantidadeProduto += 1;
+                    if(quantidadeProduto > maxItens){
+                        quantidadeProduto--;
+                    }
                 }
                 
                 if(quantidadeProduto >= 1){
