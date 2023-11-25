@@ -2752,3 +2752,6 @@ input {
         font-size: var(--small-font-size);
     }
 }
+.cad:hover{
+    cursor: pointer;
+}

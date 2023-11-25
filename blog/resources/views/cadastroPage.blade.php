@@ -45,7 +45,7 @@
 
             <div class="container">
                 <div>
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" id="formCadastro">
                         <div class = "form_input"> 
                             @csrf  
                             <div class = "form_section">
@@ -71,7 +71,7 @@
                         </div>
                         <x-validation-errors class="mb-4" style="color: #e9d2d2 "/>
                         <div style= "display: flex; justify-content: center; width: 100%; margin-top: 1.25rem;">
-                            <input class= "button cad" type="submit" value="Cadastrar" style="width: 40%">
+                            <a class= "button cad" type="button" onclick="validaCampos()" style="width: 40%; display: flex; justify-content: center;">Cadastrar</a>
                         </div>
                     </form> 
                 </div>
@@ -89,6 +89,58 @@
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
+    
+    <script>
+        
+        function validaCampos(){
 
+            const nome = document.getElementById('name');
+            const email = document.getElementById('email');
+            const senha = document.getElementById('password');
+            const confirmarSenha = document.getElementById('password_confirmation');
+            var erros = 0;
+            var msgErro = '';
+
+            if(!validaNome(nome.value)){
+                erros++;
+                msgErro += "O nome não deve possuir caracteres especiais ou números!\n";
+                nome.focus();  
+            }
+            if(!validarEmail(email.value)){
+                erros++;
+                msgErro += "Email inválido!\n"; 
+                email.focus();
+            }
+            if(senha.value !== confirmarSenha.value){
+                erros++;
+                msgErro += "Senha e confirmar senha estão diferentes!\n";
+                confirmarSenha.focus(); 
+            }
+            console.log(erros);
+
+            if(erros === 0 ){
+                document.getElementById('formCadastro').submit();
+            }else{
+                Swal.fire(
+                  'Opa!',
+                  msgErro,
+                  'error'
+                );
+            }
+        }
+        function validaNome(nome){
+
+            var regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']+$/;
+
+            return regex.test(nome);        
+        }
+        function validarEmail(email) {
+           
+            var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+            return regex.test(email);
+        }
+
+    </script>
 
 @endsection
