@@ -44,7 +44,7 @@ class ProductController extends Controller
             
             return ['products' => $produtcs];
         } else {
-            return view('admin.admin')->with('msg',"Valores inseridos estão incorretos.");
+            return redirect()->back()->with('err',"Valores inseridos estão incorretos.");
         }
     }
 
@@ -72,7 +72,7 @@ class ProductController extends Controller
             $product->delete();
         }
 
-        return redirect('/admin')->with('msg', 'Produto removido com sucesso');
+        return redirect()->back()->with('msg', 'Produto removido com sucesso');
     }
     
     public function edit($id){
@@ -119,7 +119,7 @@ class ProductController extends Controller
 
             return redirect('/admin')->with('msg', 'Editado com sucesso!');
         } else {
-            return view('admin.edit')->with('err',"Valores inseridos estão incorretos.");
+            return redirect()->back()->with('err',"Valores inseridos estão incorretos.");
         }
     }
 

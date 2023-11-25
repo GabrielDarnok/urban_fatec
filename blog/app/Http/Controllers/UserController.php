@@ -110,14 +110,14 @@ class UserController extends Controller
         abort(403);
     }
 
-    public function validaCepExistente($cep_form){
+    private function validaCepExistente($cep_form){
 
         $cep_cadastrado = Endereco::where('cep', $cep_form)->where('id_usuario', auth()->user()->id)->first();
 
         return $cep_cadastrado !== null;
     }
 
-    public function validaCepExistenteEdit($cep_form, $id_endereco){
+    private function validaCepExistenteEdit($cep_form, $id_endereco){
         
         $cep_cadastrado = Endereco::where('cep', $cep_form)->where('id_usuario', auth()->user()->id)->where('id', '!=', $id_endereco)->first();
         

@@ -129,7 +129,7 @@ class redirectController extends Controller
         //    return redirect('/')->with('err','Endereço fornecido é invalido.');
         //}
         if ($dados['subtotal'] === 0) {
-            return redirect('/')->with('err','Você precisa adicionar produtos no carrinho para ir para a pagina de pagamentos.');
+            return redirect()->back()->with('err','Você precisa adicionar produtos no carrinho para ir para a pagina de pagamentos.');
         }
         
         return view('checkout',['dados' => $dados]);

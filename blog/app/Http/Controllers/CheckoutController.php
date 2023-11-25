@@ -71,19 +71,19 @@ class CheckoutController extends Controller
             return redirect('/')->with('msg', "Pagamento bem-sucedido!");
         } catch (CardErrorException $e) {
             // Tratamento de erro para falhas relacionadas ao cartão
-            return redirect('/')->with('err', 'Erro no processamento do pagamento: ' . $e->getMessage());
+            return redirect()->back()->with('err', 'Erro no processamento do pagamento: ' . $e->getMessage());
         } catch (MissingParameterException $e) {
             // Tratamento de erro para parâmetros ausentes
-            return redirect('/')->with('err', 'Erro no processamento do pagamento: Parâmetro ausente.');
+            return redirect()->back()->with('err', 'Erro no processamento do pagamento: Parâmetro ausente.');
         } catch (ServerErrorException $e) {
             // Tratamento de erro para falhas do lado do servidor
-            return redirect('/')->with('err', 'Erro no processamento do pagamento: ' . $e->getMessage());
+            return redirect()->back()->with('err', 'Erro no processamento do pagamento: ' . $e->getMessage());
         } catch (UnauthorizedException $e) {
             // Tratamento de erro para falhas de autorização
-            return redirect('/')->with('err', 'Erro no processamento do pagamento: Não autorizado.');
+            return redirect()->back()->with('err', 'Erro no processamento do pagamento: Não autorizado.');
         } catch (\Exception $e) {
             // Tratamento de erro genérico
-            return redirect('/')->with('err', 'Erro no processamento do pagamento: ' . $e->getMessage());
+            return redirect()->back()->with('err', 'Erro no processamento do pagamento: ' . $e->getMessage());
         }
     }
     private function enviarEmail($dados) {
