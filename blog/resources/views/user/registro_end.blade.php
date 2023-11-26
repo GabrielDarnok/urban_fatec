@@ -18,8 +18,18 @@
                     @csrf
                     <div class="register__inputs grid">
                         <div class="register__content">
-                             <label for="" class="register__label">CEP</label>
+                             <label for="" class="register__label" id="cepLabel">CEP</label>
                              <input type="text" class="register__input" oninput="validarNumero(this)" name="cep" id="cep" required>
+                        </div>
+
+                        <div class="register__content">
+                            <label for="" class="register__label">Cidade</label>
+                            <input type="text" class="register__input" name="rua" id="cidade" required>
+                        </div>
+
+                        <div class="register__content">
+                            <label for="" class="register__label">Bairro</label>
+                            <input type="text" class="register__input" name="rua" id="bairro" required>
                         </div>
 
                         <div class="register__content">
@@ -85,11 +95,46 @@
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <script>
     
-    const 
-    const
+    const cepLabel = document.getElementById('cepLabel');
+    const CEP = document.getElementById('cep');
+    const cidade = document.getElementById('cidade');
+    const bairro = document.getElementById('bairro');
+    const rua = document.getElementById('rua');
 
+    CEP.addEventListener('focusout', () =>{
+        var cepValor = CEP.value;
+        var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        $.ajax({
+            url: '/validacep',
+            type: 'POST',
+            data: {'cep': cepValor,
+                },
+            headers: {
+                'X-CSRF-TOKEN': csrfToken
+            },
+            success: function(response){
+                if(response !== ''){
+                    console.log(response);
+                    rua.value = response.logradouro;
+                    bairro.value = response.bairro;
+                    cidade.value = response.localidade;
+                    cepLabel.textContent = "CEP";  
+                }else{
+                    cepLabel.textContent = "CEP informado está errado!";
+                }
+                   
+            },
+             error: function(xhr, status, error) {
+                console.log('erro');
+            }
+        });
+
+    });
     function validarNumero(input) {
         input.value = input.value.replace(/\D/g, ''); 
     }
