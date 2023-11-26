@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Endereco;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Gate;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class UserController extends Controller
 {
@@ -29,22 +31,17 @@ class UserController extends Controller
             return redirect()->back()->with('err', 'Endereço já cadastrado.');
         }
         
-        $valida = parent::validaCEP($cep_organiz);
+        $endereco->id_usuario = auth()->user()->id;
+        $endereco->cep = $cep_organiz;
+        $endereco->rua=$request->rua;
+        $endereco->bairro=$request->bairro;
+        $endereco->bairro=$request->bairro;
+        $endereco->number_house=$request->number_house;
+        $endereco->complemento=$request->complemento;
 
-        if($valida !== false){
-            
-            $endereco->id_usuario = auth()->user()->id;
-            $endereco->cep = $cep_organiz;
-            $endereco->rua=$request->rua;
-            $endereco->number_house=$request->number_house;
-            $endereco->complemento=$request->complemento;
+        $endereco->save();
 
-            $endereco->save();
-
-            return redirect('/registro_end')->with('msg', 'Endereço cadastrado com sucesso!');
-        }else{
-            return redirect('/registro_end')->with('err', 'CEP fornecido está incorreto');
-        }
+        return redirect('/registro_end')->with('msg', 'Endereço cadastrado com sucesso!');
     }
     
     public function edit_endereco($id){
@@ -71,28 +68,21 @@ class UserController extends Controller
         if ($dados === null) {
             return redirect()->back()->with('err', 'É preciso estar logado para acessar esta página.');
         }
-        
-        $valida = parent::validaCEP($request->cep);
+             
+        $dados = $request->all();
 
-        if($valida !== false){
-            
-            $dados = $request->all();
+        //Deixando o CEP apenas com os numeros
+        $cep_organiz = parent::organizaCep($request->cep);
 
-            //Deixando o CEP apenas com os numeros
-            $cep_organiz = parent::organizaCep($request->cep);
-
-            if ($this->validaCepExistenteEdit($cep_organiz, $request->id)) {
-                return redirect()->back()->with('err', 'Endereço já cadastrado.');
-            }
-
-            $dados['cep'] = $cep_organiz;
-
-            Endereco::FindOrFail($request->id)->update($dados);
-            
-            return redirect('/registro_end')->with('msg', 'Endereço editado com sucesso!');
-        }else{
-            return redirect()->back()->with('err', 'CEP informado está incorreto');
+        if ($this->validaCepExistenteEdit($cep_organiz, $request->id)) {
+            return redirect()->back()->with('err', 'Endereço já cadastrado.');
         }
+
+        $dados['cep'] = $cep_organiz;
+
+        Endereco::FindOrFail($request->id)->update($dados);
+            
+        return redirect('/registro_end')->with('msg', 'Endereço editado com sucesso!');
     }
 
     public function destroy_endereco($id){
@@ -109,7 +99,6 @@ class UserController extends Controller
         
         abort(403);
     }
-
     private function validaCepExistente($cep_form){
 
         $cep_cadastrado = Endereco::where('cep', $cep_form)->where('id_usuario', auth()->user()->id)->first();

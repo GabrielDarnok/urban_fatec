@@ -98,7 +98,4 @@ class Controller extends BaseController
 
         return($cep);
     }
-    public function calculaCep($cepDestino){
-        
-    }
 }

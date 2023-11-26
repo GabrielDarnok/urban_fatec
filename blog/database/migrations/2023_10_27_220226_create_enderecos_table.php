@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('cep');
             $table->string('rua');
             $table->string('number_house');
+            $table->string('bairro');
+            $table->string('cidade');
             $table->string('complemento')->nullable();
             $table->timestamps();
 
