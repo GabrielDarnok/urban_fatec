@@ -78,7 +78,7 @@ class UserController extends Controller
             
             $dados = $request->all();
 
-            //Deixando o CPF apenas com os numeros
+            //Deixando o CEP apenas com os numeros
             $cep_organiz = parent::organizaCep($request->cep);
 
             if ($this->validaCepExistenteEdit($cep_organiz, $request->id)) {

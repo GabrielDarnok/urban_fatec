@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 
 /*
@@ -78,3 +79,5 @@ Route::post('/edit/car', [CarrinhoController::class, 'edit_carrinho']);
 Route::get('/checkout', [redirectController::class, 'checkout']);
 
 Route::post('/checkout/processar', [CheckoutController::class,'processar']);
+
+Route::post('/validacep', [Controller::class,'validaCEP']);

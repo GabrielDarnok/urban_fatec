@@ -84,12 +84,11 @@ class Controller extends BaseController
 
             // Verifica se o CEP é válido na API do ViaCEP
             if (isset($data['cep'])) {
-                return true;
+                return $data;
             } else {
                 return false;
             }
         } catch (RequestException $e) {
-            // Tratamento de erro para falhas na requisição para a API
             return false;
         }
     }
