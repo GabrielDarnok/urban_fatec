@@ -98,39 +98,4 @@ class Controller extends BaseController
 
         return($cep);
     }
-
-    public function validaCEP2($cep){
-        
-        // Remova caracteres não numéricos do CEP
-        $cep = preg_replace('/[^0-9]/', '', $cep);
-
-        // Verifica se o CEP possui 8 dígitos
-        if (strlen($cep) !== 8) {
-            return false;
-        }
-
-        try {
-            // Faz a requisição para a API do ViaCEP
-            $client = new Client();
-            $response = $client->get("https://viacep.com.br/ws/{$cep}/json/");
-
-            // Converte a resposta JSON para um array
-            $data = json_decode($response->getBody(), true);
-
-            // Verifica se o CEP é válido na API do ViaCEP
-            if (isset($data['cep'])) {
-                return $data;
-            } else {
-                return false;
-            }
-        } catch (RequestException $e) {
-            return false;
-        }
-    }
-    public function organizaCep2($cep){
-        // Remova caracteres não numéricos do CEP
-        $cep = preg_replace('/[^0-9]/', '', $cep);
-
-        return($cep);
-    }
 }
