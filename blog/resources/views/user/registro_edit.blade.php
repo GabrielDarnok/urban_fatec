@@ -19,7 +19,17 @@
                     <div class="register__inputs grid">
                         <div class="register__content">
                             <label for="" class="register__label">CEP</label>
-                            <input type="text" class="register__input" name="cep" id="cep " value="{{ $endereco->cep }}" required>
+                            <input type="text" class="register__input" name="cep" id="cep " value="{{ $endereco->cep }}" readonly>
+                        </div>
+
+                        <div class="register__content">
+                            <label for="" class="register__label">Cidade</label>
+                            <input type="text" class="register__input" name="cidade" id="cidade" value="{{ $endereco->cidade }}" required>
+                        </div>
+
+                        <div class="register__content">
+                            <label for="" class="register__label">bairro</label>
+                            <input type="text" class="register__input" name="bairro" id="bairro" value="{{ $endereco->bairro }}" required>
                         </div>
 
                         <div class="register__content">
@@ -29,7 +39,7 @@
 
                         <div class="register__content">
                             <label for="" class="contact__label">Numero da casa</label>
-                            <input type="text" class="register__input" name="number_house" id="number_house" value="{{ $endereco->number_house }}" required>
+                            <input type="text" class="register__input" name="number_house" oninput="validarNumero(this)" id="number_house" value="{{ $endereco->number_house }}" required>
                         </div>
 
                         <div class="register__content">
@@ -56,5 +66,9 @@
 
 <!--=============== JS ===============-->
 <script src="/js/main.js"></script>
-
+<script>
+    function validarNumero(input) {
+        input.value = input.value.replace(/\D/g, ''); 
+    }
+</script>
 @endsection

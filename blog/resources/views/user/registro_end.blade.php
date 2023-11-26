@@ -24,12 +24,12 @@
 
                         <div class="register__content">
                             <label for="" class="register__label">Cidade</label>
-                            <input type="text" class="register__input" name="rua" id="cidade" required>
+                            <input type="text" class="register__input" name="cidade" id="cidade" required>
                         </div>
 
                         <div class="register__content">
                             <label for="" class="register__label">Bairro</label>
-                            <input type="text" class="register__input" name="rua" id="bairro" required>
+                            <input type="text" class="register__input" name="bairro" id="bairro" required>
                         </div>
 
                         <div class="register__content">

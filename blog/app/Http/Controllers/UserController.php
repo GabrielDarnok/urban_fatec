@@ -35,7 +35,7 @@ class UserController extends Controller
         $endereco->cep = $cep_organiz;
         $endereco->rua=$request->rua;
         $endereco->bairro=$request->bairro;
-        $endereco->bairro=$request->bairro;
+        $endereco->cidade=$request->cidade;
         $endereco->number_house=$request->number_house;
         $endereco->complemento=$request->complemento;
 
