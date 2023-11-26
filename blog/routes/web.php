@@ -80,4 +80,4 @@ Route::get('/checkout', [redirectController::class, 'checkout']);
 
 Route::post('/checkout/processar', [CheckoutController::class,'processar']);
 
-Route::post('/validacep', [Controller::class,'validaCEP2']);
+Route::post('/validacep', [Controller::class,'validaCEP']);
