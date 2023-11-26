@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Endereco;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Support\Facades\Gate;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class UserController extends Controller
 {
@@ -109,7 +111,6 @@ class UserController extends Controller
         
         abort(403);
     }
-
     private function validaCepExistente($cep_form){
 
         $cep_cadastrado = Endereco::where('cep', $cep_form)->where('id_usuario', auth()->user()->id)->first();
