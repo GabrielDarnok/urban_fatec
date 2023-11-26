@@ -250,9 +250,11 @@
         <div class="footer__container container grid">
             <!--FOOTER CONTEUDO 1-->
             <div class="footer__content">
+                <h3>
                 <a class="footer__logo">
                     <i class="bx bxs-shopping-bags footer__logo-icon"></i>You Matter
                 </a>
+                </h3>
                 <p class="footer__description">Aproveite <br> as compras!</p>
 
                 <div class="footer__social">
@@ -264,7 +266,7 @@
 
             <!--FOOTER CONTEUDO 2-->
             <div class="footer__content">
-                <h3 class="footer__tittle"><b>Sobre</b></h3>
+                <h3 class="footer__tittle" style="color:var(--text-color);">Sobre</h3>
 
                 <ul class="footer__links">
                     <li><a href="/contato" class="footer__link">Fale Conosco</a></li>
@@ -273,7 +275,7 @@
 
             <!--FOOTER CONTEUDO 3-->
             <div class="footer__content">
-                <h3 class="footer__tittle"><b>Nossos Serviços</b></h3>
+                <h3 class="footer__tittle" style="color:var(--text-color);">Nossos Serviços</h3>
 
                 <ul class="footer__links">
                     <li><a href="/shop" class="footer__link">Shop</a></li>
@@ -283,7 +285,7 @@
 
             <!--FOOTER CONTEUDO 4-->
             <div class="footer__content">
-                <h3 class="footer__tittle"><b>Nossa Empresa</b></h3>
+                <h3 class="footer__tittle" style="color:var(--text-color);">Nossa Empresa</h3>
 
                 <ul class="footer__links">
                     <li><a href="/sobre" class="footer__link">Quem Somos</a></li>

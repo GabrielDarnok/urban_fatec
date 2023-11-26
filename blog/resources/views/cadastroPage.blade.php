@@ -60,7 +60,7 @@
                             </div>
                             <div class = "form_section">
                                 <div class = "contact__label">
-                                    <label for="senha" class = "contact__label">Senha:</label>
+                                    <label for="senha" class = "contact__label">Senha: (Mínimo 8 caracteres)</label>
                                     <input  class="contact__input" style ="width: 100%; border: solid 2px #8d8d8d; border-radius: 0.4rem; padding: 10px;" type="password" id="password" name="password" required>
                                 </div>
                                 <div class = "contact__label">
@@ -103,19 +103,26 @@
 
             if(!validaNome(nome.value)){
                 erros++;
-                msgErro += "O nome não deve possuir caracteres especiais ou números!\n";
+                msgErro += "<li>O nome não deve possuir caracteres especiais ou números!</li>";
                 nome.focus();  
             }
             if(!validarEmail(email.value)){
                 erros++;
-                msgErro += "Email inválido!\n"; 
+                msgErro += "<li>Email inválido!</li>"; 
                 email.focus();
             }
-            if(senha.value !== confirmarSenha.value){
+            if(senha.value.length < 8){
                 erros++;
-                msgErro += "Senha e confirmar senha estão diferentes!\n";
-                confirmarSenha.focus(); 
+                msgErro += "<li>A senha deve possuir no mínimo 8 caracteres!</li>";
+                senha.focus();
+            }else{
+                if(senha.value !== confirmarSenha.value){
+                    erros++;
+                    msgErro += "<li>Senha e confirmar senha estão diferentes!</li>";
+                    confirmarSenha.focus(); 
+                }
             }
+            
             console.log(erros);
 
             if(erros === 0 ){

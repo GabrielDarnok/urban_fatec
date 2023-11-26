@@ -19,7 +19,7 @@
                     <div class="register__inputs grid">
                         <div class="register__content">
                              <label for="" class="register__label">CEP</label>
-                             <input type="text" class="register__input" name="cep" id="cep" required>
+                             <input type="text" class="register__input" oninput="validarNumero(this)" name="cep" id="cep" required>
                         </div>
 
                         <div class="register__content">
@@ -28,8 +28,8 @@
                         </div>
 
                         <div class="register__content">
-                            <label for="" class="contact__label">Numero da casa</label>
-                            <input type="text" class="register__input" name="number_house" id="number_house" required>
+                            <label for="" type="number" class="contact__label">Numero da casa</label>
+                            <input type="text" class="register__input" oninput="validarNumero(this)" name="number_house" id="number_house" required>
                         </div>
 
                         <div class="register__content">
@@ -86,14 +86,12 @@
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
     <script>
-    function validarCEP() {
+    
+    const 
+    const
 
-        cep = cep.replace(/\D/g, ''); 
-
-        if (cep.length !== 8) {
-            return false;
-        }
-        
+    function validarNumero(input) {
+        input.value = input.value.replace(/\D/g, ''); 
     }
     </script>
 @endsection
