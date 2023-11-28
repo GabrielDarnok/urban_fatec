@@ -134,4 +134,8 @@ class redirectController extends Controller
         
         return view('checkout',['dados' => $dados]);
     }
+    public function pagamento(){
+
+        return view('pagamento');
+    }
 }

@@ -38,6 +38,8 @@ Route::get('/sobre',[redirectController::class, 'sobre']);
 
 Route::get('/cadastroPage',[redirectController::class, 'cadastroPage']);
 
+Route::get('/pagamento',[redirectController::class, 'pagamento']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -81,3 +83,4 @@ Route::get('/checkout', [redirectController::class, 'checkout']);
 Route::post('/checkout/processar', [CheckoutController::class,'processar']);
 
 Route::post('/validacep', [Controller::class,'validaCEP']);
+

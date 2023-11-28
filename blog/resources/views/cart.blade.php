@@ -16,7 +16,7 @@
                     <div class="out__prices">
                         <span class="out__prices-total">CARRINHO</span>
                     @if(isset($dados))
-                        <span class="Out__prices-item">{{ $dados['count'] }} Produtos</span>
+                        <span class="Out__prices-item"  id="quantidadeProdutos">{{ $dados['count'] }} Produtos</span>
                     </div>
                     @foreach ($dados['produtosNoCarrinho'] as $cart)
                     <div class="out__container">
@@ -43,12 +43,8 @@
                                     <p>{{$cart->cor_car}}</p>
                                     <p>{{$cart->tamanho_car}}</p>
                                 </div>
-                                <form action="/edit/car" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="quantidade_car" id="countProduct{{ $cart->carrinho_id }}" value="{{ $cart->quantidade_car }}">
-                                    <input type="hidden" name="id" value="{{ $cart->id }}">
-                                    <button type="submit" class="bx bx-edit-alt out__amount-edit"></button>
-                                </form>
+                                <input type="hidden" name="quantidade_car" id="countProduct{{ $cart->carrinho_id }}" value="{{ $cart->quantidade_car }}">
+                                <input type="hidden" name="id" value="{{ $cart->id }}">
                                 <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -62,9 +58,9 @@
                 <div class="checksider__container">
                     <h3 class="check__title">Checkout</h3>
                     <div class="filter__content">
-                        <h3 class="check__subtitle">Subtotal</h3> <span>R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
+                        <h3 class="check__subtitle">Subtotal</h3> <span id="subTotal">R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
                         <h3 class="check__subtitle">Frete</h3> <span>R$ 20,00</span>
-                        <h3 class="check__subtitle">Total</h3> <span>R$ {{ number_format($dados['subtotal'] + 20, 2, ',', '.') }}</span>
+                        <h3 class="check__subtitle">Total</h3> <span id="totalValue">R$ {{ number_format($dados['subtotal'] + 20, 2, ',', '.') }}</span>
                     </div>
                 @endif
                 <br>
@@ -120,13 +116,22 @@
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <script>
         function countProductCart(operation, id){
+            var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            const subTotalElement = document.getElementById("subTotal");
+            const totalValueElement = document.getElementById("totalValue");
+            const quantidadeProdutosElement = document.getElementById("quantidadeProdutos");
             const countProduct = document.getElementById('countProduct'+id);
             const quantidadeProdutoElement = document.getElementById('CountProduct'+id);
             var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
             var maxItens = parseInt(document.getElementById('quantidadeCart'+id).value);
+            var opcoes = {
+                style: 'currency',
+                currency: 'BRL'
+            }
             if(operation === '-'){
                 quantidadeProduto -= 1; 
             }
@@ -140,7 +145,28 @@
             if(quantidadeProduto >= 1){
                 quantidadeProdutoElement.textContent = quantidadeProduto;
                 countProduct.value = quantidadeProduto;
+            }else{
+                quantidadeProduto = 1;
             }
+            $.ajax({
+                url: '/edit/car',
+                type: 'POST',
+                data: {'id': id,
+                    'quantidade_car': quantidadeProduto,
+                    },
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                success: function(response){
+                    console.log(response);
+                    subTotalElement.textContent = response['subtotal'].toLocaleString('pt-BR', opcoes);
+                    quantidadeProdutosElement.textContent = response['count'] + " Produtos";
+                    totalValueElement.textContent = (response['subtotal'] + 20).toLocaleString('pt-BR', opcoes);
+                },
+                error: function(xhr, status, error) {
+                    console.log('erro');
+                }
+            });
             
         }
     </script>

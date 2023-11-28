@@ -1,30 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Checkout</title>
+@extends('layouts.main')
 
-</head>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+@section('title','contato')
 
+@section('content')
+<style>
         form {
             width: 400px;
-            background-color: #ffffff;
+            background: #d7d7d77a;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -60,63 +42,86 @@
             background-color: #0056b3;
         }
     </style>
-</head>
-<body>
-    <div class="containerpag">
-
-        <div class="card-container">
+    <!--=============== MAIN ===============-->
+    <main class="main">
+        
     
-            <div class="front">
-                <div class="image">
-                    <img src="img/chip.png" alt="">
-                    <img src="img/visa.png" alt="">
-                </div>
-                <div class="card-number-box">################</div>
-                <div class="flexbox">
-                    <div class="box">
-                        <span>Nome</span>
-                        <div class="card-holder-name">Completo</div>
+        <section class="contact section container">
+            <h2 class="breadcrumb__title">Pagamento</h2>
+            <h1 class="contact__description" style="margin-top: 1.0rem">No momento aceitamos apenas pagamentos por cartão <br> Estamos trabalhando para atender com outros metódos de pagamento, agradecemos
+            a compreensão :)</h1>
+
+            <div class="containerpag" style="min-height: unset; padding-bottom: unset">
+
+                <div class="card-container">
+
+                    <div class="front">
+                        <div class="image">
+                            <img src="img/chip.png" alt="">
+                            <img src="img/visa.png" alt="">
+                        </div>
+                        <div class="card-number-box">################</div>
+                        <div class="flexbox">
+                            <div class="box">
+                                <span>Nome</span>
+                                <div class="card-holder-name">Completo</div>
+                            </div>
+                            <div class="box">
+                                <span>Validade</span>
+                                <div class="expiration">
+                                    <span class="exp-month">mm</span>
+                                    <span class="exp-year">yy</span>
+                                </div>
+                            </div>
+                        </div>  
                     </div>
-                    <div class="box">
-                        <span>Validade</span>
-                        <div class="expiration">
-                            <span class="exp-month">mm</span>
-                            <span class="exp-year">yy</span>
+
+                    <div class="back">
+                        <div class="stripe"></div>
+                        <div class="box">
+                            <span>cvv</span>
+                            <div class="cvv-box"></div>
+                            <img src="img/visa.png" alt="">
                         </div>
                     </div>
+
                 </div>
-            </div>
-    
-            <div class="back">
-                <div class="stripe"></div>
-                <div class="box">
-                    <span>cvv</span>
-                    <div class="cvv-box"></div>
-                    <img src="img/visa.png" alt="">
+                <form action="/checkout/processar" method="post" id="payment-form" style="background: #ffffff24">
+                @csrf
+                <div id="element-container">
+                    <!-- Elementos do Stripe serão inseridos aqui -->
                 </div>
+
+                <label for="numero_cartao">Número do Cartão</label>
+                <div id="card-number"></div>
+
+                <label for="data_validade">Data de Validade</label>
+                <div id="card-expiry"></div>
+
+                <label for="cvc">CVC</label>
+                <div id="card-cvc"></div>
+
+                <h3 class="check__subtitle">Total: </h3> <span>R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
+
+                <button type="submit">Pagar</button>
+                </form>
+
+                
             </div>
+        </section>
+    </main>
+
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <div class="bx bxs-up-arrow-alt scrollup__icon"></div>
+    </a>
     
-        </div>
-    <form action="/checkout/processar" method="post" id="payment-form">
-        @csrf
-        <div id="element-container">
-            <!-- Elementos do Stripe serão inseridos aqui -->
-        </div>
+    <!--=============== SWIPER JS ===============-->
+    <script src="/js/swiper-bundle.min.js"></script>
 
-        <label for="numero_cartao">Número do Cartão</label>
-        <div id="card-number"></div>
-
-        <label for="data_validade">Data de Validade</label>
-        <div id="card-expiry"></div>
-
-        <label for="cvc">CVC</label>
-        <div id="card-cvc"></div>
-
-    <h3 class="check__subtitle">Total: </h3> <span>R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
-
-        <button type="submit">Pagar</button>
-    </form>
-
+    <!--=============== JS ===============-->
+    <script src="/js/main.js"></script>
+    
     <script src="https://js.stripe.com/v3/"></script>
     <script>
         var stripe = Stripe('{{ config('services.stripe.key') }}');
@@ -161,6 +166,4 @@
             }
         }
     </script>
-
-</body>
-</html>
+@endsection
