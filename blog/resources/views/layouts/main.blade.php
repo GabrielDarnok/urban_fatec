@@ -145,12 +145,10 @@
                                 <i class="bx bx-plus"></i>
                             </span>
                         </div>
-                        <form action="/edit/car" method="POST">
-                            @csrf
+                              
                             <input type="hidden" name="quantidade_car" id="countProductMain{{ $cart->id }}" value="{{ $cart->quantidade_car }}">
                             <input type="hidden" name="id" value="{{ $cart->id }}">
-                            <button type="submit" class="bx bx-edit-alt out__amount-edit"></button>
-                        </form>
+                            
                         <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -163,8 +161,8 @@
         </div>
 
         <div class="cart__prices">
-            <span class="cart__prices-item">{{ $dados['count'] }} Produtos</span>
-            <span class="cart__prices-total">Total R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
+            <span class="cart__prices-item" id="quantidadeProdutos">{{ $dados['count'] }} Produtos</span>
+            <span class="cart__prices-total" id="total">Total R$ {{ number_format($dados['subtotal'], 2, ',', '.') }}</span>
         </div>
         @else
         <div class="cart__container">
@@ -295,11 +293,20 @@
         </div>
        <span class="footer__copy">&#169; Grimm Graphic Designer. All rights reserved.</span>
     </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>        
         function countProduct(operation, id){
+            const quantidadeProdutos = document.getElementById('quantidadeProdutos');
             const countProduct = document.getElementById('countProductMain'+id);
             const quantidadeProdutoElement = document.getElementById('CountProductMain'+id);
+            const totalElement = document.getElementById('quantidadeProdutos');
+            var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
             var maxItens = parseInt(document.getElementById('quantidadeCart'+id).value);
+            var opcoes = {
+                style: 'currency',
+                currency: 'BRL'
+            }
 
             if(quantidadeProdutoElement){
                 var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
@@ -313,11 +320,30 @@
                         quantidadeProduto--;
                     }
                 }
-                
                 if(quantidadeProduto >= 1){
                     quantidadeProdutoElement.textContent = quantidadeProduto;
                     countProduct.value = quantidadeProduto;
+                }else{
+                    quantidadeProduto = 1;
                 }
+                $.ajax({
+                url: '/edit/car',
+                type: 'POST',
+                data: {'id': id,
+                    'quantidade_car': parseInt(quantidadeProduto),
+                    },
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                success: function(response){
+                    console.log(response);
+                    total.textContent = "Total" + response['subtotal'].toLocaleString('pt-BR', opcoes);
+                    quantidadeProdutos.textContent = response['count'] + " Produtos";
+                },
+                error: function(xhr, status, error) {
+                    console.log('erro');
+                }
+            });
             }
             
             
