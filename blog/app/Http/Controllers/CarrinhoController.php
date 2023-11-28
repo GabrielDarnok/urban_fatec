@@ -65,11 +65,11 @@ class CarrinhoController extends Controller
         $valida = $this->validaQuantidade($car->quantidade_car,$request->id);
 
         if($valida){
-            return redirect()->back()->with('err', "Quantidade excedida. O maximo deste produto é {$valida}.");
+            return "Quantidade excedida. O maximo deste produto é {$valida}.";
         }else{
             $car->save();
 
-            return redirect('/cart')->with('msg', 'Editado a quantidade de produtos do carrinho');
+            return 'Editado a quantidade de produtos do carrinho';
         }
     }
 
