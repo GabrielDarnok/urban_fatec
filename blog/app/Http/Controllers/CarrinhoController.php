@@ -69,7 +69,7 @@ class CarrinhoController extends Controller
         }else{
             $car->save();
 
-            return 'Editado a quantidade de produtos do carrinho';
+            return $dados;
         }
     }
 
