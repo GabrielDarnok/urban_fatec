@@ -327,23 +327,23 @@
                     quantidadeProduto = 1;
                 }
                 $.ajax({
-                url: '/edit/car',
-                type: 'POST',
-                data: {'id': id,
-                    'quantidade_car': parseInt(quantidadeProduto),
+                    url: '/edit/car',
+                    type: 'POST',
+                    data: {'id': id,
+                        'quantidade_car': parseInt(quantidadeProduto),
+                        },
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken
                     },
-                headers: {
-                    'X-CSRF-TOKEN': csrfToken
-                },
-                success: function(response){
-                    console.log(response);
-                    total.textContent = "Total" + response['subtotal'].toLocaleString('pt-BR', opcoes);
-                    quantidadeProdutos.textContent = response['count'] + " Produtos";
-                },
-                error: function(xhr, status, error) {
-                    console.log('erro');
-                }
-            });
+                    success: function(response){
+                        console.log(response);
+                        total.textContent = "Total " + response['subtotal'].toLocaleString('pt-BR', opcoes);
+                        quantidadeProdutos.textContent = response['count'] + " Produtos";
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('erro');
+                    }
+                });
             }
             
             

@@ -69,7 +69,6 @@
                                 </div>
                             </div>
                         </div>
-                        <x-validation-errors class="mb-4" style="color: #e9d2d2 "/>
                         <div style= "display: flex; justify-content: center; width: 100%; margin-top: 1.25rem;">
                             <a class= "button cad" type="button" onclick="validaCampos()" style="width: 40%; display: flex; justify-content: center;">Cadastrar</a>
                         </div>
@@ -89,11 +88,12 @@
 
     <!--=============== JS ===============-->
     <script src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     
     <script>
         
         function validaCampos(){
-
+            var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
             const nome = document.getElementById('name');
             const email = document.getElementById('email');
             const senha = document.getElementById('password');
@@ -126,7 +126,32 @@
             console.log(erros);
 
             if(erros === 0 ){
-                document.getElementById('formCadastro').submit();
+                //document.getElementById('formCadastro').submit();
+                $.ajax({
+                    url: '{{ route('register') }}',
+                    type: 'POST',
+                    data: {
+                        'name': nome.value,
+                        'email': email.value,
+                        'password': senha.value,
+                        'password_confirmation': confirmarSenha.value,
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    success: function (response) { 
+                        Swal.fire({
+                            title: "Boa!",
+                            text: "Cadastro feito com sucesso! Aproveite as compras!",
+                            icon: "success"
+                        }).then((result) => {
+                            window.location.href = '/';
+                        });                                 
+                    },
+                    error: function (xhr, status, error) {
+                        console.log('Erro:', xhr.responseText);
+                    }
+                });
             }else{
                 Swal.fire(
                   'Opa!',
