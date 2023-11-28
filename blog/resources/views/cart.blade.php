@@ -159,6 +159,7 @@
                 },
                 success: function(response){
                     console.log(response);
+                    console.log(response['subtotal']);
                     subTotalElement.textContent = response['subtotal'].toLocaleString('pt-BR', opcoes);
                     quantidadeProdutosElement.textContent = response['count'] + " Produtos";
                     totalValueElement.textContent = (response['subtotal'] + 20).toLocaleString('pt-BR', opcoes);
