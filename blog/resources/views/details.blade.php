@@ -3,7 +3,29 @@
 @section('title','details')
 
 @section('content')
-
+    <style>
+    select{
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        -ms-appearance:none;
+        appearance:none;
+        outline:0;
+        box-shadow:none;
+        border:0!important;
+        background: #f27474;
+        background-image: none;
+        flex: 1;
+        padding: 0 .5em;
+        color:#fff;
+        cursor:pointer;
+        font-size: 1em;
+        font-family: 'Open Sans', sans-serif;
+        border-radius: .25em;
+    }
+    select::-ms-expand {
+        display: none;
+    }
+    </style>
     <!--=============== MAIN ===============-->
     <main class="main">
         <!--=============== DETAILS ===============-->
@@ -65,7 +87,7 @@
                             <h3 class="size__title">Tamanho</h3>
                         </div>
 
-                        <div class="size__selector">
+                        <div class="size__selector" style="width: 9rem; height: 1.5rem; margin-top:unset;">
                             @php
                                 $tamanhos = explode(',', $Product->tamanho_roupa);
                             @endphp
@@ -80,8 +102,10 @@
                                 <p>{{ $Product->tamanho_roupa }}</p>
                             @endif
                         </div>
-
-                        <div class="size__selector">
+                        <div style="margin-top: 5px;">
+                            <h3 class="size__title">Cor</h3>
+                        </div>
+                        <div class="size__selector" style="width: 9rem; margin-bottom: 2rem; margin-top:unset; height: 1.5rem;">
                             @php
                                 $cores = explode(',', $Product->cor_produto);
                             @endphp
@@ -96,7 +120,7 @@
                                 <p>{{ $Product->cor_produto }}</p>
                             @endif
                         </div>
-                        <div class="cart__amount">
+                        <div class="cart__amount" style="margin-bottom: 1.5rem;">
                             <div class="cart__amount-content">
                                 <span class="cart__amount-box" onclick="countProductDetais('-')">
                                     <i class="bx bx-minus"></i>

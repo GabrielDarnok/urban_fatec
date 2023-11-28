@@ -16,7 +16,7 @@
                     <div class="out__prices">
                         <span class="out__prices-total">CARRINHO</span>
                     @if(isset($dados))
-                        <span class="Out__prices-item"  id="quantidadeProdutos">{{ $dados['count'] }} Produtos</span>
+                        <span class="Out__prices-item"  id="quantidadeProdutosCart">{{ $dados['count'] }} Produtos</span>
                     </div>
                     @foreach ($dados['produtosNoCarrinho'] as $cart)
                     <div class="out__container">
@@ -123,7 +123,7 @@
             var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
             const subTotalElement = document.getElementById("subTotal");
             const totalValueElement = document.getElementById("totalValue");
-            const quantidadeProdutosElement = document.getElementById("quantidadeProdutos");
+            const quantidadeProdutosElement = document.getElementById("quantidadeProdutosCart");
             const countProduct = document.getElementById('countProduct'+id);
             const quantidadeProdutoElement = document.getElementById('CountProduct'+id);
             var quantidadeProduto = parseInt(quantidadeProdutoElement.textContent);
