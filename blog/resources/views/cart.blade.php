@@ -27,23 +27,23 @@
                         <div class="out__details">
                             <h3 class="out__title">{{ $cart->nome_produto }}</h3>
                             <span class="out__price">{{ number_format($cart->valor_produto, 2, ',', '.') }}</span>
-                            <input type="hidden" id="quantidadeCart{{ $cart->carrinho_id }}" value="{{ $cart->quantidade_estoq }}">
+                            <input type="hidden" id="quantidadeCart{{ $cart->id }}" value="{{ $cart->quantidade_estoq }}">
         
                             <div class="out__amount">
                                 <div class="out__amount-content">
-                                    <span class="out__amount-box" onclick="countProductCart('-', {{ $cart->carrinho_id }})">
+                                    <span class="out__amount-box" onclick="countProductCart('-', {{ $cart->id }})">
                                         <i class="bx bx-minus"></i>
                                     </span>
         
-                                    <span class="out__amount-number" id="CountProduct{{ $cart->carrinho_id }}">{{ $cart->quantidade_car }}</span>
+                                    <span class="out__amount-number" id="CountProduct{{ $cart->id  }}">{{ $cart->quantidade_car }}</span>
                                     
-                                    <span class="out__amount-box" onclick="countProductCart('+', {{ $cart->carrinho_id }})">
+                                    <span class="out__amount-box" onclick="countProductCart('+', {{ $cart->id }})">
                                         <i class="bx bx-plus"></i>
                                     </span>
                                     <p>{{$cart->cor_car}}</p>
                                     <p>{{$cart->tamanho_car}}</p>
                                 </div>
-                                <input type="hidden" name="quantidade_car" id="countProduct{{ $cart->carrinho_id }}" value="{{ $cart->quantidade_car }}">
+                                <input type="hidden" name="quantidade_car" id="countProduct{{ $cart->id }}" value="{{ $cart->quantidade_car }}">
                                 <input type="hidden" name="id" value="{{ $cart->id }}">
                                 <form action="{{route('car.destroy', $cart->carrinho_id)}}" method="POST">
                                     @csrf
@@ -148,11 +148,12 @@
             }else{
                 quantidadeProduto = 1;
             }
+            console.log(id+' '+quantidadeProduto);
             $.ajax({
                 url: '/edit/car',
                 type: 'POST',
                 data: {'id': id,
-                    'quantidade_car': quantidadeProduto,
+                    'quantidade_car': parseInt(quantidadeProduto),
                     },
                 headers: {
                     'X-CSRF-TOKEN': csrfToken
