@@ -73,6 +73,9 @@
                       
                       <div>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto_2" id="imagem_produto_2" class="box">
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto_3" id="imagem_produto_3" class="box">
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto_4" id="imagem_produto_4" class="box">
                         <button class="btn" onclick="createProduct()" value="add_produto">Adicionar Produto</button>
                       </div>
                    </form>
@@ -187,6 +190,9 @@
               const quantidade_estoq = document.getElementById('quantidade_estoq').value;
               const categoria_produto = document.getElementById('categoria_produto').value;
               const imagem_produtoSt = document.getElementById('imagem_produto');
+              const imagem_produto_2 = document.getElementById('imagem_produto_2');
+              const imagem_produto_3 = document.getElementById('imagem_produto_3');
+              const imagem_produto_4 = document.getElementById('imagem_produto_4');
 
               if(verificaNome(nome_produto)){
                 permissao++;
@@ -206,7 +212,19 @@
               }
               if(imagem_produtoSt.files[0] == null){
                 permissao++;
-                msgErro += "Nanhuma imagem foi selecionada";
+                msgErro += "Imagem 1 não foi selecionada";
+              }
+              if(imagem_produto_2.files[0] == null){
+                permissao++;
+                msgErro += "Imagem 2 não foi selecionada";
+              }
+              if(imagem_produto_3.files[0] == null){
+                permissao++;
+                msgErro += "Imagem 3 não foi selecionada";
+              }
+              if(imagem_produto_4.files[0] == null){
+                permissao++;
+                msgErro += "Imagem 4 não foi selecionada";
               }
 
               if(permissao == 0){
@@ -221,6 +239,9 @@
                 formData.append('cor_produto', Cores);
                 formData.append('categoria_produto', categoria_produto);
                 formData.append('imagem_produto', imagem_produtoSt.files[0]);
+                formData.append('imagem_produto_2', imagem_produto_2.files[0]);
+                formData.append('imagem_produto_3', imagem_produto_3.files[0]);
+                formData.append('imagem_produto_4', imagem_produto_4.files[0]);
 
                 console.log(formData);
                 $.ajax({

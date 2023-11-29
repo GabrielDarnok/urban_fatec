@@ -41,15 +41,15 @@
                     </div>
 
                     <div class="product__img">
-                        <img src="/img/product/{{ $Product->imagem_produto }}" alt="">
+                        <img src="/img/product/{{ $Product->imagem_produto_2 }}" alt="">
                     </div>
 
                     <div class="product__img">
-                        <img src="/img/product/{{ $Product->imagem_produto }}" alt="">
+                        <img src="/img/product/{{ $Product->imagem_produto_3 }}" alt="">
                     </div>
 
                     <div class="product__img">
-                        <img src="/img/product/{{ $Product->imagem_produto }}" alt="">
+                        <img src="/img/product/{{ $Product->imagem_produto_4 }}" alt="">
                     </div>
                 </div>
 
@@ -208,7 +208,7 @@
             <div class="lightbox__close">&times;</div>
             <img src="/img/details-1.png" alt="" class="lightbox__img">
             <div class="lightbox__caption">
-                <div class="caption__text">Urban Rebel</div>
+                <div class="caption__text">You Matter</div>
                 <div class="caption__counter"></div>
             </div>
         </div>
