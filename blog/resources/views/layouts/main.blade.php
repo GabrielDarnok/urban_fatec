@@ -291,7 +291,7 @@
                 </ul>
             </div>
         </div>
-       <span class="footer__copy">&#169; Grimm Graphic Designer. All rights reserved.</span>
+       <span class="footer__copy">&#169; Fatec Campinas Developer Team. All rights reserved.</span>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -3,7 +3,36 @@
 @section('title','admin')
 
 @section('content')
-
+    <style>
+        select{
+            -webkit-appearance:none;
+            -moz-appearance:none;
+            -ms-appearance:none;
+            appearance:none;
+            outline:0;
+            box-shadow:none;
+            border:0!important;
+            background: #f27474;
+            background-image: none;
+            flex: 1;
+            padding: 0 .5em;
+            color:#fff;
+            cursor:pointer;
+            font-size: 1em;
+            font-family: 'Open Sans', sans-serif;
+            border-radius: .25em;
+            height: 100%;
+            width: 100%;
+        }
+        select::-ms-expand {
+            display: none;
+        }
+        .div-select{
+            margin-top: 1.5rem;
+            height: 2rem;
+            width: 10rem;
+        }
+    </style>
     <!--=============== MAIN ===============-->
     <main class="main">
         <!--=============== ADM ===============-->
@@ -57,19 +86,16 @@
                               <input type="checkbox" class="checkboxCor" onclick="adicionarValorCor()" value="Amarelo"> Amarelo
                           </div>                                    
                       </div>
-
-                      <div class="dropdown">
-                        <button class="dropbtn">Categoria</button>
-                        <div class="dropdown-content">
+                                   
+                        <div class="div-select">
                           <select type="text" class="form-control" name="categoria_produto" id="categoria_produto">
                             <option value="Casual">Casual</option>
                             <option value="Streetwear">Streetwear</option>
                             <option value="Fofo">Fofo</option>
                             <option value="Festa">Festa</option>
                             <option value="Elegante">Elegante</option>
-                            </select>
+                          </select>
                         </div>
-                      </div>
                       
                       <div>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
@@ -196,35 +222,35 @@
 
               if(verificaNome(nome_produto)){
                 permissao++;
-                msgErro = "O nome do produto possui caracteres especiais!\n";             
+                msgErro = "<li>O nome do produto possui caracteres especiais!</li>";             
               }
               if(Tamanhos.length === 0 || Cores.length === 0){
                 permissao++;
-                msgErro += "Necessário possuir tamanho e cor!\n";
+                msgErro += "<li>Necessário possuir tamanho e cor!</li>";
               }
               if(!verificaValor(valor_produto) || (valor_produto < 0)){
                 permissao++;
-                msgErro += "O valor do produto informado é inválido!\n";
+                msgErro += "<li>O valor do produto informado é inválido!</li>";
               }
               if(!varificaQuantidade(quantidade_estoq) || (quantidade_estoq < 0)){
                 permissao++;
-                msgErro += "O valor da quantidade em estoque informado é inválido!";
+                msgErro += "<li>O valor da quantidade em estoque informado é inválido!</li>";
               }
               if(imagem_produtoSt.files[0] == null){
                 permissao++;
-                msgErro += "Imagem 1 não foi selecionada";
+                msgErro += "<li>Imagem 1 não foi selecionada</li>";
               }
               if(imagem_produto_2.files[0] == null){
                 permissao++;
-                msgErro += "Imagem 2 não foi selecionada";
+                msgErro += "<li>Imagem 2 não foi selecionada</li>";
               }
               if(imagem_produto_3.files[0] == null){
                 permissao++;
-                msgErro += "Imagem 3 não foi selecionada";
+                msgErro += "<li>Imagem 3 não foi selecionada</li>";
               }
               if(imagem_produto_4.files[0] == null){
                 permissao++;
-                msgErro += "Imagem 4 não foi selecionada";
+                msgErro += "<li>Imagem 4 não foi selecionada</li>";
               }
 
               if(permissao == 0){
