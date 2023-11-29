@@ -73,9 +73,15 @@
                       
                       <div>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
-                        <img src="/img/product/ {{$Product->imagem_produto}}" alt="{{ $Product->nome_produto }}" class="img-preview">  
+                        <img src="/img/product/{{$Product->imagem_produto}}" alt="{{ $Product->nome_produto }}" style="max-width: 10rem;" class="img-preview">
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto_2" class="box">
+                        <img src="/img/product/{{$Product->imagem_produto_2}}" alt="{{ $Product->nome_produto }}" style="max-width: 10rem;" class="img-preview">                              
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto_3" class="box">
+                        <img src="/img/product/{{$Product->imagem_produto_3}}" alt="{{ $Product->nome_produto }}" style="max-width: 10rem;" class="img-preview">                      
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto_4" class="box">
+                        <img src="/img/product/{{$Product->imagem_produto_4}}" alt="{{ $Product->nome_produto }}" style="max-width: 10rem;" class="img-preview">   
                         <input type="submit" class="btn" value="editar produto">
-                    </div>
+                    </div>                     
                    </form>
                 </div>
              </div>
