@@ -149,7 +149,12 @@
                         });                                 
                     },
                     error: function (xhr, status, error) {
-                        console.log('Erro:', xhr.responseText);
+                        console.log(xhr);
+                        Swal.fire({
+                            title: "Opa!",
+                            text: "Email já está em uso!",
+                            icon: "error"
+                        })
                     }
                 });
             }else{
