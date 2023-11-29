@@ -73,6 +73,9 @@
                       
                       <div>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto" id="imagem_produto" class="box">
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto_2" id="imagem_produto_2" class="box">
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto_3" id="imagem_produto_3" class="box">
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" name="imagem_produto_4" id="imagem_produto_4" class="box">
                         <button class="btn" onclick="createProduct()" value="add_produto">Adicionar Produto</button>
                       </div>
                    </form>

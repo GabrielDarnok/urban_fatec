@@ -38,6 +38,42 @@ class ProductController extends Controller
         
                 $product->imagem_produto = $imageName;
             }
+            if($request->hasFile('imagem_produto_2') && $request->file('imagem_produto_2')->isValid()){
+                
+                $requestImage = $request->imagem_produto_2;
+        
+                $extension = $requestImage->extension();
+        
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            
+                $request->imagem_produto_2->move(public_path('img/product'), $imageName);
+        
+                $product->imagem_produto_2 = $imageName;
+            }
+            if($request->hasFile('imagem_produto_3') && $request->file('imagem_produto_3')->isValid()){
+                
+                $requestImage = $request->imagem_produto_3;
+        
+                $extension = $requestImage->extension();
+        
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            
+                $request->imagem_produto_3->move(public_path('img/product'), $imageName);
+        
+                $product->imagem_produto_3 = $imageName;
+            }
+            if($request->hasFile('imagem_produto_4') && $request->file('imagem_produto_4')->isValid()){
+                
+                $requestImage = $request->imagem_produto_4;
+        
+                $extension = $requestImage->extension();
+        
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            
+                $request->imagem_produto_4->move(public_path('img/product'), $imageName);
+        
+                $product->imagem_produto_4 = $imageName;
+            }
         
             $product->save();
             $produtcs = Product::all();
@@ -114,6 +150,43 @@ class ProductController extends Controller
 
                 $dados ['imagem_produto'] = $imageName;
             }
+            if($request->hasFile('imagem_produto_2') && $request->file('imagem_produto_2')->isValid()){
+                
+                $requestImage = $request->imagem_produto_2;
+        
+                $extension = $requestImage->extension();
+        
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            
+                $request->imagem_produto_2->move(public_path('img/product'), $imageName);
+        
+                $dados ['imagem_produto_2'] = $imageName;
+            }
+            if($request->hasFile('imagem_produto_3') && $request->file('imagem_produto_3')->isValid()){
+                
+                $requestImage = $request->imagem_produto_3;
+        
+                $extension = $requestImage->extension();
+        
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            
+                $request->imagem_produto_3->move(public_path('img/product'), $imageName);
+        
+                $dados ['imagem_produto_3'] = $imageName;
+            }
+            if($request->hasFile('imagem_produto_4') && $request->file('imagem_produto_4')->isValid()){
+                
+                $requestImage = $request->imagem_produto_4;
+        
+                $extension = $requestImage->extension();
+        
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            
+                $request->imagem_produto_4->move(public_path('img/product'), $imageName);
+        
+                $dados ['imagem_produto_4'] = $imageName;
+            }
+
 
             product::FindOrFail($request->id)->update($dados);
 
